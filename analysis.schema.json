@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["targetDate", "generatedAt", "assessments", "marketSummary"],
+  "properties": {
+    "targetDate": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "marketSummary": { "type": "string" },
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidateId", "noWinProbability", "confidenceBand", "recommended",
+          "weatherThesis", "modelEvidence", "resolutionRisk", "keyRisk",
+          "updateTriggers", "dataAsOf"
+        ],
+        "properties": {
+          "candidateId": { "type": "string" },
+          "noWinProbability": { "type": "number", "minimum": 0, "maximum": 1 },
+          "confidenceBand": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": { "type": "number", "minimum": 0, "maximum": 1 }
+          },
+          "recommended": { "type": "boolean" },
+          "weatherThesis": { "type": "string" },
+          "modelEvidence": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "resolutionRisk": { "type": "string" },
+          "keyRisk": { "type": "string" },
+          "updateTriggers": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "dataAsOf": { "type": "string" }
+        }
+      }
+    }
+  }
+}

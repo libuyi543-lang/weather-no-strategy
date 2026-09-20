@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Meteoblue 天气盘口看板</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="brandline"><span class="brand-mark">W</span><span>WEATHER MARKET</span><span>/</span><span>MBLUE INDEX</span></p>
+          <h1>Meteoblue 天气盘口</h1>
+        </div>
+        <div class="top-actions">
+          <span id="clock">北京时间 --:--:--</span>
+          <span id="updatedAt">正在加载</span>
+          <button id="autoBtn" class="quiet-btn" type="button" aria-pressed="true">自动 60s</button>
+          <button id="refreshBtn" class="icon-btn" type="button" title="刷新数据" aria-label="刷新数据">↻</button>
+        </div>
+      </header>
+
+      <div class="source-strip">
+        <strong><span class="live-dot"></span> Windy / Meteoblue mblue</strong>
+        <span>1 小时预测 · Polymarket 温度档 YES 价格 · 深圳与香港已排除</span>
+      </div>
+
+      <nav class="section-nav" aria-label="天气看板分区">
+        <a href="#cityIndex">固定城市</a>
+        <a href="#aiSystem">AI 系统</a>
+        <a href="#dualStrategy">双策略</a>
+        <a href="#ladderV4">V4 梯度</a>
+        <a href="#dataQuality">数据质量</a>
+        <a href="#dailyAccuracy">每日准确率</a>
+        <a href="#cityDetail">城市趋势</a>
+      </nav>
+
+      <section class="status-grid" aria-label="数据摘要">
+        <article><span>当前城市</span><strong id="cityCount">--</strong><small id="forecastCoverage">--</small></article>
+        <article><span>预测发生变化</span><strong id="changedCount">--</strong><small>相对上一轮</small></article>
+        <article><span>盘口价格变化</span><strong id="priceChangedCount">--</strong><small>预测温度对应档位</small></article>
+        <article><span>平均预测最高温</span><strong id="averageTemp">--</strong><small id="modelFreshness">--</small></article>
+        <article><span>每日准确率</span><strong id="accuracyQuick">--</strong><small id="accuracyQuickHint">读取结算记录</small></article>
+      </section>
+
+      <section id="cityIndex" class="workspace">
+        <div class="city-index panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">FIXED CITY INDEX</p>
+              <h2>城市温度与盘口</h2>
+            </div>
+            <div class="filters">
+              <label class="search-wrap"><span>⌕</span><input id="citySearch" type="search" placeholder="搜索城市" /></label>
+              <select id="sortSelect" aria-label="排序方式">
+                <option value="rank">按排名</option>
+                <option value="temp">按最高温</option>
+                <option value="change">按温度变化</option>
+                <option value="price">按价格变化</option>
+              </select>
+              <label class="toggle"><input id="changedOnly" type="checkbox" /><span></span>仅看变化</label>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="city-table">
+              <thead>
+                <tr>
+                  <th># / 城市</th>
+                  <th>当前最高温</th>
+                  <th>07:30 基准</th>
+                  <th>变化</th>
+                  <th>预测档</th>
+                  <th>YES</th>
+                  <th>价格变化</th>
+                  <th>温度趋势</th>
+                  <th>峰值时间</th>
+                </tr>
+              </thead>
+              <tbody id="cityRows"><tr><td colspan="9" class="loading-cell">读取 Meteoblue 数据...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="change-panel panel">
+          <div class="panel-head compact">
+            <div><p class="eyebrow">CHANGE TAPE</p><h2>最近变化</h2></div>
+            <span id="changeStatus">--</span>
+          </div>
+          <div id="changeFeed" class="change-feed"></div>
+        </aside>
+      </section>
+
+      <section id="aiSystem" class="ai-system panel" aria-live="polite">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">AI PAPER OPERATIONS</p>
+            <h2>三类 NO Paper 决策</h2>
+          </div>
+          <div class="ai-system-state">
+            <span id="aiAgentStatus" class="system-state">读取状态</span>
+            <time id="aiUpdatedAt">--</time>
+          </div>
+        </div>
+
+        <div class="ai-summary" aria-label="天气 AI 账户摘要">
+          <div><span>最新决策</span><strong id="aiLatestMode">--</strong><small id="aiLatestCity">--</small></div>
+          <div><span>今日分析</span><strong id="aiCyclesToday">--</strong><small id="aiModeCounts">--</small></div>
+          <div><span>今日成交</span><strong id="aiFillsToday">--</strong><small>Paper fills</small></div>
+          <div><span>可用现金</span><strong id="aiAvailableCash">--</strong><small id="aiOpenPositions">--</small></div>
+          <div><span>累计已实现</span><strong id="aiRealizedPnl">--</strong><small>初始 20 USDC</small></div>
+        </div>
+        <div id="aiPaperBreakdown" class="no-paper-breakdown" aria-label="三类 NO Paper 表现"></div>
+
+        <div class="ai-toolbar">
+          <div class="filters">
+            <select id="aiCityFilter" aria-label="AI 决策城市"><option value="all">全部城市</option></select>
+            <select id="aiModeFilter" aria-label="AI 决策模式">
+              <option value="all">全部模式</option>
+              <option value="NO_RESEARCH">NO_RESEARCH</option>
+              <option value="AUTONOMOUS">AUTONOMOUS</option>
+              <option value="FOLLOW">FOLLOW</option>
+              <option value="WATCH">WATCH</option>
+              <option value="FADE">FADE</option>
+              <option value="NO_EDGE">NO_EDGE</option>
+            </select>
+          </div>
+          <span id="aiCycleCount">--</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="ai-cycle-table">
+            <thead><tr><th>数据时点 / 城市</th><th>触发</th><th>模式</th><th>Ridge V2.1 / V3</th><th>AI 请求</th><th>实际执行</th></tr></thead>
+            <tbody id="aiCycleRows"><tr><td colspan="6" class="loading-cell">读取 AI 决策...</td></tr></tbody>
+          </table>
+        </div>
+
+        <div id="aiDecisionDetail" class="ai-decision-detail">
+          <div class="ai-detail-head">
+            <div><p class="eyebrow">DECISION AUDIT</p><h3 id="aiDetailTitle">选择一条决策</h3></div>
+            <span id="aiDetailMeta">--</span>
+          </div>
+          <div class="ai-path-strip">
+            <div><span>封顶路径</span><strong id="aiCapPath">--</strong></div>
+            <div><span>主路径</span><strong id="aiPrimaryPath">--</strong></div>
+            <div><span>暖尾路径</span><strong id="aiWarmPath">--</strong></div>
+            <div><span>市场主档</span><strong id="aiMarketLeader">--</strong></div>
+          </div>
+          <div class="ai-reason-grid">
+            <section><h4>AI 判断</h4><p id="aiStateAssessment">暂无决策</p></section>
+            <section><h4>市场判断</h4><p id="aiMarketAssessment">暂无决策</p></section>
+            <section><h4>温度结论</h4><p id="aiTemperatureThesis">暂无决策</p></section>
+            <section><h4>不确定性 / 下次复核</h4><p id="aiUncertainty">暂无决策</p><small id="aiNextReview"></small></section>
+          </div>
+          <div class="table-wrap ai-action-wrap">
+            <table class="ai-action-table">
+              <thead><tr><th>AI 请求</th><th>市场 / 方向</th><th>Shares</th><th>价格</th><th>实际执行</th><th>理由 / 拒绝原因</th></tr></thead>
+              <tbody id="aiActionRows"><tr><td colspan="6" class="loading-cell">选择决策查看动作</td></tr></tbody>
+            </table>
+          </div>
+          <div class="ai-fills-head">
+            <div><p class="eyebrow">RECENT PAPER FILLS</p><h3>最近 Paper 成交</h3></div>
+            <span id="aiFillCount">--</span>
+          </div>
+          <div class="table-wrap">
+            <table class="ai-fill-table">
+              <thead><tr><th>成交时间</th><th>城市</th><th>方向</th><th>温度档</th><th>Shares</th><th>成交价</th><th>已实现 PnL</th></tr></thead>
+              <tbody id="aiFillRows"><tr><td colspan="7" class="loading-cell">读取成交记录...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="dualStrategy" class="dual-strategy panel" aria-live="polite">
+        <div class="panel-head">
+          <div><p class="eyebrow">HERMES DUAL STRATEGY</p><h2>三桶 YES + 单桶 NO</h2></div>
+          <div class="ai-system-state"><span id="dualStrategyStatus" class="system-state">读取状态</span><time id="dualStrategyUpdated">--</time></div>
+        </div>
+        <div class="ai-summary dual-summary">
+          <div><span>今日复核</span><strong id="dualReviewsToday">--</strong><small id="dualReviewMeta">三桶 -- · 单桶 --</small></div>
+          <div><span>今日成交</span><strong id="dualFillsToday">--</strong><small>Paper fills</small></div>
+          <div><span>未平仓成本</span><strong id="dualOpenCost">--</strong><small id="dualOpenPositions">--</small></div>
+          <div><span>已实现 PnL</span><strong id="dualRealizedPnl">--</strong><small>Paper only</small></div>
+        </div>
+        <div id="dualStrategyCards" class="dual-strategy-cards"></div>
+        <div class="dual-no-buys">
+          <div class="section-head"><div><p class="eyebrow">SINGLE NO PAPER BUYS</p><h3>单桶 NO 买入城市</h3></div><span id="dualNoBuyCount">--</span></div>
+          <div class="table-wrap"><table class="dual-no-table"><thead><tr><th>买入时间</th><th>城市</th><th>温度档</th><th>Thesis</th><th>Shares</th><th>成交价</th><th>投入</th></tr></thead><tbody id="dualNoBuyRows"><tr><td colspan="7" class="loading-cell">读取单桶 NO 买入...</td></tr></tbody></table></div>
+        </div>
+        <div class="dual-audit-grid">
+          <div><div class="section-head"><h3>最近复核</h3><span id="dualReviewCount">--</span></div><div class="table-wrap"><table class="dual-table"><thead><tr><th>时间</th><th>城市</th><th>触发</th><th>状态</th></tr></thead><tbody id="dualReviewRows"><tr><td colspan="4" class="loading-cell">读取双策略复核...</td></tr></tbody></table></div></div>
+          <div><div class="section-head"><h3>最近动作</h3><span id="dualActionCount">--</span></div><div class="table-wrap"><table class="dual-table"><thead><tr><th>城市</th><th>策略 / 桶</th><th>方向</th><th>份额</th><th>执行</th></tr></thead><tbody id="dualActionRows"><tr><td colspan="5" class="loading-cell">读取双策略动作...</td></tr></tbody></table></div></div>
+        </div>
+      </section>
+
+      <section id="ladderV4" class="ladder-panel panel" aria-live="polite">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">THREE-BUCKET LADDER · SHADOW ONLY</p>
+            <h2>V4.1 连续三桶前向研究</h2>
+          </div>
+          <div class="ladder-state-wrap">
+            <span id="ladderV4State" class="system-state pending">读取状态</span>
+            <time id="ladderV4Updated">--</time>
+          </div>
+        </div>
+
+        <div class="ladder-rule-strip" aria-label="V4固定规则">
+          <div><span>固定截点</span><strong>11:00</strong><small>北京时间</small></div>
+          <div><span>实际 Shares</span><strong>5 / 15 / 5</strong><small>下侧 / 中心 / 上侧</small></div>
+          <div><span>城市选择</span><strong>全部合格城市</strong><small>按最大价差排序记录</small></div>
+          <div><span>净成本上限</span><strong>15 USDC / 城市</strong><small>无每日总额上限，已含 5% taker fee</small></div>
+        </div>
+
+        <div class="ladder-summary" aria-label="V4前向结果摘要">
+          <div><span>完整日期</span><strong id="ladderV4Dates">--</strong><small id="ladderV4Checkpoint">--</small></div>
+          <div><span>选中 / 无交易</span><strong id="ladderV4Selections">--</strong><small id="ladderV4Unresolved">--</small></div>
+          <div><span>前向净 ROI</span><strong id="ladderV4Roi">--</strong><small id="ladderV4WinDates">--</small></div>
+          <div><span>前向净 PnL</span><strong id="ladderV4Pnl">--</strong><small id="ladderV4Cost">--</small></div>
+          <div><span>日均 PnL 5% 下界</span><strong id="ladderV4LowerBound">--</strong><small>目标日期块 Bootstrap</small></div>
+        </div>
+
+        <div class="ladder-evidence-grid">
+          <section class="ladder-forward-state">
+            <div class="ladder-subhead"><div><p class="eyebrow">FORWARD STATUS</p><h3>当前前向阶段</h3></div><span id="ladderV4Phase">--</span></div>
+            <div class="checkpoint-track" aria-label="前向样本进度"><i id="ladderV4Progress"></i></div>
+            <p id="ladderV4Today">--</p>
+            <small id="ladderV4TodayMeta">--</small>
+          </section>
+          <section class="ladder-history-state">
+            <div class="ladder-subhead"><div><p class="eyebrow">HISTORICAL BENCHMARK</p><h3>历史研究基准</h3></div><span>非样本外证据</span></div>
+            <div class="history-metrics">
+              <div><span>独立日期</span><strong id="ladderV4HistoryDates">--</strong></div>
+              <div><span>净 ROI</span><strong id="ladderV4HistoryRoi">--</strong></div>
+              <div><span>净 PnL</span><strong id="ladderV4HistoryPnl">--</strong></div>
+              <div><span>5% 下界</span><strong id="ladderV4HistoryLower">--</strong></div>
+            </div>
+            <p id="ladderV4HistoryOutcomes">--</p>
+            <small id="ladderV4Robustness">--</small>
+          </section>
+        </div>
+
+        <div class="ladder-table-head">
+          <div><p class="eyebrow">FORWARD LEDGER</p><h3>每日冻结记录</h3></div>
+          <span id="ladderV4RecordCount">--</span>
+        </div>
+        <div class="table-wrap">
+          <table class="ladder-table">
+            <thead><tr><th>目标日期</th><th>状态 / 城市</th><th>三桶</th><th>净成本</th><th>候选</th><th>结算</th><th>净 PnL</th></tr></thead>
+            <tbody id="ladderV4Rows"><tr><td colspan="7" class="loading-cell">读取 V4 shadow 记录...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="dataQuality" class="quality-panel panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">COLLECTION INTEGRITY</p>
+            <h2>数据质量与模型覆盖</h2>
+          </div>
+          <div class="quality-run"><span id="qualityRun">--</span><span id="qualitySlot">--</span></div>
+        </div>
+        <div class="quality-summary">
+          <div><span>完整城市</span><strong id="qualityComplete">--</strong><small>盘口 + 全部天气源</small></div>
+          <div><span>辅助模型</span><strong id="qualityModels">--</strong><small>ECMWF</small></div>
+          <div><span>METAR 实况</span><strong id="qualityMetar">--</strong><small>机场观测</small></div>
+          <div><span>当前天气</span><strong id="qualityCurrent">--</strong><small>Open-Meteo</small></div>
+          <div><span>原始响应</span><strong id="qualityRaw">--</strong><small>gzip + SHA-256</small></div>
+        </div>
+        <div class="table-wrap">
+          <table class="quality-table">
+            <thead><tr><th>城市 / 站点</th><th>Meteoblue</th><th>外部模型最高温</th><th>实况 / 当日最高</th><th>原始响应</th><th>状态</th></tr></thead>
+            <tbody id="qualityRows"><tr><td colspan="6" class="loading-cell">读取采集质量...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="dailyAccuracy" class="accuracy-panel panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">DAILY ACCURACY LEDGER</p>
+            <h2>每日预测准确性</h2>
+          </div>
+          <div class="collapse-actions">
+            <span id="accuracyCollapsedSummary">--</span>
+            <button id="accuracyToggle" class="icon-btn collapse-toggle" type="button" aria-expanded="false" aria-controls="accuracyBody" title="展开每日预测准确性" aria-label="展开每日预测准确性"></button>
+          </div>
+        </div>
+        <div id="accuracyBody" class="collapse-body" hidden>
+          <div class="accuracy-toolbar">
+            <div class="filters">
+              <select id="accuracyDate" aria-label="准确率日期"><option value="all">全部日期</option></select>
+              <select id="accuracyFilter" aria-label="准确率状态">
+                <option value="all">全部状态</option>
+                <option value="accurate">仅准确</option>
+                <option value="inaccurate">仅不准</option>
+                <option value="pending">待结算</option>
+              </select>
+            </div>
+          </div>
+          <div class="accuracy-summary">
+            <div><span>准确</span><strong id="accuracyHit">--</strong><small>预测档命中</small></div>
+            <div><span>不准确</span><strong id="accuracyMiss">--</strong><small>未命中最终档</small></div>
+            <div><span>待结算</span><strong id="accuracyPending">--</strong><small>等待最终温度</small></div>
+            <div><span>平均绝对误差</span><strong id="accuracyMae">--</strong><small>仅精确结算档</small></div>
+          </div>
+          <div class="table-wrap">
+            <table class="accuracy-table">
+              <thead><tr><th>日期 / 城市</th><th>07:30 预测</th><th>最终结算</th><th>相差</th><th>结果</th><th>采样偏移</th></tr></thead>
+              <tbody id="accuracyRows"><tr><td colspan="6" class="loading-cell">读取每日准确率...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="cityDetail" class="detail panel" aria-live="polite">
+        <div class="detail-head">
+          <div>
+            <p class="eyebrow">CITY DETAIL</p>
+            <h2 id="detailTitle">选择一个城市</h2>
+            <p id="detailMeta" class="detail-meta">查看 Meteoblue 最高温修订和各温度档价格趋势</p>
+          </div>
+          <div id="detailStats" class="detail-stats"></div>
+        </div>
+
+        <div class="chart-grid">
+          <figure>
+            <figcaption><div><strong>最高温预测修订</strong><span>每 30 分钟采集值</span></div><span id="forecastChartValue">--</span></figcaption>
+            <div id="forecastChart" class="chart-surface empty-chart">等待历史样本</div>
+          </figure>
+          <figure>
+            <figcaption><div><strong>当日逐小时温度</strong><span>最新 Meteoblue 曲线</span></div><span id="profileChartValue">--</span></figcaption>
+            <div id="profileChart" class="chart-surface empty-chart">暂无逐小时数据</div>
+          </figure>
+        </div>
+
+        <figure class="price-figure">
+          <figcaption>
+            <div><strong>温度档价格趋势</strong><span>Polymarket YES 价格，默认显示概率最高的 5 档</span></div>
+            <span id="priceChartValue">--</span>
+          </figcaption>
+          <div id="priceLegend" class="legend"></div>
+          <div id="priceChart" class="chart-surface price-chart empty-chart">暂无盘口历史</div>
+        </figure>
+
+        <div class="bucket-section">
+          <div class="section-head"><div><p class="eyebrow">TEMPERATURE LADDER</p><h3>最新温度价格结构</h3></div><span id="bucketUpdated">--</span></div>
+          <div id="bucketGrid" class="bucket-grid"></div>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

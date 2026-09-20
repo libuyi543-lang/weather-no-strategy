@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asOfUtc",
+    "eventId",
+    "city",
+    "weatherAssessment",
+    "recommendations",
+    "suggestedNextReviewMinutes",
+    "nextEvidenceToWatch"
+  ],
+  "properties": {
+    "asOfUtc": {"type": "string", "minLength": 1},
+    "eventId": {"type": "string", "minLength": 1},
+    "city": {"type": "string", "minLength": 1},
+    "weatherAssessment": {"type": "string", "minLength": 1, "maxLength": 900},
+    "recommendations": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "marketId",
+          "outcomeRange",
+          "estimatedNoWinProbability",
+          "reason",
+          "contraryEvidence",
+          "invalidationCondition"
+        ],
+        "properties": {
+          "marketId": {"type": "string", "minLength": 1},
+          "outcomeRange": {"type": "string", "minLength": 1},
+          "estimatedNoWinProbability": {"type": "number", "minimum": 0, "maximum": 1},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 600},
+          "contraryEvidence": {"type": "string", "minLength": 1, "maxLength": 400},
+          "invalidationCondition": {"type": "string", "minLength": 1, "maxLength": 400}
+        }
+      }
+    },
+    "suggestedNextReviewMinutes": {"type": "integer", "minimum": 30, "maximum": 180},
+    "nextEvidenceToWatch": {"type": "string", "minLength": 1, "maxLength": 400}
+  }
+}

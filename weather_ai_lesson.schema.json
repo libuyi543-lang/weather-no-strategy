@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "reviews"],
+  "properties": {
+    "generatedAt": { "type": "string" },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "eventId", "resultSummary", "whatWorked", "whatFailed", "modelAssessment",
+          "reusableLessons", "warnings", "confidence"
+        ],
+        "properties": {
+          "eventId": { "type": "string" },
+          "resultSummary": { "type": "string" },
+          "whatWorked": { "type": "array", "items": { "type": "string" } },
+          "whatFailed": { "type": "array", "items": { "type": "string" } },
+          "modelAssessment": { "type": "array", "items": { "type": "string" } },
+          "reusableLessons": { "type": "array", "items": { "type": "string" } },
+          "warnings": { "type": "array", "items": { "type": "string" } },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "eventId", "problemSolution", "threeBucketReview", "singleNoReviews"],
+  "properties": {
+    "generatedAt": {"type": "string"},
+    "eventId": {"type": "string"},
+    "problemSolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hypotheses", "hypothesisTests", "mispricingChecks", "selection"],
+      "properties": {
+        "hypotheses": {
+          "type": "array", "minItems": 1, "maxItems": 3,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["hypothesisId", "thesis", "targetMarketIds", "claim", "supportingEvidence", "contradictingEvidence", "invalidationCondition"],
+            "properties": {
+              "hypothesisId": {"type": "string"},
+              "thesis": {"type": "string", "enum": ["NO_OVERSHOOT", "NO_CEILING"]},
+              "targetMarketIds": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+              "claim": {"type": "string"},
+              "supportingEvidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+              "contradictingEvidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+              "invalidationCondition": {"type": "string"}
+            }
+          }
+        },
+        "hypothesisTests": {
+          "type": "array", "minItems": 1, "maxItems": 3,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["hypothesisId", "verdict", "assessment", "strongestSupport", "strongestContradiction"],
+            "properties": {
+              "hypothesisId": {"type": "string"},
+              "verdict": {"type": "string", "enum": ["SUPPORTED", "REJECTED", "UNRESOLVED"]},
+              "assessment": {"type": "string"},
+              "strongestSupport": {"type": "string"},
+              "strongestContradiction": {"type": "string"}
+            }
+          }
+        },
+        "mispricingChecks": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["hypothesisId", "marketId", "status", "assessment", "unpricedInformation", "priceAlreadyReflectsEvidence"],
+            "properties": {
+              "hypothesisId": {"type": "string"},
+              "marketId": {"type": "string"},
+              "status": {"type": "string", "enum": ["UNPRICED", "PARTIALLY_PRICED", "PRICED", "INSUFFICIENT_EVIDENCE"]},
+              "assessment": {"type": "string"},
+              "unpricedInformation": {"type": "array", "items": {"type": "string"}},
+              "priceAlreadyReflectsEvidence": {"type": "boolean"}
+            }
+          }
+        },
+        "selection": {
+          "type": "object", "additionalProperties": false,
+          "required": ["decision", "marketId", "hypothesisId", "reason", "adjacentBucketComparison"],
+          "properties": {
+            "decision": {"type": "string", "enum": ["BUY", "WAIT"]},
+            "marketId": {"type": ["string", "null"]},
+            "hypothesisId": {"type": ["string", "null"]},
+            "reason": {"type": "string"},
+            "adjacentBucketComparison": {"type": "string"}
+          }
+        }
+      }
+    },
+    "threeBucketReview": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["decision", "skew", "confidence", "reason", "supportingEvidence", "contradictingEvidence", "invalidationCondition"],
+      "properties": {
+        "decision": {"type": "string", "enum": ["ENTER", "OBSERVE"]},
+        "skew": {"type": "string", "enum": ["COLD", "NEUTRAL", "HOT"]},
+        "confidence": {"type": "string", "enum": ["low", "moderate", "high"]},
+        "reason": {"type": "string"},
+        "supportingEvidence": {"type": "array", "items": {"type": "string"}},
+        "contradictingEvidence": {"type": "array", "items": {"type": "string"}},
+        "invalidationCondition": {"type": "string"}
+      }
+    },
+    "singleNoReviews": {
+      "type": "array",
+      "description": "AI-generated BUY candidates selected from the supplied singleNoUniverse. Return an empty array when no bucket has enough evidence and edge.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["marketId", "hypothesisId", "decision", "thesis", "sizingTier", "conservativePathProbabilityLow", "conservativePathProbabilityHigh", "pathAssessment", "ridgeAssessment", "marketInefficiencyType", "marketInefficiencyAssessment", "unpricedInformation", "reason", "supportingEvidence", "contradictingEvidence", "newInformationTypes", "whyMarketMayBeRight", "whyMarketMayBeWrong", "invalidationCondition"],
+        "properties": {
+          "marketId": {"type": "string"},
+          "hypothesisId": {"type": "string"},
+          "decision": {"type": "string", "enum": ["BUY"]},
+          "thesis": {
+            "type": "string",
+            "enum": ["NO_OVERSHOOT", "NO_CEILING"],
+            "description": "NO_CEILING uses only the one-sided path that the final maximum stays below the target bucket. NO_OVERSHOOT uses only the one-sided path that it finishes above the target bucket."
+          },
+          "sizingTier": {"type": "string", "enum": ["BASE", "STRONG"]},
+          "conservativePathProbabilityLow": {
+            "type": "number", "minimum": 0, "maximum": 1,
+            "description": "Conservative lower bound for the selected one-sided path only: P(final maximum < target bucket) for NO_CEILING or P(final maximum > target bucket) for NO_OVERSHOOT."
+          },
+          "conservativePathProbabilityHigh": {"type": "number", "minimum": 0, "maximum": 1},
+          "pathAssessment": {"type": "string"},
+          "ridgeAssessment": {
+            "type": "string",
+            "description": "How Ridge informs the one-sided path assessment. Ridge is evidence, never a veto or an order authorization."
+          },
+          "marketInefficiencyType": {
+            "type": "string",
+            "enum": ["MARKET_LAG", "WRONG_PRICING", "BOTH"]
+          },
+          "marketInefficiencyAssessment": {"type": "string"},
+          "unpricedInformation": {"type": "array", "items": {"type": "string"}},
+          "reason": {"type": "string"},
+          "supportingEvidence": {"type": "array", "items": {"type": "string"}},
+          "contradictingEvidence": {"type": "array", "items": {"type": "string"}},
+          "newInformationTypes": {
+            "type": "array",
+            "items": {"type": "string", "enum": ["metar_change", "daily_high_change", "model_update", "radar_cloud_radiation_change", "wind_process_change", "market_lag", "orderbook_change"]}
+          },
+          "whyMarketMayBeRight": {"type": "string"},
+          "whyMarketMayBeWrong": {"type": "string"},
+          "invalidationCondition": {"type": "string"}
+        }
+      }
+    }
+  }
+}

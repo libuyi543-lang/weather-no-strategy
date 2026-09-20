@@ -1,0 +1,13 @@
+{
+  "timezone": "Asia/Shanghai",
+  "runHour": 18,
+  "runMinute": 30,
+  "topEventCount": 20,
+  "minNoAsk": 0.80,
+  "maxNoAsk": 0.92,
+  "minEdgeAfterBuffer": 0.03,
+  "feeAndUncertaintyBuffer": 0.02,
+  "excludeCityPatterns": ["Hong Kong", "香港"],
+  "rankingMethod": "sqrt(volume24hr * liquidity)",
+  "feishuWebhookEnv": "FEISHU_WEATHER_NO_WEBHOOK"
+}

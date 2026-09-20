@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generatedAt", "eventId", "overallAssessment", "executedTradeReviews", "missedOpportunities", "correctWaits", "lessonCandidates"],
+  "properties": {
+    "generatedAt": {"type": "string"},
+    "eventId": {"type": "string"},
+    "overallAssessment": {"type": "string"},
+    "executedTradeReviews": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["marketId", "classification", "tradePnlUsdc", "thesisCorrectness", "evidenceCorrectness", "mispricingCorrectness", "timingCorrectness", "explanation", "failureCause"],
+        "properties": {
+          "marketId": {"type": "string"},
+          "classification": {"type": "string", "enum": ["CORRECT_JUDGMENT", "LUCKY_PROFIT", "REASONABLE_LOSS", "DECISION_ERROR"]},
+          "tradePnlUsdc": {"type": "number"},
+          "thesisCorrectness": {"type": "string", "enum": ["CORRECT", "INCORRECT", "UNRESOLVED"]},
+          "evidenceCorrectness": {"type": "string", "enum": ["CORRECT", "INCORRECT", "UNRESOLVED"]},
+          "mispricingCorrectness": {"type": "string", "enum": ["CORRECT", "INCORRECT", "UNRESOLVED"]},
+          "timingCorrectness": {"type": "string", "enum": ["CORRECT", "LATE", "EARLY", "UNRESOLVED"]},
+          "explanation": {"type": "string"},
+          "failureCause": {"type": "string", "enum": ["NONE", "WEATHER_REASONING", "EVIDENCE_MISREAD", "MISPRICING_ERROR", "WRONG_BUCKET", "TIMING", "EXECUTION", "IRREDUCIBLE_TAIL", "UNRESOLVED"]}
+        }
+      }
+    },
+    "missedOpportunities": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["decisionTimeUtc", "marketId", "counterfactualPnlUsdc", "knowableThen", "executableThen", "classification", "missedReason", "evidenceAvailableThen", "minimalChange"],
+        "properties": {
+          "decisionTimeUtc": {"type": "string"},
+          "marketId": {"type": "string"},
+          "counterfactualPnlUsdc": {"type": "number"},
+          "knowableThen": {"type": "boolean"},
+          "executableThen": {"type": "boolean"},
+          "classification": {"type": "string", "enum": ["VALID_MISS", "NOT_A_REAL_OPPORTUNITY"]},
+          "missedReason": {"type": "string", "enum": ["NOT_REVIEWED", "HYPOTHESIS_NOT_GENERATED", "EVIDENCE_MISREAD", "MISPRICING_NOT_DETECTED", "WRONG_BUCKET_SELECTED", "EDGE_UNDERESTIMATED", "LATE_DETECTION", "OPERATIONAL_FAILURE", "CAPITAL_BLOCKED", "NOT_KNOWABLE_THEN", "NOT_EXECUTABLE_THEN"]},
+          "evidenceAvailableThen": {"type": "array", "items": {"type": "string"}},
+          "minimalChange": {"type": "string"}
+        }
+      }
+    },
+    "correctWaits": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["decisionTimeUtc", "reason"],
+        "properties": {
+          "decisionTimeUtc": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "lessonCandidates": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["level", "statement", "supportingCases", "validationNeeded"],
+        "properties": {
+          "level": {"type": "string", "enum": ["OBSERVATION", "LESSON_CANDIDATE"]},
+          "statement": {"type": "string"},
+          "supportingCases": {"type": "array", "items": {"type": "string"}},
+          "validationNeeded": {"type": "string"}
+        }
+      }
+    }
+  }
+}

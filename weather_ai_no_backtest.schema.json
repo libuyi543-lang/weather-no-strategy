@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asOfUtc",
+    "portfolioReasoning",
+    "actions",
+    "nextReviewMinutes",
+    "nextReviewReason",
+    "stopForDay"
+  ],
+  "properties": {
+    "asOfUtc": {"type": "string", "minLength": 1},
+    "portfolioReasoning": {"type": "string", "minLength": 1, "maxLength": 900},
+    "actions": {
+      "type": "array",
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action",
+          "marketId",
+          "city",
+          "outcomeRange",
+          "estimatedNoWinProbability",
+          "reason",
+          "contraryEvidence",
+          "invalidationCondition"
+        ],
+        "properties": {
+          "action": {"const": "BUY_NO"},
+          "marketId": {"type": "string", "minLength": 1},
+          "city": {"type": "string", "minLength": 1},
+          "outcomeRange": {"type": "string", "minLength": 1},
+          "estimatedNoWinProbability": {"type": "number", "minimum": 0, "maximum": 1},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 600},
+          "contraryEvidence": {"type": "string", "minLength": 1, "maxLength": 400},
+          "invalidationCondition": {"type": "string", "minLength": 1, "maxLength": 400}
+        }
+      }
+    },
+    "nextReviewMinutes": {
+      "type": ["integer", "null"],
+      "minimum": 30,
+      "maximum": 180
+    },
+    "nextReviewReason": {"type": "string", "minLength": 1, "maxLength": 400},
+    "stopForDay": {"type": "boolean"}
+  }
+}

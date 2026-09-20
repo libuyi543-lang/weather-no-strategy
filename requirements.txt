@@ -1,0 +1,7 @@
+# Runtime dependency used by the collector to validate and enrich raw METAR reports.
+metar==2.0.1
+pillow==12.1.0
+
+# Optional Windy token keeper runtime.
+requests==2.32.5
+websocket-client==1.9.0

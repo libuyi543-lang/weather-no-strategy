@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WeatherEdgeAgentDecision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["eventId", "distribution", "reasoning", "confidence", "marketError", "invalidation", "orders"],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "description": "必须与输入的 eventId 完全一致。"
+    },
+    "distribution": {
+      "type": "array",
+      "description": "对全部可交易桶的完整概率分布。必须覆盖输入 buckets 中的每一个 outcomeRange，且概率之和为 1.0（容差 0.02）。这是本系统的评分对象。",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["outcomeRange", "probability"],
+        "properties": {
+          "outcomeRange": {"type": "string"},
+          "probability": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "reasoning": {
+      "type": "string",
+      "minLength": 1,
+      "description": "为什么这个分布与市场不同。说明你依据什么、市场可能在定价什么、你认为它错在哪。没有分歧就直接说没有。"
+    },
+    "confidence": {
+      "type": "number", "minimum": 0, "maximum": 1,
+      "description": "证据可重复验证的置信度，不是主观确信程度。"
+    },
+    "marketError": {
+      "type": "string",
+      "enum": ["NONE", "WEATHER_NOT_PRICED", "PROBABILITY_MISPRICED", "LIQUIDITY_ERROR", "UNKNOWN"]
+    },
+    "invalidation": {
+      "type": "string", "minLength": 1,
+      "description": "什么新事实出现后，当前分布或交易理由失效。"
+    },
+    "orders": {
+      "type": "array",
+      "description": "你要下的单。没有值得下的单就返回空数组，空数组是正常且常见的结果。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["outcomeRange", "side", "shares", "edgeReason"],
+        "properties": {
+          "outcomeRange": {"type": "string"},
+          "side": {"type": "string", "enum": ["YES", "NO"]},
+          "shares": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "提示股数，仅作参考；Python 根据 edge、confidence 和盘口深度重新决定仓位。"
+          },
+          "edgeReason": {
+            "type": "string",
+            "minLength": 1,
+            "description": "这一单的 edge 来自哪里。"
+          }
+        }
+      }
+    },
+    "lesson": {
+      "type": ["string", "null"],
+      "description": "可选。你希望在未来同类判断中记住的一条机制性经验。不要写一次性结果或行情复述。留空填 null。"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "materiality", "changedProcess", "primaryBuckets", "plausibleBuckets",
+    "tailBuckets", "excludedBuckets", "heatingStatus", "processSummary",
+    "affectedBuckets", "evidence", "invalidation", "uncertain", "escalationReason"
+  ],
+  "properties": {
+    "materiality": {
+      "type": "string",
+      "enum": ["IGNORE", "UPDATE_STATE", "REANALYZE", "POSITION_ALERT"]
+    },
+    "changedProcess": { "type": "string", "maxLength": 120 },
+    "primaryBuckets": { "type": "array", "maxItems": 20, "items": { "type": "string" } },
+    "plausibleBuckets": { "type": "array", "maxItems": 20, "items": { "type": "string" } },
+    "tailBuckets": { "type": "array", "maxItems": 20, "items": { "type": "string" } },
+    "excludedBuckets": { "type": "array", "maxItems": 20, "items": { "type": "string" } },
+    "heatingStatus": {
+      "type": "string",
+      "enum": ["active", "capping", "ended", "unclear"]
+    },
+    "processSummary": { "type": "string", "maxLength": 300 },
+    "affectedBuckets": { "type": "array", "maxItems": 20, "items": { "type": "string" } },
+    "evidence": { "type": "array", "maxItems": 5, "items": { "type": "string", "maxLength": 200 } },
+    "invalidation": { "type": "string", "maxLength": 240 },
+    "uncertain": { "type": "boolean" },
+    "escalationReason": { "type": "string", "maxLength": 240 }
+  }
+}

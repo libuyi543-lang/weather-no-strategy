@@ -1,0 +1,322 @@
+import json
+import sqlite3
+import subprocess
+import unittest
+from datetime import datetime, timezone
+from unittest.mock import patch
+
+from weather_no_paper import WeatherNoPaper, executable_ask_vwap
+
+
+UTC = timezone.utc
+
+
+def base_config() -> dict:
+    return {
+        "strategyName": "test_strategy",
+        "decisionLocalHour": 10,
+        "decisionLocalMinute": 0,
+        "decisionWindowMinutes": 90,
+        "minNoAsk": 0.8,
+        "maxNoAsk": 1.0,
+        "shares": 5,
+        "feeRate": 0.0,
+        "feeAndUncertaintyBuffer": 0.005,
+        "minEdgeAfterBuffer": 0.005,
+        "excludedCities": ["Hong Kong", "Shenzhen"],
+    }
+
+
+class OrderBookTests(unittest.TestCase):
+    def test_five_share_vwap_walks_multiple_levels(self):
+        book = json.dumps({"asks": [{"price": 0.81, "size": 2}, {"price": 0.83, "size": 4}]})
+        price, available = executable_ask_vwap(book, 5)
+        self.assertAlmostEqual(price, (0.81 * 2 + 0.83 * 3) / 5)
+        self.assertEqual(available, 5)
+
+    def test_insufficient_depth_is_not_executable(self):
+        price, available = executable_ask_vwap(json.dumps({"asks": [{"price": 0.82, "size": 4.9}]}), 5)
+        self.assertIsNone(price)
+        self.assertAlmostEqual(available, 4.9)
+
+
+class PaperDatabaseTests(unittest.TestCase):
+    def setUp(self):
+        self.engine = object.__new__(WeatherNoPaper)
+        self.engine.config = base_config()
+        self.engine.db = sqlite3.connect(":memory:")
+        self.engine.db.row_factory = sqlite3.Row
+        self.engine._init_schema()
+        self.engine.db.executescript(
+            """
+            CREATE TABLE stations (
+                station_id TEXT PRIMARY KEY, station_name TEXT, latitude REAL,
+                longitude REAL, timezone TEXT
+            );
+            CREATE TABLE events (
+                event_id TEXT PRIMARY KEY, city TEXT, target_date TEXT, station_id TEXT,
+                station_name TEXT, resolution_source TEXT, rules TEXT, resolved_at_utc TEXT
+            );
+            CREATE TABLE markets (market_id TEXT PRIMARY KEY, event_id TEXT);
+            CREATE TABLE market_resolutions (
+                market_id TEXT PRIMARY KEY, resolved_at_utc TEXT, is_resolved INTEGER,
+                winning_outcome TEXT, no_final_price REAL
+            );
+            """
+        )
+        self.engine.db.execute(
+            "UPDATE weather_no_paper_meta SET value='2026-07-20T00:00:00+00:00' WHERE key='strategy_started_at_utc'"
+        )
+        self.engine.db.execute(
+            "INSERT INTO stations VALUES('ZSPD','Pudong',31.14,121.8,'Asia/Shanghai')"
+        )
+        self.engine.db.execute(
+            "INSERT INTO events VALUES('event-1','Shanghai','2026-07-21','ZSPD','Pudong','WU','rules',NULL)"
+        )
+        self.engine.db.execute("INSERT INTO markets VALUES('market-1','event-1')")
+        self.engine.db.execute("INSERT INTO markets VALUES('market-2','event-1')")
+        self.engine.db.commit()
+
+    def tearDown(self):
+        self.engine.db.close()
+
+    def test_due_window_uses_station_local_time(self):
+        due, missed = self.engine.events_for_today(datetime(2026, 7, 21, 2, 15, tzinfo=UTC))
+        self.assertEqual([row["event_id"] for row in due], ["event-1"])
+        self.assertEqual(missed, [])
+
+        due, missed = self.engine.events_for_today(datetime(2026, 7, 21, 3, 31, tzinfo=UTC))
+        self.assertEqual(due, [])
+        self.assertEqual([row["event_id"] for row in missed], ["event-1"])
+
+        self.engine.db.execute(
+            "INSERT INTO weather_no_paper_decisions(strategy_name,event_id,city,timezone,target_date,scheduled_local_time,analyzed_at_utc,action,decision_key,shares) VALUES(?,?,?,?,?,?,?,?,?,?)",
+            ("test_strategy", "event-1", "Shanghai", "Asia/Shanghai", "2026-07-21",
+             "2026-07-21T10:00+08:00", "2026-07-21T02:20:00+00:00", "error", "error", 5),
+        )
+        self.engine.db.commit()
+        due, missed = self.engine.events_for_today(datetime(2026, 7, 21, 2, 30, tzinfo=UTC))
+        self.assertEqual([row["event_id"] for row in due], ["event-1"])
+        self.assertEqual(missed, [])
+
+    def test_guardrail_converts_thin_ai_edge_to_no_trade(self):
+        item = {
+            "event": {
+                "event_id": "event-1", "city": "Shanghai", "station_id": "ZSPD",
+                "timezone": "Asia/Shanghai", "target_date": "2026-07-21",
+                "scheduled_local_time": "2026-07-21T10:00+08:00",
+            },
+            "weather": {"meteoblue": {"maxC": 34}},
+            "candidates": [{
+                "marketId": "market-1", "outcomeRange": "35 C", "noExecutablePrice5": 0.82,
+                "availableShares": 5,
+            }],
+        }
+        response = {"decisions": [{
+            "eventId": "event-1", "action": "trade", "selectedMarketId": "market-1",
+            "noWinProbability": 0.825, "confidenceLow": 0.8, "confidenceHigh": 0.9,
+            "weatherThesis": "thin", "modelEvidence": [], "keyRisk": "peak",
+            "resolutionRisk": "rounding", "rejectionReason": None,
+        }]}
+        self.engine.persist_decisions(1, [item], response)
+        row = self.engine.db.execute(
+            "SELECT action,selected_market_id,rejection_reason FROM weather_no_paper_decisions"
+        ).fetchone()
+        self.assertEqual(row["action"], "no_trade")
+        self.assertIsNone(row["selected_market_id"])
+        self.assertIn("guardrail rejected", row["rejection_reason"])
+
+    def test_multiple_no_selections_are_persisted_for_one_city(self):
+        item = {
+            "event": {
+                "event_id": "event-1", "city": "Shanghai", "station_id": "ZSPD",
+                "timezone": "Asia/Shanghai", "target_date": "2026-07-21",
+                "scheduled_local_time": "2026-07-21T10:00+08:00",
+            },
+            "weather": {"meteoblue": {"maxC": 34}},
+            "candidates": [
+                {"marketId": "market-1", "outcomeRange": "36 C", "noExecutablePrice5": 0.82, "availableShares": 5},
+                {"marketId": "market-2", "outcomeRange": "37 C", "noExecutablePrice5": 0.83, "availableShares": 5},
+            ],
+        }
+        shared = {
+            "eventId": "event-1", "action": "trade", "noWinProbability": 0.95,
+            "confidenceLow": 0.92, "confidenceHigh": 0.98, "weatherThesis": "tail",
+            "modelEvidence": [], "keyRisk": "spike", "resolutionRisk": "rounding",
+            "rejectionReason": None,
+        }
+        response = {"decisions": [
+            {**shared, "selectedMarketId": "market-1"},
+            {**shared, "selectedMarketId": "market-2", "noWinProbability": 0.96},
+        ]}
+
+        self.assertEqual(self.engine.persist_decisions(1, [item], response), 2)
+        rows = self.engine.db.execute(
+            "SELECT action,decision_key,selected_market_id FROM weather_no_paper_decisions ORDER BY selected_market_id"
+        ).fetchall()
+        self.assertEqual([row["selected_market_id"] for row in rows], ["market-1", "market-2"])
+        self.assertEqual([row["decision_key"] for row in rows], ["market:market-1", "market:market-2"])
+
+    def test_trade_settlement_records_no_win_pnl(self):
+        self.engine.db.execute(
+            """
+            INSERT INTO weather_no_paper_decisions(
+                strategy_name,event_id,city,station_id,timezone,target_date,scheduled_local_time,
+                analyzed_at_utc,action,decision_key,selected_market_id,outcome_range,no_entry_price,shares,
+                notional_usdc,entry_fee_usdc,settlement_status
+            ) VALUES('test_strategy','event-1','Shanghai','ZSPD','Asia/Shanghai','2026-07-21',
+                     '2026-07-21T10:00+08:00','2026-07-21T02:05:00+00:00','trade','market:market-1','market-1',
+                     '35 C',0.82,5,4.1,0,'pending')
+            """
+        )
+        self.engine.db.execute(
+            "INSERT INTO market_resolutions VALUES('market-1','2026-07-22T00:00:00+00:00',1,'NO',1)"
+        )
+        self.assertEqual(self.engine.settle(), 1)
+        row = self.engine.db.execute(
+            "SELECT settlement_status,net_pnl_usdc FROM weather_no_paper_decisions"
+        ).fetchone()
+        self.assertEqual(row["settlement_status"], "won")
+        self.assertAlmostEqual(row["net_pnl_usdc"], 0.9)
+
+        lessons = self.engine.recent_decision_lessons("Shanghai")
+        self.assertEqual(len(lessons), 1)
+        self.assertEqual(lessons[0]["result"], "won")
+        self.assertAlmostEqual(lessons[0]["netPnlUsdc"], 0.9)
+
+    def test_build_inputs_keeps_sqlite_reads_on_main_thread(self):
+        event = {
+            "event_id": "event-1", "city": "Shanghai", "target_date": "2026-07-21",
+            "station_id": "ZSPD", "station_name": "Pudong", "resolution_source": "WU",
+            "rules": "rules", "latitude": 31.14, "longitude": 121.8,
+            "timezone": "Asia/Shanghai", "scheduled_local_time": "2026-07-21T10:00+08:00",
+        }
+        with (
+            patch.object(self.engine, "latest_meteoblue", return_value={"maxC": 34}),
+            patch.object(self.engine, "recent_calibration", return_value=[]),
+            patch.object(
+                self.engine,
+                "persisted_external_weather",
+                return_value={"otherModelsAndCurrent": {"modelMaxima": []}, "metar": {"temp": 30}},
+            ),
+            patch.object(self.engine, "candidates", return_value=[]),
+        ):
+            item = self.engine.build_inputs([event])[0]
+        self.assertEqual(item["weather"]["meteoblue"]["maxC"], 34)
+        self.assertEqual(item["weather"]["metar"]["temp"], 30)
+
+    def test_latest_meteoblue_respects_replay_cutoff(self):
+        self.engine.db.execute(
+            """
+            CREATE TABLE windy_forecasts(
+                station_id TEXT,target_date TEXT,model TEXT,status TEXT,slot_utc TEXT,
+                model_ref_time_utc TEXT,model_updated_at_utc TEXT,forecast_max_c REAL,
+                forecast_max_f REAL,forecast_peak_local TEXT,points_json TEXT
+            )
+            """
+        )
+        rows = [
+            ("2026-07-21T01:30:00+00:00", 33.0),
+            ("2026-07-21T02:00:00+00:00", 34.0),
+            ("2026-07-21T02:30:00+00:00", 36.0),
+        ]
+        self.engine.db.executemany(
+            """
+            INSERT INTO windy_forecasts(
+                station_id,target_date,model,status,slot_utc,forecast_max_c,points_json
+            ) VALUES('ZSPD','2026-07-21','mblue','ok',?,?,'[]')
+            """,
+            rows,
+        )
+        event = {"station_id": "ZSPD", "target_date": "2026-07-21"}
+        result = self.engine.latest_meteoblue(event, datetime(2026, 7, 21, 2, 0, tzinfo=UTC))
+        self.assertEqual(result["sampleSlotUtc"], "2026-07-21T02:00:00+00:00")
+        self.assertEqual(result["maxC"], 34.0)
+        self.assertEqual(result["previousMaxC"], 33.0)
+
+    def test_replay_failure_preserves_existing_decision(self):
+        self.engine.db.execute(
+            """
+            INSERT INTO weather_no_paper_decisions(
+                strategy_name,event_id,city,station_id,timezone,target_date,
+                scheduled_local_time,analyzed_at_utc,action,decision_key,shares
+            ) VALUES('test_strategy','event-1','Shanghai','ZSPD','Asia/Shanghai','2026-07-21',
+                     '2026-07-21T10:00+08:00','2026-07-21T02:05:00+00:00',
+                     'no_trade','no_trade',5)
+            """
+        )
+        self.engine.db.commit()
+        captured = {}
+
+        def fake_build_inputs(events, as_of_by_event):
+            captured.update(as_of_by_event)
+            return [{"event": events[0], "weather": {}, "candidates": []}]
+
+        with (
+            patch.object(self.engine, "build_inputs", side_effect=fake_build_inputs),
+            patch.object(self.engine, "call_ai", return_value={"decisions": []}),
+            patch.object(self.engine, "persist_decisions", side_effect=RuntimeError("write failed")),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "write failed"):
+                self.engine.replay_decided_events_for_date("2026-07-21")
+
+        self.assertEqual(captured["event-1"], datetime(2026, 7, 21, 2, 0, tzinfo=UTC))
+        row = self.engine.db.execute(
+            "SELECT action,decision_key FROM weather_no_paper_decisions WHERE event_id='event-1'"
+        ).fetchone()
+        self.assertEqual((row["action"], row["decision_key"]), ("no_trade", "no_trade"))
+        run = self.engine.db.execute(
+            "SELECT status,error FROM weather_no_paper_runs ORDER BY run_id DESC LIMIT 1"
+        ).fetchone()
+        self.assertEqual(run["status"], "failed")
+        self.assertIn("write failed", run["error"])
+
+    def test_not_ready_and_ai_error_records_are_persisted(self):
+        item = {
+            "event": {
+                "event_id": "event-1", "city": "Shanghai", "station_id": "ZSPD",
+                "timezone": "Asia/Shanghai", "target_date": "2026-07-21",
+                "scheduled_local_time": "2026-07-21T10:00+08:00",
+            },
+            "weather": {"meteoblue": None},
+            "candidates": [],
+        }
+
+        self.assertEqual(self.engine.record_not_ready(1, [item]), 1)
+        row = self.engine.db.execute(
+            "SELECT action,rejection_reason FROM weather_no_paper_decisions"
+        ).fetchone()
+        self.assertEqual(row["action"], "no_trade")
+        self.assertIn("Meteoblue unavailable", row["rejection_reason"])
+
+        self.engine.db.execute("DELETE FROM weather_no_paper_decisions")
+        self.assertEqual(self.engine.record_ai_error(2, [item], RuntimeError("boom")), 1)
+        row = self.engine.db.execute(
+            "SELECT action,rejection_reason FROM weather_no_paper_decisions"
+        ).fetchone()
+        self.assertEqual(row["action"], "error")
+        self.assertIn("boom", row["rejection_reason"])
+
+    def test_call_ai_adds_node_directory_to_launchd_path(self):
+        self.engine.config.update({
+            "aiProfile": "weather-no-strategy",
+            "aiReasoningEffort": "medium",
+            "aiTimeoutSeconds": 10,
+        })
+        captured = {}
+
+        def fake_run(command, **kwargs):
+            captured["path"] = kwargs["env"]["PATH"]
+            output_path = command[command.index("--output-last-message") + 1]
+            with open(output_path, "w", encoding="utf-8") as handle:
+                json.dump({"decisions": []}, handle)
+            return subprocess.CompletedProcess(command, 0, "", "")
+
+        with patch("weather_no_paper.subprocess.run", side_effect=fake_run):
+            self.engine.call_ai([])
+
+        self.assertTrue(captured["path"].startswith("/usr/local/bin:/opt/homebrew/bin:"))
+
+
+if __name__ == "__main__":
+    unittest.main()

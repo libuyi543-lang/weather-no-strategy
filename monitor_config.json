@@ -1,0 +1,121 @@
+{
+  "topEventCount": 19,
+  "rankingMethod": "fixed city order; nearest active date",
+  "weatherTag": "weather",
+  "eventApiLimit": 200,
+  "requestTimeoutSeconds": 20,
+  "requestRetries": 2,
+  "remoteSensingTimeoutSeconds": 8,
+  "remoteSensingRetries": 1,
+  "maxConcurrentRequests": 10,
+  "sampleIntervalMinutes": 30,
+  "fastSampleIntervalMinutes": 5,
+  "reportRefreshIntervalMinutes": 1440,
+  "metarBatchIntervalSeconds": 60,
+  "fastMetarRequestHours": 6,
+  "fastMetarStationIds": ["ZSPD", "ZBAA", "ZGGG", "ZSQD", "ZHHH", "ZUCK", "ZUUU"],
+  "fastAnalysisCities": [
+    "Shanghai",
+    "Beijing",
+    "Guangzhou",
+    "Qingdao",
+    "Wuhan",
+    "Chongqing",
+    "Chengdu"
+  ],
+  "windyModel": "mblue",
+  "windyStepHours": 1,
+  "captureExternalWeather": true,
+  "captureCmaMesoForecasts": false,
+  "captureRemoteSensing": true,
+  "captureJaxaProducts": true,
+  "jaxaIntervalMinutes": 10,
+  "cma": {
+    "credentialFile": "~/.config/weather-market-monitor/cma_api.json",
+    "apiBaseUrl": "http://api.data.cma.cn:8090/api",
+    "timeoutSeconds": 20
+  },
+  "stationNetworkRadiusKm": 250,
+  "processAnalysisCities": [
+    "Shanghai",
+    "Beijing",
+    "Guangzhou",
+    "Qingdao",
+    "Wuhan",
+    "Chongqing",
+    "Chengdu"
+  ],
+  "coastalWindSectors": {
+    "shanghai": [45, 160],
+    "qingdao": [45, 180],
+    "guangzhou": [120, 240]
+  },
+  "externalForecastModels": ["ecmwf_ifs", "ecmwf_ifs025", "cma_grapes_global"],
+  "shadowExternalForecastModels": ["ecmwf_aifs025_single"],
+  "forecastCutoffsLocal": ["07:30", "10:00", "11:00"],
+  "forecastCutoffModels": [
+    {
+      "source": "open_meteo",
+      "model": "ecmwf_ifs",
+      "label": "ECMWF IFS HRES 9 km"
+    },
+    {
+      "source": "open_meteo",
+      "model": "ecmwf_ifs025",
+      "label": "ECMWF IFS 0.25 degree"
+    },
+    {
+      "source": "open_meteo",
+      "model": "ecmwf_aifs025_single",
+      "label": "ECMWF AIFS 0.25 degree Single"
+    },
+    {
+      "source": "open_meteo",
+      "model": "cma_grapes_global",
+      "label": "CMA-GFS / GRAPES Global"
+    }
+  ],
+  "captureEnsembleForecasts": true,
+  "ensembleForecastModels": ["ecmwf_ifs025"],
+  "ensemblePollIntervalMinutes": 180,
+  "openMeteoPollIntervalMinutes": 180,
+  "openMeteoFailureBackoffMinutes": 30,
+  "openMeteoFailureBackoffMaxMinutes": 360,
+  "windyAuthTokenFile": "~/.config/weather-market-monitor/windy_user_token",
+  "excludedCities": ["Shenzhen", "深圳", "Hong Kong", "香港"],
+  "fixedCities": [
+    "Shanghai",
+    "Seoul",
+    "Beijing",
+    "Guangzhou",
+    "Tokyo",
+    "Wellington",
+    "Taipei",
+    "Singapore",
+    "Qingdao",
+    "Wuhan",
+    "Busan",
+    "Chongqing",
+    "Kuala Lumpur",
+    "Chengdu",
+    "Manila",
+    "Milan",
+    "Karachi",
+    "Madrid",
+    "London"
+  ],
+  "marketDateHorizonDays": 3,
+  "resolutionLookbackDays": 21,
+  "databasePath": "data/weather_market_monitor.sqlite3",
+  "fastMetarBusyTimeoutSeconds": 300,
+  "reportDirectory": "data/weather_monitor",
+  "logPath": "logs/weather_market_monitor.log",
+  "stationOverrides": {
+    "HKO": {
+      "stationName": "Hong Kong Observatory Headquarters",
+      "country": "HK",
+      "latitude": 22.301944,
+      "longitude": 114.174167
+    }
+  }
+}

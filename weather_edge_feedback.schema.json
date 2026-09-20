@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WeatherEdgeFeedback",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assessment", "mistakes", "lesson"],
+  "properties": {
+    "assessment": {"type": "string", "minLength": 1},
+    "mistakes": {"type": "array", "items": {"type": "string"}},
+    "lesson": {"type": ["string", "null"]}
+  }
+}

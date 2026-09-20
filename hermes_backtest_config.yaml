@@ -1,0 +1,16 @@
+model:
+  default: deepseek-v4-flash
+  provider: deepseek
+platform_toolsets:
+  cli: []
+memory:
+  memory_enabled: false
+  user_profile_enabled: false
+agent:
+  max_turns: 4
+  api_max_retries: 1
+  task_completion_guidance: false
+  environment_probe: false
+display:
+  streaming: false
+  persistent_output: false
