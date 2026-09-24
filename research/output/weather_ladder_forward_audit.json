@@ -1,0 +1,74 @@
+{
+  "generated_at_utc": "2026-08-04T15:13:56.846746+00:00",
+  "as_of_utc": "2026-08-04T15:15:00+00:00",
+  "forward_start_date": "2026-08-05",
+  "independent_unit": "target_date",
+  "shadow_only": true,
+  "evidence_status": "NO_FORWARD_DATES_YET",
+  "phase": "DATA_QUALITY_ONLY",
+  "next_checkpoint_dates": 10,
+  "dates_remaining_to_checkpoint": 10,
+  "due_dates": 0,
+  "quality_pass_dates": 0,
+  "date_audit": [],
+  "rejection_reason_counts": {},
+  "portfolios": {
+    "V3": {
+      "portfolio_version": "ladder_portfolio_v3_1100_5_20_5_lowest_center_lead",
+      "recorded_dates": 0,
+      "completed_dates": 0,
+      "selected_dates": 0,
+      "no_eligible_dates": 0,
+      "unresolved_selected_dates": 0,
+      "total_net_cost_usdc": 0,
+      "total_net_pnl_usdc": 0,
+      "net_roi": null,
+      "mean_net_pnl_per_completed_date": null,
+      "date_bootstrap_mean_net_pnl": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      },
+      "profitable_dates": 0,
+      "max_drawdown_usdc": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "outcome_categories": {},
+      "market_anchor_probability_scores": {
+        "scored_dates": 0,
+        "mean_brier": null,
+        "mean_log_score": null
+      }
+    },
+    "V4": {
+      "portfolio_version": "ladder_portfolio_v4_1100_5_15_5_lowest_max_spread",
+      "recorded_dates": 0,
+      "completed_dates": 0,
+      "selected_dates": 0,
+      "no_eligible_dates": 0,
+      "unresolved_selected_dates": 0,
+      "total_net_cost_usdc": 0,
+      "total_net_pnl_usdc": 0,
+      "net_roi": null,
+      "mean_net_pnl_per_completed_date": null,
+      "date_bootstrap_mean_net_pnl": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      },
+      "profitable_dates": 0,
+      "max_drawdown_usdc": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "outcome_categories": {},
+      "market_anchor_probability_scores": {
+        "scored_dates": 0,
+        "mean_brier": null,
+        "mean_log_score": null
+      }
+    }
+  },
+  "interpretation": {
+    "supported": "前10个新日期只能判断数据链路是否完整，不能判断策略盈利能力。",
+    "hypothesis": "V4可能保留历史样本中的市场中心低估、相邻尾桶高估现象。",
+    "not_supported": "任何当前前向结果都不授权实盘，也不授权把天气过程条件加入准入。"
+  }
+}
