@@ -1,0 +1,247 @@
+{
+  "CONTROL_all": {
+    "n": 2751,
+    "city_days": 280,
+    "dates": 41,
+    "cities": {
+      "Beijing": 407,
+      "Chengdu": 372,
+      "Chongqing": 405,
+      "Guangzhou": 384,
+      "Qingdao": 401,
+      "Shanghai": 387,
+      "Wuhan": 395
+    },
+    "mean_hour": 13.43,
+    "p_up_at_t": 0.6171,
+    "realized_up": 0.5965,
+    "up_minus_p": [
+      -0.0206,
+      -0.0494,
+      0.009
+    ],
+    "p_up_change": {
+      "dp_-30m": -0.0086,
+      "dp_+30m": -0.0001,
+      "dp_+60m": -0.0013,
+      "dp_+120m": -0.0021
+    },
+    "trades": 2622,
+    "trade_pnl_total": [
+      -860.9,
+      -1256.34,
+      -473.0
+    ],
+    "trade_cost_total": 29600.9
+  },
+  "CONTROL_clear": {
+    "n": 1271,
+    "city_days": 194,
+    "dates": 41,
+    "cities": {
+      "Beijing": 248,
+      "Chengdu": 166,
+      "Chongqing": 183,
+      "Guangzhou": 67,
+      "Qingdao": 206,
+      "Shanghai": 193,
+      "Wuhan": 208
+    },
+    "mean_hour": 13.34,
+    "p_up_at_t": 0.6636,
+    "realized_up": 0.6404,
+    "up_minus_p": [
+      -0.0232,
+      -0.0557,
+      0.0091
+    ],
+    "p_up_change": {
+      "dp_-30m": -0.0111,
+      "dp_+30m": -0.0016,
+      "dp_+60m": -0.004,
+      "dp_+120m": -0.0079
+    },
+    "trades": 1210,
+    "trade_pnl_total": [
+      -404.73,
+      -617.12,
+      -192.14
+    ],
+    "trade_cost_total": 13909.73
+  },
+  "R10_near": {
+    "n": 20,
+    "city_days": 20,
+    "dates": 15,
+    "cities": {
+      "Beijing": 4,
+      "Chengdu": 4,
+      "Chongqing": 3,
+      "Guangzhou": 3,
+      "Qingdao": 2,
+      "Shanghai": 3,
+      "Wuhan": 1
+    },
+    "mean_hour": 13.47,
+    "p_up_at_t": 0.6089,
+    "realized_up": 0.5,
+    "up_minus_p": [
+      -0.1089,
+      -0.2512,
+      0.022
+    ],
+    "p_up_change": {
+      "dp_-30m": -0.0343,
+      "dp_+30m": -0.0171,
+      "dp_+60m": -0.0373,
+      "dp_+120m": -0.11
+    },
+    "trades": 19,
+    "trade_pnl_total": [
+      3.3,
+      -9.72,
+      16.23
+    ],
+    "trade_cost_total": 221.7
+  },
+  "R25_new": {
+    "n": 39,
+    "city_days": 39,
+    "dates": 27,
+    "cities": {
+      "Beijing": 3,
+      "Chengdu": 5,
+      "Chongqing": 5,
+      "Guangzhou": 10,
+      "Qingdao": 8,
+      "Shanghai": 3,
+      "Wuhan": 5
+    },
+    "mean_hour": 12.93,
+    "p_up_at_t": 0.6879,
+    "realized_up": 0.7179,
+    "up_minus_p": [
+      0.0301,
+      -0.0447,
+      0.1153
+    ],
+    "p_up_change": {
+      "dp_-30m": -0.0159,
+      "dp_+30m": 0.0047,
+      "dp_+60m": 0.0067,
+      "dp_+120m": 0.0183
+    },
+    "trades": 38,
+    "trade_pnl_total": [
+      -21.71,
+      -38.73,
+      -7.43
+    ],
+    "trade_cost_total": 476.71
+  },
+  "R25_strong": {
+    "n": 2,
+    "city_days": 2,
+    "dates": 2,
+    "cities": {
+      "Beijing": 1,
+      "Chengdu": 1,
+      "Chongqing": 0,
+      "Guangzhou": 0,
+      "Qingdao": 0,
+      "Shanghai": 0,
+      "Wuhan": 0
+    },
+    "mean_hour": 13.47,
+    "p_up_at_t": 0.6744,
+    "realized_up": 0.5,
+    "up_minus_p": [
+      -0.1744,
+      -0.3531,
+      0.0043
+    ],
+    "p_up_change": {
+      "dp_-30m": -0.1661,
+      "dp_+30m": -0.1282,
+      "dp_+60m": -0.1419,
+      "dp_+120m": -0.1663
+    },
+    "trades": 2,
+    "trade_pnl_total": [
+      null,
+      null,
+      null
+    ],
+    "trade_cost_total": 29.1
+  },
+  "R50_approach": {
+    "n": 3,
+    "city_days": 3,
+    "dates": 3,
+    "cities": {
+      "Beijing": 1,
+      "Chengdu": 0,
+      "Chongqing": 0,
+      "Guangzhou": 1,
+      "Qingdao": 1,
+      "Shanghai": 0,
+      "Wuhan": 0
+    },
+    "mean_hour": 12.48,
+    "p_up_at_t": 0.922,
+    "realized_up": 0.6667,
+    "up_minus_p": [
+      -0.2554,
+      -0.788,
+      0.0176
+    ],
+    "p_up_change": {
+      "dp_-30m": -0.024,
+      "dp_+30m": -0.0431,
+      "dp_+60m": -0.1229,
+      "dp_+120m": -0.099
+    },
+    "trades": 3,
+    "trade_pnl_total": [
+      null,
+      null,
+      null
+    ],
+    "trade_cost_total": 42.07
+  },
+  "SEA_BREEZE_onset": {
+    "n": 28,
+    "city_days": 28,
+    "dates": 23,
+    "cities": {
+      "Beijing": 0,
+      "Chengdu": 0,
+      "Chongqing": 0,
+      "Guangzhou": 0,
+      "Qingdao": 14,
+      "Shanghai": 14,
+      "Wuhan": 0
+    },
+    "mean_hour": 12.82,
+    "p_up_at_t": 0.3809,
+    "realized_up": 0.25,
+    "up_minus_p": [
+      -0.1309,
+      -0.2718,
+      0.0033
+    ],
+    "p_up_change": {
+      "dp_-30m": -0.0148,
+      "dp_+30m": -0.0367,
+      "dp_+60m": -0.0468,
+      "dp_+120m": -0.0604
+    },
+    "trades": 24,
+    "trade_pnl_total": [
+      9.19,
+      -9.8,
+      28.57
+    ],
+    "trade_cost_total": 170.81
+  }
+}

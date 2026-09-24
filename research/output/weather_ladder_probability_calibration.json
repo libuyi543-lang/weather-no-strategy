@@ -1,0 +1,1435 @@
+{
+  "generated_at_utc": "2026-08-04T08:44:40.812872+00:00",
+  "method": {
+    "independent_unit": "target_date",
+    "dates": 15,
+    "raw_events": 88,
+    "training": "leave one complete target date out",
+    "prior": "Dirichlet(1,1,1,1); marginal Beta posterior per category",
+    "fee_rate": 0.05,
+    "selection": "one candidate per date, highest predicted EV, max spread tie-break",
+    "shadow_only": true
+  },
+  "calibration": {
+    "market_anchor|5/15/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.14929506887359528,
+      "log_score": -0.45928551793731154
+    },
+    "market_anchor|5/20/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.14929506887359528,
+      "log_score": -0.45928551793731154
+    },
+    "global|5/15/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.13831641128472974,
+      "log_score": -0.43997331490975855
+    },
+    "global|5/20/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.13831641128472974,
+      "log_score": -0.43997331490975855
+    },
+    "center_bin|5/15/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.14205819631695063,
+      "log_score": -0.4459580432064703
+    },
+    "center_bin|5/20/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.14205819631695063,
+      "log_score": -0.4459580432064703
+    },
+    "gap_bin|5/15/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.1493133132127672,
+      "log_score": -0.4764794905208861
+    },
+    "gap_bin|5/20/5": {
+      "events": 44,
+      "independent_dates": 15,
+      "brier": 0.1493133132127672,
+      "log_score": -0.4764794905208861
+    }
+  },
+  "global_vs_market_calibration": {
+    "events": 44,
+    "independent_dates": 15,
+    "mean_brier_improvement": 0.010978657588865537,
+    "mean_log_improvement": 0.01931220302755295,
+    "date_block_brier_improvement": {
+      "p05": -0.0029555744117845967,
+      "median": 0.01116934508215486,
+      "p95": 0.02471601538143355
+    },
+    "date_block_log_improvement": {
+      "p05": -0.017229967045037403,
+      "median": 0.019534527428469558,
+      "p95": 0.0564782748076259
+    }
+  },
+  "rules": {
+    "market_anchor|5/15/5|ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    },
+    "market_anchor|5/15/5|lower_ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    },
+    "market_anchor|5/20/5|ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    },
+    "market_anchor|5/20/5|lower_ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    },
+    "global|5/15/5|ev_positive": {
+      "events": 15,
+      "independent_dates": 15,
+      "total_notional": 128.3552,
+      "total_fees": 4.025524811733333,
+      "total_cost": 132.38072481173333,
+      "total_pnl": 37.61927518826667,
+      "pnl_per_event": 2.507951679217778,
+      "roi": 0.2841748694288185,
+      "average_event_cost": 8.825381654115555,
+      "max_event_cost": 10.120241666666667,
+      "max_daily_cost": 10.120241666666667,
+      "profitable_dates": 10,
+      "worst_date_pnl": -8.217482666666667,
+      "best_date_pnl": 6.822150333333333,
+      "max_date_drawdown": 12.156274999999999,
+      "max_consecutive_losing_dates": 3,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": 0.1985245921422223,
+        "median": 2.553154990968889,
+        "p95": 4.702720053688889
+      }
+    },
+    "global|5/15/5|lower_ev_positive": {
+      "events": 2,
+      "independent_dates": 2,
+      "total_notional": 15.400000000000002,
+      "total_fees": 0.5291166666666667,
+      "total_cost": 15.929116666666667,
+      "total_pnl": -5.929116666666667,
+      "pnl_per_event": -2.9645583333333336,
+      "roi": -0.37221879848955847,
+      "average_event_cost": 7.964558333333334,
+      "max_event_cost": 8.117141666666667,
+      "max_daily_cost": 8.117141666666667,
+      "profitable_dates": 0,
+      "worst_date_pnl": -3.117141666666667,
+      "best_date_pnl": -2.8119750000000003,
+      "max_date_drawdown": 5.929116666666667,
+      "max_consecutive_losing_dates": 2,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -3.117141666666667,
+        "median": -2.9645583333333336,
+        "p95": -2.8119750000000003
+      }
+    },
+    "global|5/20/5|ev_positive": {
+      "events": 15,
+      "independent_dates": 15,
+      "total_notional": 159.3354,
+      "total_fees": 4.9217479398999995,
+      "total_cost": 164.2571479399,
+      "total_pnl": 55.7428520601,
+      "pnl_per_event": 3.71619013734,
+      "roi": 0.339363326097052,
+      "average_event_cost": 10.950476529326666,
+      "max_event_cost": 12.83256875,
+      "max_daily_cost": 12.83256875,
+      "profitable_dates": 10,
+      "worst_date_pnl": -10.297695000000001,
+      "best_date_pnl": 9.964534,
+      "max_date_drawdown": 18.68566875,
+      "max_consecutive_losing_dates": 3,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": 0.40680938480666623,
+        "median": 3.7692982114733327,
+        "p95": 6.896600366986666
+      }
+    },
+    "global|5/20/5|lower_ev_positive": {
+      "events": 6,
+      "independent_dates": 6,
+      "total_notional": 58.3914,
+      "total_fees": 1.9418010950999998,
+      "total_cost": 60.3332010951,
+      "total_pnl": 9.6667989049,
+      "pnl_per_event": 1.6111331508166666,
+      "roi": 0.1602235374460364,
+      "average_event_cost": 10.05553351585,
+      "max_event_cost": 10.484074999999999,
+      "max_daily_cost": 10.484074999999999,
+      "profitable_dates": 3,
+      "worst_date_pnl": -10.297695000000001,
+      "best_date_pnl": 9.964534,
+      "max_date_drawdown": 15.223135095100002,
+      "max_consecutive_losing_dates": 2,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -4.1727991983666675,
+        "median": 1.6111331508166666,
+        "p95": 7.3824625
+      }
+    },
+    "center_bin|5/15/5|ev_positive": {
+      "events": 15,
+      "independent_dates": 15,
+      "total_notional": 130.071,
+      "total_fees": 4.004044070533333,
+      "total_cost": 134.07504407053332,
+      "total_pnl": 25.92495592946667,
+      "pnl_per_event": 1.728330395297778,
+      "roi": 0.1933615320374479,
+      "average_event_cost": 8.938336271368888,
+      "max_event_cost": 10.120241666666667,
+      "max_daily_cost": 10.120241666666667,
+      "profitable_dates": 9,
+      "worst_date_pnl": -8.217482666666667,
+      "best_date_pnl": 6.822150333333333,
+      "max_date_drawdown": 12.156274999999999,
+      "max_consecutive_losing_dates": 3,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -0.5495127833333332,
+        "median": 1.7717193475466673,
+        "p95": 3.949784978631111
+      }
+    },
+    "center_bin|5/15/5|lower_ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    },
+    "center_bin|5/20/5|ev_positive": {
+      "events": 15,
+      "independent_dates": 15,
+      "total_notional": 161.99099999999999,
+      "total_fees": 4.9063654113999995,
+      "total_cost": 166.89736541140002,
+      "total_pnl": 38.1026345886,
+      "pnl_per_event": 2.5401756392399997,
+      "roi": 0.22829979667250863,
+      "average_event_cost": 11.126491027426669,
+      "max_event_cost": 12.83256875,
+      "max_daily_cost": 12.83256875,
+      "profitable_dates": 9,
+      "worst_date_pnl": -10.297695000000001,
+      "best_date_pnl": 9.964534,
+      "max_date_drawdown": 18.68566875,
+      "max_consecutive_losing_dates": 3,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -0.7592486470133337,
+        "median": 2.5883895824666667,
+        "p95": 5.755679550566667
+      }
+    },
+    "center_bin|5/20/5|lower_ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    },
+    "gap_bin|5/15/5|ev_positive": {
+      "events": 14,
+      "independent_dates": 14,
+      "total_notional": 119.2002,
+      "total_fees": 3.742367895066667,
+      "total_cost": 122.94256789506666,
+      "total_pnl": 32.05743210493334,
+      "pnl_per_event": 2.28981657892381,
+      "roi": 0.26075128129985736,
+      "average_event_cost": 8.78161199250476,
+      "max_event_cost": 9.873099999999999,
+      "max_daily_cost": 9.873099999999999,
+      "profitable_dates": 9,
+      "worst_date_pnl": -8.217482666666667,
+      "best_date_pnl": 6.822150333333333,
+      "max_date_drawdown": 12.156274999999999,
+      "max_consecutive_losing_dates": 3,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -0.13579328639999996,
+        "median": 2.3328596450285715,
+        "p95": 4.62514147332381
+      }
+    },
+    "gap_bin|5/15/5|lower_ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    },
+    "gap_bin|5/20/5|ev_positive": {
+      "events": 14,
+      "independent_dates": 14,
+      "total_notional": 148.2348,
+      "total_fees": 4.5937183382999995,
+      "total_cost": 152.8285183383,
+      "total_pnl": 32.17148166169999,
+      "pnl_per_event": 2.2979629758357136,
+      "roi": 0.21050705726587923,
+      "average_event_cost": 10.91632273845,
+      "max_event_cost": 12.43561875,
+      "max_daily_cost": 12.43561875,
+      "profitable_dates": 8,
+      "worst_date_pnl": -10.297695000000001,
+      "best_date_pnl": 9.964534,
+      "max_date_drawdown": 18.68566875,
+      "max_consecutive_losing_dates": 3,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -1.270827150964286,
+        "median": 2.319586899892857,
+        "p95": 5.792875598714285
+      }
+    },
+    "gap_bin|5/20/5|lower_ev_positive": {
+      "events": 0,
+      "independent_dates": 0,
+      "total_notional": 0,
+      "total_fees": 0,
+      "total_cost": 0,
+      "total_pnl": 0,
+      "pnl_per_event": null,
+      "roi": null,
+      "average_event_cost": null,
+      "max_event_cost": null,
+      "max_daily_cost": null,
+      "profitable_dates": 0,
+      "worst_date_pnl": null,
+      "best_date_pnl": null,
+      "max_date_drawdown": 0.0,
+      "max_consecutive_losing_dates": 0,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": null,
+        "median": null,
+        "p95": null
+      }
+    }
+  },
+  "audits": {
+    "market_anchor|5/15/5|ev_positive": [],
+    "market_anchor|5/15/5|lower_ev_positive": [],
+    "market_anchor|5/20/5|ev_positive": [],
+    "market_anchor|5/20/5|lower_ev_positive": [],
+    "global|5/15/5|ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 3.0575902173913043,
+        "component_lower_ev": 0.5546169455372887,
+        "actual_pnl": -2.8119750000000003,
+        "cost": 7.811975,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-21",
+        "city": "Beijing",
+        "predicted_ev": 0.8715808510638308,
+        "component_lower_ev": -1.627134621327471,
+        "actual_pnl": -4.873099999999999,
+        "cost": 9.873099999999999,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-22",
+        "city": "Chengdu",
+        "predicted_ev": 1.210618181818182,
+        "component_lower_ev": -1.3474028645742617,
+        "actual_pnl": -4.4712,
+        "cost": 9.4712,
+        "category": "lower",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-23",
+        "city": "Beijing",
+        "predicted_ev": 1.9092076086956524,
+        "component_lower_ev": -0.6552905487809397,
+        "actual_pnl": 6.474425,
+        "cost": 8.525575,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-24",
+        "city": "Guangzhou",
+        "predicted_ev": 1.368777213370544,
+        "component_lower_ev": -1.2301567315583908,
+        "actual_pnl": 5.787381864533334,
+        "cost": 9.212618135466666,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-25",
+        "city": "Guangzhou",
+        "predicted_ev": 0.3145409420289855,
+        "component_lower_ev": -2.2499572154476066,
+        "actual_pnl": 4.879758333333333,
+        "cost": 10.120241666666667,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-26",
+        "city": "Wuhan",
+        "predicted_ev": 2.4819994186046497,
+        "component_lower_ev": -0.16602075027797625,
+        "actual_pnl": 6.784324999999999,
+        "cost": 8.215675000000001,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-27",
+        "city": "Guangzhou",
+        "predicted_ev": 1.8116632966787876,
+        "component_lower_ev": -0.8033811203101289,
+        "actual_pnl": 6.357117842133334,
+        "cost": 8.642882157866666,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-28",
+        "city": "Chongqing",
+        "predicted_ev": 2.3777058888888885,
+        "component_lower_ev": -0.17093663537990622,
+        "actual_pnl": 6.822150333333333,
+        "cost": 8.177849666666667,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-29",
+        "city": "Wuhan",
+        "predicted_ev": 2.1343945652173915,
+        "component_lower_ev": -0.42228918109537084,
+        "actual_pnl": 6.373525000000001,
+        "cost": 8.626475,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-30",
+        "city": "Chongqing",
+        "predicted_ev": 1.2884787878787858,
+        "component_lower_ev": -1.3265656291101307,
+        "actual_pnl": 5.8339333333333325,
+        "cost": 9.166066666666667,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-31",
+        "city": "Guangzhou",
+        "predicted_ev": 2.449183999999999,
+        "component_lower_ev": -0.1465163721476852,
+        "actual_pnl": -8.217482666666667,
+        "cost": 8.217482666666667,
+        "category": "outside",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 2.6606361111111116,
+        "component_lower_ev": 0.11796190155421904,
+        "actual_pnl": -3.117141666666667,
+        "cost": 8.117141666666667,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-02",
+        "city": "Guangzhou",
+        "predicted_ev": 1.0674826086956521,
+        "component_lower_ev": -1.49701554878094,
+        "actual_pnl": 5.6327,
+        "cost": 9.3673,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-03",
+        "city": "Guangzhou",
+        "predicted_ev": 1.599640423628987,
+        "component_lower_ev": -0.9648577338476052,
+        "actual_pnl": 6.164857814933335,
+        "cost": 8.835142185066665,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "global|5/15/5|lower_ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 3.0575902173913043,
+        "component_lower_ev": 0.5546169455372887,
+        "actual_pnl": -2.8119750000000003,
+        "cost": 7.811975,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 2.6606361111111116,
+        "component_lower_ev": 0.11796190155421904,
+        "actual_pnl": -3.117141666666667,
+        "cost": 8.117141666666667,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "global|5/20/5|ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 4.5044891304347825,
+        "component_lower_ev": 1.4058102892552942,
+        "actual_pnl": -4.517250000000001,
+        "cost": 9.51725,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-21",
+        "city": "Beijing",
+        "predicted_ev": 1.3941684840425541,
+        "component_lower_ev": -1.696348032240845,
+        "actual_pnl": -7.43561875,
+        "cost": 12.43561875,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-22",
+        "city": "Chengdu",
+        "predicted_ev": 2.017199999999999,
+        "component_lower_ev": -1.1531344016129186,
+        "actual_pnl": -6.732800000000001,
+        "cost": 11.732800000000001,
+        "category": "lower",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-23",
+        "city": "Beijing",
+        "predicted_ev": 3.037115217391305,
+        "component_lower_ev": -0.12954772078959387,
+        "actual_pnl": 9.66755,
+        "cost": 10.33245,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-24",
+        "city": "Guangzhou",
+        "predicted_ev": 2.0801555611907006,
+        "component_lower_ev": -1.1395509106197217,
+        "actual_pnl": 8.475504398400002,
+        "cost": 11.524495601599998,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-25",
+        "city": "Guangzhou",
+        "predicted_ev": 0.5369964673913046,
+        "component_lower_ev": -2.6296664707895943,
+        "actual_pnl": 7.16743125,
+        "cost": 12.83256875,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-26",
+        "city": "Wuhan",
+        "predicted_ev": 3.64765523255814,
+        "component_lower_ev": 0.3788625367940277,
+        "actual_pnl": 9.926725000000001,
+        "cost": 10.073274999999999,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-27",
+        "city": "Guangzhou",
+        "predicted_ev": 2.5045229906909103,
+        "component_lower_ev": -0.7258256116493236,
+        "actual_pnl": 9.0954320816,
+        "cost": 10.9045679184,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-28",
+        "city": "Chongqing",
+        "predicted_ev": 3.520089555555556,
+        "component_lower_ev": 0.3640473525946728,
+        "actual_pnl": 9.964534,
+        "cost": 10.035466,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-29",
+        "city": "Wuhan",
+        "predicted_ev": 3.320272826086958,
+        "component_lower_ev": 0.1640291027911669,
+        "actual_pnl": 9.515925000000001,
+        "cost": 10.484074999999999,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-30",
+        "city": "Chongqing",
+        "predicted_ev": 1.7716893526909079,
+        "component_lower_ev": -1.458659249649326,
+        "actual_pnl": 8.362598443599998,
+        "cost": 11.637401556400002,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-31",
+        "city": "Guangzhou",
+        "predicted_ev": 3.368971666666665,
+        "component_lower_ev": 0.1658716158268927,
+        "actual_pnl": -10.297695000000001,
+        "cost": 10.297695000000001,
+        "category": "outside",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 3.9634487937888885,
+        "component_lower_ev": 0.81682146815543,
+        "actual_pnl": -4.925440095100001,
+        "cost": 9.9254400951,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-02",
+        "city": "Guangzhou",
+        "predicted_ev": 1.740665217391303,
+        "component_lower_ev": -1.4259977207895957,
+        "actual_pnl": 8.371099999999998,
+        "cost": 11.628900000000002,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-03",
+        "city": "Guangzhou",
+        "predicted_ev": 2.4744209489913054,
+        "component_lower_ev": -0.6922419891895935,
+        "actual_pnl": 9.1048557316,
+        "cost": 10.8951442684,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "global|5/20/5|lower_ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 4.5044891304347825,
+        "component_lower_ev": 1.4058102892552942,
+        "actual_pnl": -4.517250000000001,
+        "cost": 9.51725,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-26",
+        "city": "Wuhan",
+        "predicted_ev": 3.64765523255814,
+        "component_lower_ev": 0.3788625367940277,
+        "actual_pnl": 9.926725000000001,
+        "cost": 10.073274999999999,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-28",
+        "city": "Chongqing",
+        "predicted_ev": 3.520089555555556,
+        "component_lower_ev": 0.3640473525946728,
+        "actual_pnl": 9.964534,
+        "cost": 10.035466,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-29",
+        "city": "Wuhan",
+        "predicted_ev": 3.320272826086958,
+        "component_lower_ev": 0.1640291027911669,
+        "actual_pnl": 9.515925000000001,
+        "cost": 10.484074999999999,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-31",
+        "city": "Guangzhou",
+        "predicted_ev": 3.368971666666665,
+        "component_lower_ev": 0.1658716158268927,
+        "actual_pnl": -10.297695000000001,
+        "cost": 10.297695000000001,
+        "category": "outside",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 3.9634487937888885,
+        "component_lower_ev": 0.81682146815543,
+        "actual_pnl": -4.925440095100001,
+        "cost": 9.9254400951,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "center_bin|5/15/5|ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 2.1880249999999997,
+        "component_lower_ev": -1.6650678437246187,
+        "actual_pnl": -2.8119750000000003,
+        "cost": 7.811975,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-21",
+        "city": "Beijing",
+        "predicted_ev": 0.8844757575757587,
+        "component_lower_ev": -2.151227768669261,
+        "actual_pnl": -4.873099999999999,
+        "cost": 9.873099999999999,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-22",
+        "city": "Chengdu",
+        "predicted_ev": 1.3352516129032264,
+        "component_lower_ev": -1.7534827222968064,
+        "actual_pnl": -4.4712,
+        "cost": 9.4712,
+        "category": "lower",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-23",
+        "city": "Beijing",
+        "predicted_ev": 0.8861897058823534,
+        "component_lower_ev": -3.0576967734230536,
+        "actual_pnl": 6.474425,
+        "cost": 8.525575,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-24",
+        "city": "Guangzhou",
+        "predicted_ev": 1.1207151978666676,
+        "component_lower_ev": -2.080074057424385,
+        "actual_pnl": 5.787381864533334,
+        "cost": 9.212618135466666,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-25",
+        "city": "Guangzhou",
+        "predicted_ev": 0.1922583333333332,
+        "component_lower_ev": -2.9471364078614686,
+        "actual_pnl": 4.879758333333333,
+        "cost": 10.120241666666667,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-26",
+        "city": "Qingdao",
+        "predicted_ev": 1.9355735833333352,
+        "component_lower_ev": -1.2907937727755368,
+        "actual_pnl": 6.102240250000001,
+        "cost": 8.897759749999999,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-27",
+        "city": "Qingdao",
+        "predicted_ev": 1.4902959677419378,
+        "component_lower_ev": -1.6751874693764695,
+        "actual_pnl": -3.993574999999998,
+        "cost": 8.993574999999998,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-28",
+        "city": "Chongqing",
+        "predicted_ev": 1.2339150392156863,
+        "component_lower_ev": -2.7099714400897206,
+        "actual_pnl": 6.822150333333333,
+        "cost": 8.177849666666667,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-29",
+        "city": "Wuhan",
+        "predicted_ev": 1.3735250000000008,
+        "component_lower_ev": -2.7326366120424543,
+        "actual_pnl": 6.373525000000001,
+        "cost": 8.626475,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-30",
+        "city": "Chongqing",
+        "predicted_ev": 1.1672666666666665,
+        "component_lower_ev": -2.0656606382685707,
+        "actual_pnl": 5.8339333333333325,
+        "cost": 9.166066666666667,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-31",
+        "city": "Guangzhou",
+        "predicted_ev": 2.076634980392157,
+        "component_lower_ev": -1.8850432676524669,
+        "actual_pnl": -8.217482666666667,
+        "cost": 8.217482666666667,
+        "category": "outside",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 1.570358333333333,
+        "component_lower_ev": -2.4223606107176723,
+        "actual_pnl": -3.117141666666667,
+        "cost": 8.117141666666667,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-02",
+        "city": "Beijing",
+        "predicted_ev": 0.4257037878787884,
+        "component_lower_ev": -2.6526391822479214,
+        "actual_pnl": 4.971158333333333,
+        "cost": 10.028841666666667,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-08-03",
+        "city": "Guangzhou",
+        "predicted_ev": 0.5766225208156879,
+        "component_lower_ev": -3.367263958489719,
+        "actual_pnl": 6.164857814933335,
+        "cost": 8.835142185066665,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "center_bin|5/15/5|lower_ev_positive": [],
+    "center_bin|5/20/5|ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 3.423926470588235,
+        "component_lower_ev": -1.4152849286209115,
+        "actual_pnl": -4.517250000000001,
+        "cost": 9.51725,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-21",
+        "city": "Beijing",
+        "predicted_ev": 1.3522600378787875,
+        "component_lower_ev": -2.391943026861181,
+        "actual_pnl": -7.43561875,
+        "cost": 12.43561875,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-22",
+        "city": "Chengdu",
+        "predicted_ev": 2.138167741935483,
+        "component_lower_ev": -1.6805143719115563,
+        "actual_pnl": -6.732800000000001,
+        "cost": 11.732800000000001,
+        "category": "lower",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-23",
+        "city": "Beijing",
+        "predicted_ev": 1.7263735294117648,
+        "component_lower_ev": -3.197700915798432,
+        "actual_pnl": 9.66755,
+        "cost": 10.33245,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-24",
+        "city": "Guangzhou",
+        "predicted_ev": 1.6421710650666679,
+        "component_lower_ev": -2.3046319832385134,
+        "actual_pnl": 8.475504398400002,
+        "cost": 11.524495601599998,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-25",
+        "city": "Guangzhou",
+        "predicted_ev": 0.2924312499999999,
+        "component_lower_ev": -3.569596334561437,
+        "actual_pnl": 7.16743125,
+        "cost": 12.83256875,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-26",
+        "city": "Qingdao",
+        "predicted_ev": 2.5734735833333318,
+        "component_lower_ev": -1.3967209161808807,
+        "actual_pnl": 8.740140249999998,
+        "cost": 11.259859750000002,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-27",
+        "city": "Qingdao",
+        "predicted_ev": 1.8912461342935494,
+        "component_lower_ev": -2.007736803209191,
+        "actual_pnl": -6.495850639899999,
+        "cost": 11.495850639899999,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-28",
+        "city": "Chongqing",
+        "predicted_ev": 2.023357529411765,
+        "component_lower_ev": -2.900716915798432,
+        "actual_pnl": 9.964534,
+        "cost": 10.035466,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-29",
+        "city": "Wuhan",
+        "predicted_ev": 2.328425000000001,
+        "component_lower_ev": -2.7924105609541847,
+        "actual_pnl": 9.515925000000001,
+        "cost": 10.484074999999999,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-30",
+        "city": "Chongqing",
+        "predicted_ev": 1.529265110266664,
+        "component_lower_ev": -2.449675987682703,
+        "actual_pnl": 8.362598443599998,
+        "cost": 11.637401556400002,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-31",
+        "city": "Guangzhou",
+        "predicted_ev": 2.937599117647059,
+        "component_lower_ev": -2.010197685882094,
+        "actual_pnl": -10.297695000000001,
+        "cost": 10.297695000000001,
+        "category": "outside",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 2.574559904899999,
+        "component_lower_ev": -2.432832988062737,
+        "actual_pnl": -4.925440095100001,
+        "cost": 9.9254400951,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-02",
+        "city": "Beijing",
+        "predicted_ev": 0.8420833333333331,
+        "component_lower_ev": -2.9476106506339654,
+        "actual_pnl": 7.508749999999999,
+        "cost": 12.49125,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-08-03",
+        "city": "Guangzhou",
+        "predicted_ev": 1.1636792610117652,
+        "component_lower_ev": -3.7603951841984316,
+        "actual_pnl": 9.1048557316,
+        "cost": 10.8951442684,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "center_bin|5/20/5|lower_ev_positive": [],
+    "gap_bin|5/15/5|ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 2.482142647058824,
+        "component_lower_ev": -1.5676774186633322,
+        "actual_pnl": -2.8119750000000003,
+        "cost": 7.811975,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-21",
+        "city": "Beijing",
+        "predicted_ev": 0.3900578947368434,
+        "component_lower_ev": -3.49174012351677,
+        "actual_pnl": -4.873099999999999,
+        "cost": 9.873099999999999,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-22",
+        "city": "Chengdu",
+        "predicted_ev": 0.5288000000000004,
+        "component_lower_ev": -3.5773616120424547,
+        "actual_pnl": -4.4712,
+        "cost": 9.4712,
+        "category": "lower",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-23",
+        "city": "Beijing",
+        "predicted_ev": 1.1803073529411776,
+        "component_lower_ev": -2.960306348361768,
+        "actual_pnl": 6.474425,
+        "cost": 8.525575,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-24",
+        "city": "Guangzhou",
+        "predicted_ev": 0.7873818645333337,
+        "component_lower_ev": -3.3187797475091214,
+        "actual_pnl": 5.787381864533334,
+        "cost": 9.212618135466666,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-26",
+        "city": "Qingdao",
+        "predicted_ev": 1.6904755441176498,
+        "component_lower_ev": -2.467929925924513,
+        "actual_pnl": 6.102240250000001,
+        "cost": 8.897759749999999,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-27",
+        "city": "Guangzhou",
+        "predicted_ev": 0.642832127847619,
+        "component_lower_ev": -3.8666323932684046,
+        "actual_pnl": 6.357117842133334,
+        "cost": 8.642882157866666,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-28",
+        "city": "Chongqing",
+        "predicted_ev": 1.5280326862745106,
+        "component_lower_ev": -2.612581015028435,
+        "actual_pnl": 6.822150333333333,
+        "cost": 8.177849666666667,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-29",
+        "city": "Wuhan",
+        "predicted_ev": 1.6860250000000008,
+        "component_lower_ev": -2.628576514432723,
+        "actual_pnl": 6.373525000000001,
+        "cost": 8.626475,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-30",
+        "city": "Chongqing",
+        "predicted_ev": 0.53981568627451,
+        "component_lower_ev": -3.6007980150284356,
+        "actual_pnl": 5.8339333333333325,
+        "cost": 9.166066666666667,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-31",
+        "city": "Guangzhou",
+        "predicted_ev": 1.7825173333333328,
+        "component_lower_ev": -2.691822241643875,
+        "actual_pnl": -8.217482666666667,
+        "cost": 8.217482666666667,
+        "category": "outside",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 2.1769759803921573,
+        "component_lower_ev": -1.8728440853299988,
+        "actual_pnl": -3.117141666666667,
+        "cost": 8.117141666666667,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-02",
+        "city": "Guangzhou",
+        "predicted_ev": 0.007699999999999818,
+        "component_lower_ev": -4.263082555630978,
+        "actual_pnl": 5.6327,
+        "cost": 9.3673,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-03",
+        "city": "Guangzhou",
+        "predicted_ev": 0.8707401678745121,
+        "component_lower_ev": -3.2698735334284335,
+        "actual_pnl": 6.164857814933335,
+        "cost": 8.835142185066665,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "gap_bin|5/15/5|lower_ev_positive": [],
+    "gap_bin|5/20/5|ev_positive": [
+      {
+        "target_date": "2026-07-20",
+        "city": "Beijing",
+        "predicted_ev": 3.718044117647059,
+        "component_lower_ev": -1.3178945035596268,
+        "actual_pnl": -4.517250000000001,
+        "cost": 9.51725,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-21",
+        "city": "Beijing",
+        "predicted_ev": 0.7222759868421065,
+        "component_lower_ev": -4.093482389153371,
+        "actual_pnl": -7.43561875,
+        "cost": 12.43561875,
+        "category": "upper",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-22",
+        "city": "Chengdu",
+        "predicted_ev": 1.079699999999999,
+        "component_lower_ev": -4.041135560954187,
+        "actual_pnl": -6.732800000000001,
+        "cost": 11.732800000000001,
+        "category": "lower",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-23",
+        "city": "Beijing",
+        "predicted_ev": 2.020491176470589,
+        "component_lower_ev": -3.1003104907371464,
+        "actual_pnl": 9.66755,
+        "cost": 10.33245,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-24",
+        "city": "Beijing",
+        "predicted_ev": 1.4934441176470603,
+        "component_lower_ev": -3.5424945035596256,
+        "actual_pnl": -6.7418499999999995,
+        "cost": 11.74185,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-26",
+        "city": "Qingdao",
+        "predicted_ev": 2.269552014705882,
+        "component_lower_ev": -2.8749720108208088,
+        "actual_pnl": 8.740140249999998,
+        "cost": 11.259859750000002,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-27",
+        "city": "Guangzhou",
+        "predicted_ev": 0.881146367314285,
+        "component_lower_ev": -4.693073139829794,
+        "actual_pnl": 9.0954320816,
+        "cost": 10.9045679184,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-28",
+        "city": "Chongqing",
+        "predicted_ev": 2.317475176470589,
+        "component_lower_ev": -2.8033264907371462,
+        "actual_pnl": 9.964534,
+        "cost": 10.035466,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-29",
+        "city": "Wuhan",
+        "predicted_ev": 2.640925000000001,
+        "component_lower_ev": -2.6883504633444533,
+        "actual_pnl": 9.515925000000001,
+        "cost": 10.484074999999999,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-07-30",
+        "city": "Chongqing",
+        "predicted_ev": 0.7155396200705866,
+        "component_lower_ev": -4.405262047137149,
+        "actual_pnl": 8.362598443599998,
+        "cost": 11.637401556400002,
+        "category": "center",
+        "center_bin": "0.40_0.55"
+      },
+      {
+        "target_date": "2026-07-31",
+        "city": "Guangzhou",
+        "predicted_ev": 2.368971666666665,
+        "component_lower_ev": -3.1468921669583336,
+        "actual_pnl": -10.297695000000001,
+        "cost": 10.297695000000001,
+        "category": "outside",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-01",
+        "city": "Chengdu",
+        "predicted_ev": 3.309854022547059,
+        "component_lower_ev": -1.726084598659627,
+        "actual_pnl": -4.925440095100001,
+        "cost": 9.9254400951,
+        "category": "upper",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-02",
+        "city": "Guangzhou",
+        "predicted_ev": 0.24609999999999843,
+        "component_lower_ev": -5.024750184942128,
+        "actual_pnl": 8.371099999999998,
+        "cost": 11.628900000000002,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      },
+      {
+        "target_date": "2026-08-03",
+        "city": "Guangzhou",
+        "predicted_ev": 1.4577969080705895,
+        "component_lower_ev": -3.663004759137146,
+        "actual_pnl": 9.1048557316,
+        "cost": 10.8951442684,
+        "category": "center",
+        "center_bin": "lt_0.40"
+      }
+    ],
+    "gap_bin|5/20/5|lower_ev_positive": []
+  }
+}

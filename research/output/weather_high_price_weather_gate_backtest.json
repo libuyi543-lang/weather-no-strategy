@@ -1,0 +1,368 @@
+{
+  "generated_at_utc": "2026-08-30T03:15:32.885939+00:00",
+  "method": {
+    "price_band": "0.70<=YES leader midpoint<=0.80",
+    "leader_gap_min": 0.05,
+    "time_local": "10:00-19:00",
+    "dedup": "first signal per city-day",
+    "weather_point_in_time": "process slot and Ridge feature_as_of_utc <= market slot; Ridge generated_at not used because snapshots are persisted after the fact",
+    "trade": "5 NO at ask VWAP, fee=0.05*p*(1-p)",
+    "upward": "trend120>0.25, remaining solar>0.08, no capping signal, warm tail supported and >= leader+1, primary>=leader",
+    "downward": "capping signal, Ridge primary <= leader-2, leader outside plausible buckets"
+  },
+  "event_days": 264,
+  "baseline": {
+    "n": 212,
+    "no_wins": 59,
+    "no_hit_rate": 0.2783,
+    "pnl": -29.0056,
+    "roi": -0.0895,
+    "avg_no_price": 0.2953,
+    "break_even_no_hit": 0.3057,
+    "avg_win_pnl": 3.4601,
+    "avg_loss_pnl": -1.5239,
+    "payoff": 2.2706,
+    "profit_factor": 0.8756
+  },
+  "weather_gate": {
+    "n": 6,
+    "no_wins": 1,
+    "no_hit_rate": 0.1667,
+    "pnl": -4.2915,
+    "roi": -0.4619,
+    "avg_no_price": 0.2994,
+    "break_even_no_hit": 0.3097,
+    "avg_win_pnl": 3.1973,
+    "avg_loss_pnl": -1.4977,
+    "payoff": 2.1347,
+    "profit_factor": 0.4269
+  },
+  "branch_counts": {
+    "UPWARD_OVERSHOOT": 4,
+    "DOWNWARD_CAP": 2
+  },
+  "by_city": {
+    "Shanghai": {
+      "baseline": {
+        "n": 34,
+        "no_wins": 8,
+        "no_hit_rate": 0.2353,
+        "pnl": -10.5478,
+        "roi": -0.2087,
+        "avg_no_price": 0.2871,
+        "break_even_no_hit": 0.2973,
+        "avg_win_pnl": 3.4195,
+        "avg_loss_pnl": -1.4578,
+        "payoff": 2.3456,
+        "profit_factor": 0.7217
+      },
+      "weather_gate": {
+        "n": 0
+      },
+      "branches": {}
+    },
+    "Beijing": {
+      "baseline": {
+        "n": 30,
+        "no_wins": 13,
+        "no_hit_rate": 0.4333,
+        "pnl": 18.9708,
+        "roi": 0.4121,
+        "avg_no_price": 0.2965,
+        "break_even_no_hit": 0.3069,
+        "avg_win_pnl": 3.4811,
+        "avg_loss_pnl": -1.5461,
+        "payoff": 2.2516,
+        "profit_factor": 1.7218
+      },
+      "weather_gate": {
+        "n": 0
+      },
+      "branches": {}
+    },
+    "Guangzhou": {
+      "baseline": {
+        "n": 30,
+        "no_wins": 8,
+        "no_hit_rate": 0.2667,
+        "pnl": -5.6403,
+        "roi": -0.1236,
+        "avg_no_price": 0.294,
+        "break_even_no_hit": 0.3043,
+        "avg_win_pnl": 3.4099,
+        "avg_loss_pnl": -1.4963,
+        "payoff": 2.2788,
+        "profit_factor": 0.8287
+      },
+      "weather_gate": {
+        "n": 2,
+        "no_wins": 1,
+        "no_hit_rate": 0.5,
+        "pnl": 2.0544,
+        "roi": 0.6974,
+        "avg_no_price": 0.2846,
+        "break_even_no_hit": 0.2946,
+        "avg_win_pnl": 3.1973,
+        "avg_loss_pnl": -1.1429,
+        "payoff": 2.7975,
+        "profit_factor": 2.7975
+      },
+      "branches": {
+        "DOWNWARD_CAP": 2
+      }
+    },
+    "Qingdao": {
+      "baseline": {
+        "n": 30,
+        "no_wins": 5,
+        "no_hit_rate": 0.1667,
+        "pnl": -22.9042,
+        "roi": -0.4781,
+        "avg_no_price": 0.3088,
+        "break_even_no_hit": 0.3194,
+        "avg_win_pnl": 3.4375,
+        "avg_loss_pnl": -1.6037,
+        "payoff": 2.1435,
+        "profit_factor": 0.4287
+      },
+      "weather_gate": {
+        "n": 2,
+        "no_wins": 0,
+        "no_hit_rate": 0.0,
+        "pnl": -3.0372,
+        "roi": -1.0,
+        "avg_no_price": 0.2935,
+        "break_even_no_hit": 0.3037,
+        "avg_win_pnl": null,
+        "avg_loss_pnl": -1.5186,
+        "payoff": null,
+        "profit_factor": 0.0
+      },
+      "branches": {
+        "UPWARD_OVERSHOOT": 2
+      }
+    },
+    "Wuhan": {
+      "baseline": {
+        "n": 31,
+        "no_wins": 8,
+        "no_hit_rate": 0.2581,
+        "pnl": -6.3565,
+        "roi": -0.1371,
+        "avg_no_price": 0.2889,
+        "break_even_no_hit": 0.2991,
+        "avg_win_pnl": 3.5309,
+        "avg_loss_pnl": -1.5045,
+        "payoff": 2.3469,
+        "profit_factor": 0.8163
+      },
+      "weather_gate": {
+        "n": 1,
+        "no_wins": 0,
+        "no_hit_rate": 0.0,
+        "pnl": -1.5525,
+        "roi": -1.0,
+        "avg_no_price": 0.3,
+        "break_even_no_hit": 0.3105,
+        "avg_win_pnl": null,
+        "avg_loss_pnl": -1.5525,
+        "payoff": null,
+        "profit_factor": 0.0
+      },
+      "branches": {
+        "UPWARD_OVERSHOOT": 1
+      }
+    },
+    "Chongqing": {
+      "baseline": {
+        "n": 29,
+        "no_wins": 10,
+        "no_hit_rate": 0.3448,
+        "pnl": 4.9024,
+        "roi": 0.1087,
+        "avg_no_price": 0.3006,
+        "break_even_no_hit": 0.311,
+        "avg_win_pnl": 3.3718,
+        "avg_loss_pnl": -1.5166,
+        "payoff": 2.2232,
+        "profit_factor": 1.1701
+      },
+      "weather_gate": {
+        "n": 1,
+        "no_wins": 0,
+        "no_hit_rate": 0.0,
+        "pnl": -1.7561,
+        "roi": -1.0,
+        "avg_no_price": 0.34,
+        "break_even_no_hit": 0.3512,
+        "avg_win_pnl": null,
+        "avg_loss_pnl": -1.7561,
+        "payoff": null,
+        "profit_factor": 0.0
+      },
+      "branches": {
+        "UPWARD_OVERSHOOT": 1
+      }
+    },
+    "Chengdu": {
+      "baseline": {
+        "n": 28,
+        "no_wins": 7,
+        "no_hit_rate": 0.25,
+        "pnl": -7.43,
+        "roi": -0.1751,
+        "avg_no_price": 0.2928,
+        "break_even_no_hit": 0.3031,
+        "avg_win_pnl": 3.5863,
+        "avg_loss_pnl": -1.5492,
+        "payoff": 2.3149,
+        "profit_factor": 0.7716
+      },
+      "weather_gate": {
+        "n": 0
+      },
+      "branches": {}
+    }
+  },
+  "details": [
+    {
+      "city": "Chongqing",
+      "date": "2026-08-19",
+      "slot": "2026-08-19T08:10:00+00:00",
+      "local": "16:10",
+      "bucket": 29,
+      "yes_mid": 0.7250000000000001,
+      "lead": 0.4650000000000001,
+      "no_price": 0.34,
+      "cost": 1.7561000000000002,
+      "no_win": false,
+      "pnl": -1.7561000000000002,
+      "branch": "UPWARD_OVERSHOOT",
+      "trend": 0.5,
+      "solar": 0.114,
+      "primary": 30.0,
+      "warm": 31.0,
+      "capping": false,
+      "process": [
+        "no_high_confidence_regime_change"
+      ],
+      "ridge": true
+    },
+    {
+      "city": "Guangzhou",
+      "date": "2026-07-31",
+      "slot": "2026-07-31T06:55:00+00:00",
+      "local": "14:55",
+      "bucket": 32,
+      "yes_mid": 0.7050000000000001,
+      "lead": 0.44500000000000006,
+      "no_price": 0.34917999999999993,
+      "cost": 1.8027133318999997,
+      "no_win": true,
+      "pnl": 3.1972866681000003,
+      "branch": "DOWNWARD_CAP",
+      "trend": 1.5,
+      "solar": 0.508,
+      "primary": 30.0,
+      "warm": 31.0,
+      "capping": true,
+      "process": [
+        "clearing",
+        "upwind_cloud_or_rain_approach"
+      ],
+      "ridge": true
+    },
+    {
+      "city": "Guangzhou",
+      "date": "2026-08-21",
+      "slot": "2026-08-21T07:10:00+00:00",
+      "local": "15:10",
+      "bucket": 34,
+      "yes_mid": 0.795,
+      "lead": 0.6300000000000001,
+      "no_price": 0.22000000000000003,
+      "cost": 1.1429,
+      "no_win": false,
+      "pnl": -1.1429,
+      "branch": "DOWNWARD_CAP",
+      "trend": 3.5,
+      "solar": 0.224,
+      "primary": 32.0,
+      "warm": 33.0,
+      "capping": true,
+      "process": [
+        "upwind_cloud_or_rain_approach"
+      ],
+      "ridge": true
+    },
+    {
+      "city": "Qingdao",
+      "date": "2026-08-07",
+      "slot": "2026-08-07T06:20:00+00:00",
+      "local": "14:20",
+      "bucket": 37,
+      "yes_mid": 0.78,
+      "lead": 0.555,
+      "no_price": 0.24,
+      "cost": 1.2456,
+      "no_win": false,
+      "pnl": -1.2456,
+      "branch": "UPWARD_OVERSHOOT",
+      "trend": 0.5,
+      "solar": 0.248,
+      "primary": 37.0,
+      "warm": 39.0,
+      "capping": false,
+      "process": [
+        "no_high_confidence_regime_change"
+      ],
+      "ridge": true
+    },
+    {
+      "city": "Qingdao",
+      "date": "2026-08-08",
+      "slot": "2026-08-08T06:40:00+00:00",
+      "local": "14:40",
+      "bucket": 33,
+      "yes_mid": 0.7265,
+      "lead": 0.5065000000000001,
+      "no_price": 0.347,
+      "cost": 1.7916477499999999,
+      "no_win": false,
+      "pnl": -1.7916477499999999,
+      "branch": "UPWARD_OVERSHOOT",
+      "trend": 0.5,
+      "solar": 0.247,
+      "primary": 34.0,
+      "warm": 36.0,
+      "capping": false,
+      "process": [
+        "no_high_confidence_regime_change"
+      ],
+      "ridge": true
+    },
+    {
+      "city": "Wuhan",
+      "date": "2026-08-11",
+      "slot": "2026-08-11T07:10:00+00:00",
+      "local": "15:10",
+      "bucket": 29,
+      "yes_mid": 0.705,
+      "lead": 0.495,
+      "no_price": 0.3,
+      "cost": 1.5525,
+      "no_win": false,
+      "pnl": -1.5525,
+      "branch": "UPWARD_OVERSHOOT",
+      "trend": 0.5,
+      "solar": 0.29,
+      "primary": 30.0,
+      "warm": 32.0,
+      "capping": false,
+      "process": [
+        "no_high_confidence_regime_change"
+      ],
+      "ridge": true
+    }
+  ]
+}

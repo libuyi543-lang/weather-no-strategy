@@ -1,0 +1,80 @@
+{
+  "generated_at_utc": "2026-08-24T14:01:39.803036Z",
+  "universe_city_days": 210,
+  "full_board_scan": {
+    "buy_under_par": {
+      "count": 4,
+      "city_days": 3,
+      "dates": 3,
+      "max_margin": 0.0344,
+      "p90_margin": 0.0344,
+      "median_margin": 0.0229,
+      "min_margin": 0.0027
+    },
+    "sell_over_par": {
+      "count": 1,
+      "city_days": 1,
+      "dates": 1,
+      "max_margin": 0.0036,
+      "p90_margin": 0.0036,
+      "median_margin": 0.0036,
+      "min_margin": 0.0036
+    }
+  },
+  "neighbor_no_sample": 95,
+  "structures": {
+    "N55_standalone": {
+      "city_days": 95,
+      "total_pnl": 32.48,
+      "daily_mean": 1.0827,
+      "lb05": 0.063,
+      "pos_neg_dates": "20/10",
+      "win_rate_city_day": 0.6737,
+      "roi": 0.0426
+    },
+    "S0_plus_N55": {
+      "city_days": 95,
+      "total_pnl": 25.45,
+      "daily_mean": 0.8484,
+      "lb05": -3.1865,
+      "pos_neg_dates": "19/11",
+      "win_rate_city_day": 0.5158,
+      "roi": 0.0153
+    },
+    "YC15_plus_N55": {
+      "city_days": 95,
+      "total_pnl": 108.62,
+      "daily_mean": 3.6207,
+      "lb05": -1.0924,
+      "pos_neg_dates": "21/9",
+      "win_rate_city_day": 0.5158,
+      "roi": 0.0764
+    }
+  },
+  "paired_comparisons": {
+    "N55_vs_0": {
+      "mean": 1.0827,
+      "lb05": 0.063,
+      "pos": 20,
+      "neg": 10
+    },
+    "S0+N55_vs_S0": {
+      "mean": 1.0827,
+      "lb05": 0.063,
+      "pos": 20,
+      "neg": 10
+    },
+    "YC15+N55_vs_C15": {
+      "mean": 1.0827,
+      "lb05": 0.063,
+      "pos": 20,
+      "neg": 10
+    },
+    "YC15+N55_vs_S0": {
+      "mean": 3.855,
+      "lb05": 1.7934,
+      "pos": 21,
+      "neg": 9
+    }
+  }
+}

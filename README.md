@@ -89,6 +89,12 @@ npm run dev
 
 ---
 
+## 📉 研究结论（含负结果）
+
+截至 2026-09-24，对中国 7 城最高温市场的 edge 排查**没有找到可稳定变现的 edge**：多桶结构 MIXE10 样本外失效；气象模型全面输给市场；taker 全档负 EV；做市被逆向选择显著吃亏；市场在 AWC 发布 METAR 前已完成约 95% 定价；唯一候选信号（青岛海风）样本外未确认。完整数字、脚本与报告索引见 [docs/research_findings.md](docs/research_findings.md)，研究脚本在 [`research/`](research/)，报告在 [`research/output/`](research/output/)。
+
+---
+
 ## 🤝 交流与贡献
 
 - 如果你在探索 **AI Agent 边界控制**、**金融/预测市场量化研究** 或 **概率校准系统**，欢迎 Star 关注本项目。

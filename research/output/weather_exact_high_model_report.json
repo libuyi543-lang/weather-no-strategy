@@ -1,0 +1,2233 @@
+{
+  "generated_at_utc": "2026-07-25T14:05:56+00:00",
+  "target_date": "2026-07-25",
+  "trade_cities": [
+    "Shanghai",
+    "Beijing",
+    "Guangzhou",
+    "Qingdao",
+    "Wuhan",
+    "Chongqing",
+    "Chengdu"
+  ],
+  "method": "Ridge regression on final-minus-Meteoblue residual; date walk-forward OOS",
+  "research_only": true,
+  "cutoffs": [
+    {
+      "cutoff_hour": 10,
+      "dataset_rows": 100,
+      "resolved_rows": 78,
+      "evaluation": {
+        "oos_events": 20,
+        "test_dates": [
+          "2026-07-22",
+          "2026-07-23",
+          "2026-07-24"
+        ],
+        "status": "experimental_small_sample",
+        "worst_fold_mae_c": 0.9037,
+        "metrics": {
+          "meteoblue": {
+            "mae_c": 1.1355,
+            "rmse_c": 1.3737,
+            "bias_c": -1.1345,
+            "exact_bucket_accuracy": 0.25,
+            "within_one_c": 0.45
+          },
+          "bias_corrected": {
+            "mae_c": 0.7525,
+            "rmse_c": 0.8718,
+            "bias_c": -0.2766,
+            "exact_bucket_accuracy": 0.4,
+            "within_one_c": 0.8
+          },
+          "blend_75_25": {
+            "mae_c": 1.1961,
+            "rmse_c": 1.4191,
+            "bias_c": -1.1146,
+            "exact_bucket_accuracy": 0.25,
+            "within_one_c": 0.45
+          },
+          "ridge_residual": {
+            "mae_c": 0.692,
+            "rmse_c": 0.8552,
+            "bias_c": -0.3127,
+            "exact_bucket_accuracy": 0.35,
+            "within_one_c": 0.85
+          }
+        },
+        "model_abs_error_q80_c": 0.902,
+        "model_abs_error_q90_c": 1.141,
+        "folds": [
+          {
+            "test_date": "2026-07-22",
+            "train_event_days": 22,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "mblue_revision",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 1.0329,
+              "rmse_c": 1.3583,
+              "bias_c": -1.0329,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.4286
+            },
+            "bias_corrected": {
+              "mae_c": 0.93,
+              "rmse_c": 1.0484,
+              "bias_c": -0.297,
+              "exact_bucket_accuracy": 0.2857,
+              "within_one_c": 0.7143
+            },
+            "blend_75_25": {
+              "mae_c": 1.1368,
+              "rmse_c": 1.4631,
+              "bias_c": -1.0175,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.4286
+            },
+            "ridge_residual": {
+              "mae_c": 0.9037,
+              "rmse_c": 1.032,
+              "bias_c": -0.3388,
+              "exact_bucket_accuracy": 0.1429,
+              "within_one_c": 0.7143
+            }
+          },
+          {
+            "test_date": "2026-07-23",
+            "train_event_days": 41,
+            "test_events": 6,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 0.905,
+              "rmse_c": 1.1021,
+              "bias_c": -0.9017,
+              "exact_bucket_accuracy": 0.1667,
+              "within_one_c": 0.6667
+            },
+            "bias_corrected": {
+              "mae_c": 0.5322,
+              "rmse_c": 0.6375,
+              "bias_c": 0.07,
+              "exact_bucket_accuracy": 0.6667,
+              "within_one_c": 0.8333
+            },
+            "blend_75_25": {
+              "mae_c": 1.0338,
+              "rmse_c": 1.1926,
+              "bias_c": -0.9013,
+              "exact_bucket_accuracy": 0.1667,
+              "within_one_c": 0.5
+            },
+            "ridge_residual": {
+              "mae_c": 0.3545,
+              "rmse_c": 0.4414,
+              "bias_c": -0.048,
+              "exact_bucket_accuracy": 0.6667,
+              "within_one_c": 1.0
+            }
+          },
+          {
+            "test_date": "2026-07-24",
+            "train_event_days": 58,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 1.4357,
+              "rmse_c": 1.583,
+              "bias_c": -1.4357,
+              "exact_bucket_accuracy": 0.1429,
+              "within_one_c": 0.2857
+            },
+            "bias_corrected": {
+              "mae_c": 0.7638,
+              "rmse_c": 0.8508,
+              "bias_c": -0.5533,
+              "exact_bucket_accuracy": 0.2857,
+              "within_one_c": 0.8571
+            },
+            "blend_75_25": {
+              "mae_c": 1.3946,
+              "rmse_c": 1.5473,
+              "bias_c": -1.3946,
+              "exact_bucket_accuracy": 0.1429,
+              "within_one_c": 0.4286
+            },
+            "ridge_residual": {
+              "mae_c": 0.7697,
+              "rmse_c": 0.9261,
+              "bias_c": -0.5134,
+              "exact_bucket_accuracy": 0.2857,
+              "within_one_c": 0.8571
+            }
+          }
+        ],
+        "predictions": [
+          {
+            "event_id": "724035",
+            "target_date": "2026-07-22",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 28.0,
+            "bias_corrected_c": 28.44181818181818,
+            "blend_c": 28.0,
+            "model_c": 28.34499906324202
+          },
+          {
+            "event_id": "724044",
+            "target_date": "2026-07-22",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 38.89,
+            "bias_corrected_c": 39.831818181818186,
+            "blend_c": 39.417500000000004,
+            "model_c": 39.710206720771865
+          },
+          {
+            "event_id": "724034",
+            "target_date": "2026-07-22",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 38.25,
+            "bias_corrected_c": 39.191818181818185,
+            "blend_c": 37.8375,
+            "model_c": 39.227727352276354
+          },
+          {
+            "event_id": "724053",
+            "target_date": "2026-07-22",
+            "city": "Guangzhou",
+            "actual_c": 34.0,
+            "meteoblue_c": 32.0,
+            "bias_corrected_c": 32.0,
+            "blend_c": 32.0,
+            "model_c": 32.0
+          },
+          {
+            "event_id": "724054",
+            "target_date": "2026-07-22",
+            "city": "Qingdao",
+            "actual_c": 29.0,
+            "meteoblue_c": 27.6,
+            "bias_corrected_c": 28.541818181818183,
+            "blend_c": 27.775000000000002,
+            "model_c": 28.479845043733505
+          },
+          {
+            "event_id": "724028",
+            "target_date": "2026-07-22",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 33.03,
+            "bias_corrected_c": 33.971818181818186,
+            "blend_c": 32.8475,
+            "model_c": 33.94385113728018
+          },
+          {
+            "event_id": "724043",
+            "target_date": "2026-07-22",
+            "city": "Wuhan",
+            "actual_c": 29.0,
+            "meteoblue_c": 29.0,
+            "bias_corrected_c": 29.94181818181818,
+            "blend_c": 29.0,
+            "model_c": 29.92195360119404
+          },
+          {
+            "event_id": "727811",
+            "target_date": "2026-07-23",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 27.4,
+            "bias_corrected_c": 28.37170731707317,
+            "blend_c": 27.449999999999996,
+            "model_c": 27.671485381476206
+          },
+          {
+            "event_id": "727813",
+            "target_date": "2026-07-23",
+            "city": "Chengdu",
+            "actual_c": 37.0,
+            "meteoblue_c": 36.43,
+            "bias_corrected_c": 37.40170731707317,
+            "blend_c": 37.397499999999994,
+            "model_c": 36.87450770411777
+          },
+          {
+            "event_id": "727810",
+            "target_date": "2026-07-23",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 39.08,
+            "bias_corrected_c": 40.051707317073166,
+            "blend_c": 38.735,
+            "model_c": 40.24197482546994
+          },
+          {
+            "event_id": "727822",
+            "target_date": "2026-07-23",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 34.01,
+            "bias_corrected_c": 34.981707317073166,
+            "blend_c": 33.8825,
+            "model_c": 35.24635817030084
+          },
+          {
+            "event_id": "727804",
+            "target_date": "2026-07-23",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 33.66,
+            "bias_corrected_c": 34.631707317073165,
+            "blend_c": 33.72,
+            "model_c": 35.0312261725837
+          },
+          {
+            "event_id": "727812",
+            "target_date": "2026-07-23",
+            "city": "Wuhan",
+            "actual_c": 33.0,
+            "meteoblue_c": 33.01,
+            "bias_corrected_c": 33.981707317073166,
+            "blend_c": 32.4075,
+            "model_c": 33.64620315276027
+          },
+          {
+            "event_id": "731557",
+            "target_date": "2026-07-24",
+            "city": "Beijing",
+            "actual_c": 32.0,
+            "meteoblue_c": 29.56,
+            "bias_corrected_c": 30.486724137931034,
+            "blend_c": 29.544999999999998,
+            "model_c": 30.094066860512577
+          },
+          {
+            "event_id": "731559",
+            "target_date": "2026-07-24",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 37.82,
+            "bias_corrected_c": 38.74672413793103,
+            "blend_c": 38.365,
+            "model_c": 38.32769230384281
+          },
+          {
+            "event_id": "731556",
+            "target_date": "2026-07-24",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 38.25,
+            "bias_corrected_c": 39.17672413793103,
+            "blend_c": 38.0875,
+            "model_c": 39.38732748986486
+          },
+          {
+            "event_id": "731569",
+            "target_date": "2026-07-24",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 34.2,
+            "bias_corrected_c": 35.126724137931035,
+            "blend_c": 34.225,
+            "model_c": 35.251268938909554
+          },
+          {
+            "event_id": "731570",
+            "target_date": "2026-07-24",
+            "city": "Qingdao",
+            "actual_c": 30.0,
+            "meteoblue_c": 29.0,
+            "bias_corrected_c": 29.616724137931037,
+            "blend_c": 29.0,
+            "model_c": 29.83776963356344
+          },
+          {
+            "event_id": "731550",
+            "target_date": "2026-07-24",
+            "city": "Shanghai",
+            "actual_c": 36.0,
+            "meteoblue_c": 34.31,
+            "bias_corrected_c": 35.236724137931034,
+            "blend_c": 34.4825,
+            "model_c": 35.61109446361984
+          },
+          {
+            "event_id": "731558",
+            "target_date": "2026-07-24",
+            "city": "Wuhan",
+            "actual_c": 35.0,
+            "meteoblue_c": 34.81,
+            "bias_corrected_c": 35.736724137931034,
+            "blend_c": 34.5325,
+            "model_c": 35.89729498538213
+          }
+        ]
+      },
+      "final_model": {
+        "train_event_days": 77,
+        "trained_through": "2026-07-24",
+        "numeric_features": [
+          "mblue",
+          "ecmwf",
+          "model_spread",
+          "mblue_revision",
+          "ecmwf_revision",
+          "observed_temp",
+          "observed_max",
+          "observed_minus_mblue",
+          "dewpoint",
+          "dewpoint_depression",
+          "wind_speed",
+          "temperature_trend_per_hour",
+          "observation_age_minutes",
+          "observation_count",
+          "latitude",
+          "longitude"
+        ],
+        "predictions": [
+          {
+            "city": "Beijing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 10,
+            "prediction_c": 31.22,
+            "predicted_bucket_c": 31,
+            "interval80_c": [
+              30.32,
+              32.13
+            ],
+            "interval90_c": [
+              30.08,
+              32.36
+            ],
+            "meteoblue_c": 30.15,
+            "ecmwf_c": 30.8,
+            "observed_max_c": 28.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chengdu",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 10,
+            "prediction_c": 38.61,
+            "predicted_bucket_c": 39,
+            "interval80_c": [
+              37.71,
+              39.52
+            ],
+            "interval90_c": [
+              37.47,
+              39.76
+            ],
+            "meteoblue_c": 37.32,
+            "ecmwf_c": 41.0,
+            "observed_max_c": 34.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chongqing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 10,
+            "prediction_c": 38.62,
+            "predicted_bucket_c": 39,
+            "interval80_c": [
+              37.72,
+              39.52
+            ],
+            "interval90_c": [
+              37.48,
+              39.76
+            ],
+            "meteoblue_c": 37.59,
+            "ecmwf_c": 36.5,
+            "observed_max_c": 34.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Guangzhou",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 10,
+            "prediction_c": 37.17,
+            "predicted_bucket_c": 37,
+            "interval80_c": [
+              36.27,
+              38.08
+            ],
+            "interval90_c": [
+              36.03,
+              38.32
+            ],
+            "meteoblue_c": 35.82,
+            "ecmwf_c": 35.1,
+            "observed_max_c": 34.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Qingdao",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 10,
+            "prediction_c": 32.91,
+            "predicted_bucket_c": 33,
+            "interval80_c": [
+              32.01,
+              33.82
+            ],
+            "interval90_c": [
+              31.77,
+              34.06
+            ],
+            "meteoblue_c": 31.59,
+            "ecmwf_c": 32.3,
+            "observed_max_c": 31.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Shanghai",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 10,
+            "prediction_c": 34.92,
+            "predicted_bucket_c": 35,
+            "interval80_c": [
+              34.02,
+              35.83
+            ],
+            "interval90_c": [
+              33.78,
+              36.07
+            ],
+            "meteoblue_c": 33.32,
+            "ecmwf_c": 35.1,
+            "observed_max_c": 33.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Wuhan",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 10,
+            "prediction_c": 36.22,
+            "predicted_bucket_c": 36,
+            "interval80_c": [
+              35.32,
+              37.12
+            ],
+            "interval90_c": [
+              35.08,
+              37.36
+            ],
+            "meteoblue_c": 35.44,
+            "ecmwf_c": 34.3,
+            "observed_max_c": 33.0,
+            "observation_age_minutes": 0.0
+          }
+        ]
+      },
+      "artifact": "data/models/weather_exact_high_1000.joblib"
+    },
+    {
+      "cutoff_hour": 12,
+      "dataset_rows": 101,
+      "resolved_rows": 79,
+      "evaluation": {
+        "oos_events": 20,
+        "test_dates": [
+          "2026-07-22",
+          "2026-07-23",
+          "2026-07-24"
+        ],
+        "status": "experimental_small_sample",
+        "worst_fold_mae_c": 0.6618,
+        "metrics": {
+          "meteoblue": {
+            "mae_c": 1.1255,
+            "rmse_c": 1.3852,
+            "bias_c": -1.1245,
+            "exact_bucket_accuracy": 0.3,
+            "within_one_c": 0.5
+          },
+          "bias_corrected": {
+            "mae_c": 0.7601,
+            "rmse_c": 0.8935,
+            "bias_c": -0.4404,
+            "exact_bucket_accuracy": 0.35,
+            "within_one_c": 0.7
+          },
+          "blend_75_25": {
+            "mae_c": 1.053,
+            "rmse_c": 1.3481,
+            "bias_c": -1.053,
+            "exact_bucket_accuracy": 0.25,
+            "within_one_c": 0.65
+          },
+          "ridge_residual": {
+            "mae_c": 0.5592,
+            "rmse_c": 0.6954,
+            "bias_c": -0.3151,
+            "exact_bucket_accuracy": 0.45,
+            "within_one_c": 0.85
+          }
+        },
+        "model_abs_error_q80_c": 0.818,
+        "model_abs_error_q90_c": 1.057,
+        "folds": [
+          {
+            "test_date": "2026-07-22",
+            "train_event_days": 23,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "mblue_revision",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 0.7829,
+              "rmse_c": 1.0918,
+              "bias_c": -0.7829,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.7143
+            },
+            "bias_corrected": {
+              "mae_c": 0.6168,
+              "rmse_c": 0.73,
+              "bias_c": -0.3189,
+              "exact_bucket_accuracy": 0.2857,
+              "within_one_c": 0.8571
+            },
+            "blend_75_25": {
+              "mae_c": 0.7086,
+              "rmse_c": 1.0839,
+              "bias_c": -0.7086,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.8571
+            },
+            "ridge_residual": {
+              "mae_c": 0.6618,
+              "rmse_c": 0.7838,
+              "bias_c": -0.3622,
+              "exact_bucket_accuracy": 0.2857,
+              "within_one_c": 0.8571
+            }
+          },
+          {
+            "test_date": "2026-07-23",
+            "train_event_days": 42,
+            "test_events": 6,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 1.27,
+              "rmse_c": 1.4946,
+              "bias_c": -1.27,
+              "exact_bucket_accuracy": 0.1667,
+              "within_one_c": 0.5
+            },
+            "bias_corrected": {
+              "mae_c": 0.7213,
+              "rmse_c": 0.9094,
+              "bias_c": -0.454,
+              "exact_bucket_accuracy": 0.5,
+              "within_one_c": 0.6667
+            },
+            "blend_75_25": {
+              "mae_c": 1.1775,
+              "rmse_c": 1.4451,
+              "bias_c": -1.1775,
+              "exact_bucket_accuracy": 0.1667,
+              "within_one_c": 0.6667
+            },
+            "ridge_residual": {
+              "mae_c": 0.456,
+              "rmse_c": 0.6653,
+              "bias_c": -0.3049,
+              "exact_bucket_accuracy": 0.6667,
+              "within_one_c": 0.8333
+            }
+          },
+          {
+            "test_date": "2026-07-24",
+            "train_event_days": 59,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 1.3443,
+              "rmse_c": 1.5413,
+              "bias_c": -1.3414,
+              "exact_bucket_accuracy": 0.2857,
+              "within_one_c": 0.2857
+            },
+            "bias_corrected": {
+              "mae_c": 0.9366,
+              "rmse_c": 1.0195,
+              "bias_c": -0.5502,
+              "exact_bucket_accuracy": 0.2857,
+              "within_one_c": 0.5714
+            },
+            "blend_75_25": {
+              "mae_c": 1.2907,
+              "rmse_c": 1.4924,
+              "bias_c": -1.2907,
+              "exact_bucket_accuracy": 0.1429,
+              "within_one_c": 0.4286
+            },
+            "ridge_residual": {
+              "mae_c": 0.5451,
+              "rmse_c": 0.623,
+              "bias_c": -0.2767,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.8571
+            }
+          }
+        ],
+        "predictions": [
+          {
+            "event_id": "724035",
+            "target_date": "2026-07-22",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 28.0,
+            "bias_corrected_c": 28.27130434782609,
+            "blend_c": 28.0,
+            "model_c": 28.235254757235197
+          },
+          {
+            "event_id": "724044",
+            "target_date": "2026-07-22",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 37.64,
+            "bias_corrected_c": 38.41130434782609,
+            "blend_c": 38.480000000000004,
+            "model_c": 38.18221128497624
+          },
+          {
+            "event_id": "724034",
+            "target_date": "2026-07-22",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 37.88,
+            "bias_corrected_c": 38.65130434782609,
+            "blend_c": 37.56,
+            "model_c": 38.60411421544439
+          },
+          {
+            "event_id": "724053",
+            "target_date": "2026-07-22",
+            "city": "Guangzhou",
+            "actual_c": 34.0,
+            "meteoblue_c": 33.0,
+            "bias_corrected_c": 33.30130434782609,
+            "blend_c": 33.0,
+            "model_c": 33.4322111034741
+          },
+          {
+            "event_id": "724054",
+            "target_date": "2026-07-22",
+            "city": "Qingdao",
+            "actual_c": 29.0,
+            "meteoblue_c": 29.0,
+            "bias_corrected_c": 29.0,
+            "blend_c": 29.0,
+            "model_c": 29.0
+          },
+          {
+            "event_id": "724028",
+            "target_date": "2026-07-22",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.36130434782609,
+            "blend_c": 34.0,
+            "model_c": 34.19768900018587
+          },
+          {
+            "event_id": "724043",
+            "target_date": "2026-07-22",
+            "city": "Wuhan",
+            "actual_c": 29.0,
+            "meteoblue_c": 29.0,
+            "bias_corrected_c": 29.77130434782609,
+            "blend_c": 29.0,
+            "model_c": 29.81332956371804
+          },
+          {
+            "event_id": "727811",
+            "target_date": "2026-07-23",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 27.04,
+            "bias_corrected_c": 27.85595238095238,
+            "blend_c": 27.18,
+            "model_c": 27.822340148696977
+          },
+          {
+            "event_id": "727813",
+            "target_date": "2026-07-23",
+            "city": "Chengdu",
+            "actual_c": 37.0,
+            "meteoblue_c": 35.74,
+            "bias_corrected_c": 36.555952380952384,
+            "blend_c": 36.879999999999995,
+            "model_c": 37.210572191928094
+          },
+          {
+            "event_id": "727810",
+            "target_date": "2026-07-23",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 37.8,
+            "bias_corrected_c": 38.61595238095238,
+            "blend_c": 37.775,
+            "model_c": 39.3435808473225
+          },
+          {
+            "event_id": "727822",
+            "target_date": "2026-07-23",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 33.63,
+            "bias_corrected_c": 34.445952380952384,
+            "blend_c": 33.597500000000004,
+            "model_c": 34.55134230639464
+          },
+          {
+            "event_id": "727804",
+            "target_date": "2026-07-23",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 34.37,
+            "bias_corrected_c": 35.18595238095238,
+            "blend_c": 34.2525,
+            "model_c": 35.01967963154479
+          },
+          {
+            "event_id": "727812",
+            "target_date": "2026-07-23",
+            "city": "Wuhan",
+            "actual_c": 33.0,
+            "meteoblue_c": 32.8,
+            "bias_corrected_c": 33.61595238095238,
+            "blend_c": 32.25,
+            "model_c": 33.22315534317552
+          },
+          {
+            "event_id": "731557",
+            "target_date": "2026-07-24",
+            "city": "Beijing",
+            "actual_c": 32.0,
+            "meteoblue_c": 30.04,
+            "bias_corrected_c": 30.921186440677964,
+            "blend_c": 30.0,
+            "model_c": 31.180871319659687
+          },
+          {
+            "event_id": "731559",
+            "target_date": "2026-07-24",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 37.65,
+            "bias_corrected_c": 38.53118644067796,
+            "blend_c": 38.2375,
+            "model_c": 38.828747833199856
+          },
+          {
+            "event_id": "731556",
+            "target_date": "2026-07-24",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 38.33,
+            "bias_corrected_c": 39.21118644067796,
+            "blend_c": 38.1475,
+            "model_c": 39.78210712335435
+          },
+          {
+            "event_id": "731569",
+            "target_date": "2026-07-24",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.29118644067796,
+            "blend_c": 34.0,
+            "model_c": 35.35189625059419
+          },
+          {
+            "event_id": "731570",
+            "target_date": "2026-07-24",
+            "city": "Qingdao",
+            "actual_c": 30.0,
+            "meteoblue_c": 30.01,
+            "bias_corrected_c": 30.891186440677966,
+            "blend_c": 30.0,
+            "model_c": 30.285429757679037
+          },
+          {
+            "event_id": "731550",
+            "target_date": "2026-07-24",
+            "city": "Shanghai",
+            "actual_c": 36.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.841186440677966,
+            "blend_c": 34.22,
+            "model_c": 34.98027500982824
+          },
+          {
+            "event_id": "731558",
+            "target_date": "2026-07-24",
+            "city": "Wuhan",
+            "actual_c": 35.0,
+            "meteoblue_c": 34.58,
+            "bias_corrected_c": 35.46118644067796,
+            "blend_c": 34.36,
+            "model_c": 35.654073818704255
+          }
+        ]
+      },
+      "final_model": {
+        "train_event_days": 78,
+        "trained_through": "2026-07-24",
+        "numeric_features": [
+          "mblue",
+          "ecmwf",
+          "model_spread",
+          "mblue_revision",
+          "ecmwf_revision",
+          "observed_temp",
+          "observed_max",
+          "observed_minus_mblue",
+          "dewpoint",
+          "dewpoint_depression",
+          "wind_speed",
+          "temperature_trend_per_hour",
+          "observation_age_minutes",
+          "observation_count",
+          "latitude",
+          "longitude"
+        ],
+        "predictions": [
+          {
+            "city": "Beijing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 12,
+            "prediction_c": 30.46,
+            "predicted_bucket_c": 30,
+            "interval80_c": [
+              29.64,
+              31.28
+            ],
+            "interval90_c": [
+              29.4,
+              31.52
+            ],
+            "meteoblue_c": 29.34,
+            "ecmwf_c": 30.8,
+            "observed_max_c": 29.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chengdu",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 12,
+            "prediction_c": 38.52,
+            "predicted_bucket_c": 39,
+            "interval80_c": [
+              37.7,
+              39.33
+            ],
+            "interval90_c": [
+              37.46,
+              39.57
+            ],
+            "meteoblue_c": 36.94,
+            "ecmwf_c": 41.0,
+            "observed_max_c": 36.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chongqing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 12,
+            "prediction_c": 38.72,
+            "predicted_bucket_c": 39,
+            "interval80_c": [
+              37.9,
+              39.54
+            ],
+            "interval90_c": [
+              37.66,
+              39.78
+            ],
+            "meteoblue_c": 37.52,
+            "ecmwf_c": 36.5,
+            "observed_max_c": 36.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Guangzhou",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 12,
+            "prediction_c": 37.93,
+            "predicted_bucket_c": 38,
+            "interval80_c": [
+              37.11,
+              38.74
+            ],
+            "interval90_c": [
+              36.87,
+              38.98
+            ],
+            "meteoblue_c": 35.36,
+            "ecmwf_c": 35.1,
+            "observed_max_c": 36.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Qingdao",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 12,
+            "prediction_c": 32.08,
+            "predicted_bucket_c": 32,
+            "interval80_c": [
+              31.26,
+              32.89
+            ],
+            "interval90_c": [
+              31.02,
+              33.13
+            ],
+            "meteoblue_c": 31.06,
+            "ecmwf_c": 32.3,
+            "observed_max_c": 31.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Shanghai",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 12,
+            "prediction_c": 35.11,
+            "predicted_bucket_c": 35,
+            "interval80_c": [
+              34.3,
+              35.93
+            ],
+            "interval90_c": [
+              34.06,
+              36.17
+            ],
+            "meteoblue_c": 34.0,
+            "ecmwf_c": 35.1,
+            "observed_max_c": 34.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Wuhan",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 12,
+            "prediction_c": 36.57,
+            "predicted_bucket_c": 37,
+            "interval80_c": [
+              35.75,
+              37.38
+            ],
+            "interval90_c": [
+              35.51,
+              37.62
+            ],
+            "meteoblue_c": 35.41,
+            "ecmwf_c": 34.3,
+            "observed_max_c": 35.0,
+            "observation_age_minutes": 0.0
+          }
+        ]
+      },
+      "artifact": "data/models/weather_exact_high_1200.joblib"
+    },
+    {
+      "cutoff_hour": 14,
+      "dataset_rows": 101,
+      "resolved_rows": 79,
+      "evaluation": {
+        "oos_events": 20,
+        "test_dates": [
+          "2026-07-22",
+          "2026-07-23",
+          "2026-07-24"
+        ],
+        "status": "experimental_small_sample",
+        "worst_fold_mae_c": 0.62,
+        "metrics": {
+          "meteoblue": {
+            "mae_c": 0.9215,
+            "rmse_c": 1.2302,
+            "bias_c": -0.8605,
+            "exact_bucket_accuracy": 0.4,
+            "within_one_c": 0.65
+          },
+          "bias_corrected": {
+            "mae_c": 0.7662,
+            "rmse_c": 0.9659,
+            "bias_c": -0.3565,
+            "exact_bucket_accuracy": 0.45,
+            "within_one_c": 0.65
+          },
+          "blend_75_25": {
+            "mae_c": 0.7606,
+            "rmse_c": 1.0792,
+            "bias_c": -0.7459,
+            "exact_bucket_accuracy": 0.45,
+            "within_one_c": 0.75
+          },
+          "ridge_residual": {
+            "mae_c": 0.4653,
+            "rmse_c": 0.5993,
+            "bias_c": -0.0421,
+            "exact_bucket_accuracy": 0.6,
+            "within_one_c": 0.95
+          }
+        },
+        "model_abs_error_q80_c": 0.89,
+        "model_abs_error_q90_c": 0.965,
+        "folds": [
+          {
+            "test_date": "2026-07-22",
+            "train_event_days": 23,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "mblue_revision",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 0.4086,
+              "rmse_c": 0.6302,
+              "bias_c": -0.2343,
+              "exact_bucket_accuracy": 0.7143,
+              "within_one_c": 0.8571
+            },
+            "bias_corrected": {
+              "mae_c": 0.6708,
+              "rmse_c": 0.7684,
+              "bias_c": 0.2662,
+              "exact_bucket_accuracy": 0.5714,
+              "within_one_c": 0.7143
+            },
+            "blend_75_25": {
+              "mae_c": 0.2264,
+              "rmse_c": 0.4163,
+              "bias_c": -0.1843,
+              "exact_bucket_accuracy": 0.8571,
+              "within_one_c": 1.0
+            },
+            "ridge_residual": {
+              "mae_c": 0.62,
+              "rmse_c": 0.7225,
+              "bias_c": 0.1938,
+              "exact_bucket_accuracy": 0.5714,
+              "within_one_c": 0.8571
+            }
+          },
+          {
+            "test_date": "2026-07-23",
+            "train_event_days": 42,
+            "test_events": 6,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 1.6983,
+              "rmse_c": 1.8066,
+              "bias_c": -1.6983,
+              "exact_bucket_accuracy": 0.0,
+              "within_one_c": 0.3333
+            },
+            "bias_corrected": {
+              "mae_c": 1.0743,
+              "rmse_c": 1.2832,
+              "bias_c": -1.0743,
+              "exact_bucket_accuracy": 0.3333,
+              "within_one_c": 0.3333
+            },
+            "blend_75_25": {
+              "mae_c": 1.4738,
+              "rmse_c": 1.6054,
+              "bias_c": -1.4738,
+              "exact_bucket_accuracy": 0.0,
+              "within_one_c": 0.3333
+            },
+            "ridge_residual": {
+              "mae_c": 0.4316,
+              "rmse_c": 0.5619,
+              "bias_c": -0.332,
+              "exact_bucket_accuracy": 0.5,
+              "within_one_c": 1.0
+            }
+          },
+          {
+            "test_date": "2026-07-24",
+            "train_event_days": 59,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 0.7686,
+              "rmse_c": 1.0626,
+              "bias_c": -0.7686,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.7143
+            },
+            "bias_corrected": {
+              "mae_c": 0.5976,
+              "rmse_c": 0.8149,
+              "bias_c": -0.3638,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.8571
+            },
+            "blend_75_25": {
+              "mae_c": 0.6836,
+              "rmse_c": 0.9722,
+              "bias_c": -0.6836,
+              "exact_bucket_accuracy": 0.4286,
+              "within_one_c": 0.8571
+            },
+            "ridge_residual": {
+              "mae_c": 0.3394,
+              "rmse_c": 0.4831,
+              "bias_c": -0.0296,
+              "exact_bucket_accuracy": 0.7143,
+              "within_one_c": 1.0
+            }
+          }
+        ],
+        "predictions": [
+          {
+            "event_id": "724035",
+            "target_date": "2026-07-22",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 28.0,
+            "bias_corrected_c": 28.333913043478262,
+            "blend_c": 28.0,
+            "model_c": 28.307302271217893
+          },
+          {
+            "event_id": "724044",
+            "target_date": "2026-07-22",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 37.75,
+            "bias_corrected_c": 38.58391304347826,
+            "blend_c": 38.5625,
+            "model_c": 38.50828328750297
+          },
+          {
+            "event_id": "724034",
+            "target_date": "2026-07-22",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 39.0,
+            "bias_corrected_c": 39.0,
+            "blend_c": 39.0,
+            "model_c": 39.0
+          },
+          {
+            "event_id": "724053",
+            "target_date": "2026-07-22",
+            "city": "Guangzhou",
+            "actual_c": 34.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.33391304347826,
+            "blend_c": 34.0,
+            "model_c": 34.447985524456826
+          },
+          {
+            "event_id": "724054",
+            "target_date": "2026-07-22",
+            "city": "Qingdao",
+            "actual_c": 29.0,
+            "meteoblue_c": 29.18,
+            "bias_corrected_c": 30.01391304347826,
+            "blend_c": 29.0,
+            "model_c": 29.88981778415497
+          },
+          {
+            "event_id": "724028",
+            "target_date": "2026-07-22",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 35.0,
+            "bias_corrected_c": 35.33391304347826,
+            "blend_c": 35.0,
+            "model_c": 35.053129275720295
+          },
+          {
+            "event_id": "724043",
+            "target_date": "2026-07-22",
+            "city": "Wuhan",
+            "actual_c": 29.0,
+            "meteoblue_c": 29.43,
+            "bias_corrected_c": 30.26391304347826,
+            "blend_c": 29.147499999999997,
+            "model_c": 30.149887644727333
+          },
+          {
+            "event_id": "727811",
+            "target_date": "2026-07-23",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 26.12,
+            "bias_corrected_c": 26.845714285714287,
+            "blend_c": 26.490000000000002,
+            "model_c": 27.039072104617823
+          },
+          {
+            "event_id": "727813",
+            "target_date": "2026-07-23",
+            "city": "Chengdu",
+            "actual_c": 37.0,
+            "meteoblue_c": 35.09,
+            "bias_corrected_c": 35.81571428571429,
+            "blend_c": 36.3925,
+            "model_c": 37.03498081209108
+          },
+          {
+            "event_id": "727810",
+            "target_date": "2026-07-23",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 37.4,
+            "bias_corrected_c": 38.12571428571428,
+            "blend_c": 37.474999999999994,
+            "model_c": 39.48786019705986
+          },
+          {
+            "event_id": "727822",
+            "target_date": "2026-07-23",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.11571428571429,
+            "blend_c": 34.0,
+            "model_c": 35.18241654731318
+          },
+          {
+            "event_id": "727804",
+            "target_date": "2026-07-23",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.72571428571429,
+            "blend_c": 34.0,
+            "model_c": 35.178479171992215
+          },
+          {
+            "event_id": "727812",
+            "target_date": "2026-07-23",
+            "city": "Wuhan",
+            "actual_c": 33.0,
+            "meteoblue_c": 32.2,
+            "bias_corrected_c": 32.92571428571429,
+            "blend_c": 31.800000000000004,
+            "model_c": 33.08528460658119
+          },
+          {
+            "event_id": "731557",
+            "target_date": "2026-07-24",
+            "city": "Beijing",
+            "actual_c": 32.0,
+            "meteoblue_c": 32.0,
+            "bias_corrected_c": 32.0,
+            "blend_c": 32.0,
+            "model_c": 32.094087251725576
+          },
+          {
+            "event_id": "731559",
+            "target_date": "2026-07-24",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 37.62,
+            "bias_corrected_c": 38.43830508474576,
+            "blend_c": 38.214999999999996,
+            "model_c": 38.82923479068748
+          },
+          {
+            "event_id": "731556",
+            "target_date": "2026-07-24",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 38.0,
+            "bias_corrected_c": 38.37830508474576,
+            "blend_c": 38.0,
+            "model_c": 39.15278112597995
+          },
+          {
+            "event_id": "731569",
+            "target_date": "2026-07-24",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 35.0,
+            "bias_corrected_c": 35.0,
+            "blend_c": 35.0,
+            "model_c": 36.09947459514164
+          },
+          {
+            "event_id": "731570",
+            "target_date": "2026-07-24",
+            "city": "Qingdao",
+            "actual_c": 30.0,
+            "meteoblue_c": 30.0,
+            "bias_corrected_c": 30.0,
+            "blend_c": 30.0,
+            "model_c": 30.0
+          },
+          {
+            "event_id": "731550",
+            "target_date": "2026-07-24",
+            "city": "Shanghai",
+            "actual_c": 36.0,
+            "meteoblue_c": 35.0,
+            "bias_corrected_c": 35.81830508474576,
+            "blend_c": 35.0,
+            "model_c": 35.72631192482319
+          },
+          {
+            "event_id": "731558",
+            "target_date": "2026-07-24",
+            "city": "Wuhan",
+            "actual_c": 35.0,
+            "meteoblue_c": 35.0,
+            "bias_corrected_c": 35.81830508474576,
+            "blend_c": 35.0,
+            "model_c": 35.890690261647855
+          }
+        ]
+      },
+      "final_model": {
+        "train_event_days": 78,
+        "trained_through": "2026-07-24",
+        "numeric_features": [
+          "mblue",
+          "ecmwf",
+          "model_spread",
+          "mblue_revision",
+          "ecmwf_revision",
+          "observed_temp",
+          "observed_max",
+          "observed_minus_mblue",
+          "dewpoint",
+          "dewpoint_depression",
+          "wind_speed",
+          "temperature_trend_per_hour",
+          "observation_age_minutes",
+          "observation_count",
+          "latitude",
+          "longitude"
+        ],
+        "predictions": [
+          {
+            "city": "Beijing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 14,
+            "prediction_c": 31.14,
+            "predicted_bucket_c": 31,
+            "interval80_c": [
+              30.25,
+              32.03
+            ],
+            "interval90_c": [
+              30.18,
+              32.11
+            ],
+            "meteoblue_c": 29.78,
+            "ecmwf_c": 30.8,
+            "observed_max_c": 31.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chengdu",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 14,
+            "prediction_c": 38.98,
+            "predicted_bucket_c": 39,
+            "interval80_c": [
+              38.09,
+              39.87
+            ],
+            "interval90_c": [
+              38.02,
+              39.95
+            ],
+            "meteoblue_c": 37.88,
+            "ecmwf_c": 41.0,
+            "observed_max_c": 37.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chongqing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 14,
+            "prediction_c": 39.09,
+            "predicted_bucket_c": 39,
+            "interval80_c": [
+              38.2,
+              39.98
+            ],
+            "interval90_c": [
+              38.12,
+              40.05
+            ],
+            "meteoblue_c": 37.6,
+            "ecmwf_c": 36.5,
+            "observed_max_c": 38.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Guangzhou",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 14,
+            "prediction_c": 37.27,
+            "predicted_bucket_c": 37,
+            "interval80_c": [
+              36.38,
+              38.16
+            ],
+            "interval90_c": [
+              36.31,
+              38.24
+            ],
+            "meteoblue_c": 36.0,
+            "ecmwf_c": 35.1,
+            "observed_max_c": 37.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Qingdao",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 14,
+            "prediction_c": 31.22,
+            "predicted_bucket_c": 31,
+            "interval80_c": [
+              30.33,
+              32.11
+            ],
+            "interval90_c": [
+              30.26,
+              32.19
+            ],
+            "meteoblue_c": 31.0,
+            "ecmwf_c": 32.3,
+            "observed_max_c": 31.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Shanghai",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 14,
+            "prediction_c": 35.46,
+            "predicted_bucket_c": 35,
+            "interval80_c": [
+              34.57,
+              36.35
+            ],
+            "interval90_c": [
+              34.49,
+              36.42
+            ],
+            "meteoblue_c": 34.5,
+            "ecmwf_c": 35.1,
+            "observed_max_c": 35.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Wuhan",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 14,
+            "prediction_c": 36.46,
+            "predicted_bucket_c": 36,
+            "interval80_c": [
+              35.57,
+              37.35
+            ],
+            "interval90_c": [
+              35.5,
+              37.43
+            ],
+            "meteoblue_c": 35.34,
+            "ecmwf_c": 34.3,
+            "observed_max_c": 36.0,
+            "observation_age_minutes": 0.0
+          }
+        ]
+      },
+      "artifact": "data/models/weather_exact_high_1400.joblib"
+    },
+    {
+      "cutoff_hour": 16,
+      "dataset_rows": 117,
+      "resolved_rows": 93,
+      "evaluation": {
+        "oos_events": 20,
+        "test_dates": [
+          "2026-07-22",
+          "2026-07-23",
+          "2026-07-24"
+        ],
+        "status": "unstable",
+        "worst_fold_mae_c": 2.1667,
+        "metrics": {
+          "meteoblue": {
+            "mae_c": 0.5455,
+            "rmse_c": 1.0025,
+            "bias_c": -0.5455,
+            "exact_bucket_accuracy": 0.65,
+            "within_one_c": 0.8
+          },
+          "bias_corrected": {
+            "mae_c": 0.5964,
+            "rmse_c": 0.8651,
+            "bias_c": -0.1805,
+            "exact_bucket_accuracy": 0.5,
+            "within_one_c": 0.8
+          },
+          "blend_75_25": {
+            "mae_c": 0.4716,
+            "rmse_c": 0.8846,
+            "bias_c": -0.4491,
+            "exact_bucket_accuracy": 0.7,
+            "within_one_c": 0.8
+          },
+          "ridge_residual": {
+            "mae_c": 0.7449,
+            "rmse_c": 1.2589,
+            "bias_c": -0.5783,
+            "exact_bucket_accuracy": 0.65,
+            "within_one_c": 0.75
+          }
+        },
+        "model_abs_error_q80_c": 2.0,
+        "model_abs_error_q90_c": 2.1,
+        "folds": [
+          {
+            "test_date": "2026-07-22",
+            "train_event_days": 37,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 0.0,
+              "rmse_c": 0.0,
+              "bias_c": 0.0,
+              "exact_bucket_accuracy": 1.0,
+              "within_one_c": 1.0
+            },
+            "bias_corrected": {
+              "mae_c": 0.2838,
+              "rmse_c": 0.3945,
+              "bias_c": 0.2838,
+              "exact_bucket_accuracy": 0.5714,
+              "within_one_c": 1.0
+            },
+            "blend_75_25": {
+              "mae_c": 0.0,
+              "rmse_c": 0.0,
+              "bias_c": 0.0,
+              "exact_bucket_accuracy": 1.0,
+              "within_one_c": 1.0
+            },
+            "ridge_residual": {
+              "mae_c": 0.0091,
+              "rmse_c": 0.0218,
+              "bias_c": 0.0091,
+              "exact_bucket_accuracy": 1.0,
+              "within_one_c": 1.0
+            }
+          },
+          {
+            "test_date": "2026-07-23",
+            "train_event_days": 56,
+            "test_events": 6,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 1.6983,
+              "rmse_c": 1.8066,
+              "bias_c": -1.6983,
+              "exact_bucket_accuracy": 0.0,
+              "within_one_c": 0.3333
+            },
+            "bias_corrected": {
+              "mae_c": 1.2806,
+              "rmse_c": 1.4508,
+              "bias_c": -1.2806,
+              "exact_bucket_accuracy": 0.3333,
+              "within_one_c": 0.3333
+            },
+            "blend_75_25": {
+              "mae_c": 1.4738,
+              "rmse_c": 1.6054,
+              "bias_c": -1.4738,
+              "exact_bucket_accuracy": 0.0,
+              "within_one_c": 0.3333
+            },
+            "ridge_residual": {
+              "mae_c": 2.1667,
+              "rmse_c": 2.273,
+              "bias_c": -2.1667,
+              "exact_bucket_accuracy": 0.0,
+              "within_one_c": 0.1667
+            }
+          },
+          {
+            "test_date": "2026-07-24",
+            "train_event_days": 73,
+            "test_events": 7,
+            "numeric_features": [
+              "mblue",
+              "ecmwf",
+              "model_spread",
+              "mblue_revision",
+              "ecmwf_revision",
+              "observed_temp",
+              "observed_max",
+              "observed_minus_mblue",
+              "dewpoint",
+              "dewpoint_depression",
+              "wind_speed",
+              "temperature_trend_per_hour",
+              "observation_age_minutes",
+              "observation_count",
+              "latitude",
+              "longitude"
+            ],
+            "meteoblue": {
+              "mae_c": 0.1029,
+              "rmse_c": 0.2721,
+              "bias_c": -0.1029,
+              "exact_bucket_accuracy": 0.8571,
+              "within_one_c": 1.0
+            },
+            "bias_corrected": {
+              "mae_c": 0.3225,
+              "rmse_c": 0.4227,
+              "bias_c": 0.298,
+              "exact_bucket_accuracy": 0.5714,
+              "within_one_c": 1.0
+            },
+            "blend_75_25": {
+              "mae_c": 0.0843,
+              "rmse_c": 0.1621,
+              "bias_c": -0.02,
+              "exact_bucket_accuracy": 1.0,
+              "within_one_c": 1.0
+            },
+            "ridge_residual": {
+              "mae_c": 0.2622,
+              "rmse_c": 0.3144,
+              "bias_c": 0.1958,
+              "exact_bucket_accuracy": 0.8571,
+              "within_one_c": 1.0
+            }
+          }
+        ],
+        "predictions": [
+          {
+            "event_id": "724035",
+            "target_date": "2026-07-22",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 28.0,
+            "bias_corrected_c": 28.097297297297295,
+            "blend_c": 28.0,
+            "model_c": 28.0
+          },
+          {
+            "event_id": "724044",
+            "target_date": "2026-07-22",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 39.0,
+            "bias_corrected_c": 39.0,
+            "blend_c": 39.0,
+            "model_c": 39.0
+          },
+          {
+            "event_id": "724034",
+            "target_date": "2026-07-22",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 40.0,
+            "bias_corrected_c": 40.0,
+            "blend_c": 40.0,
+            "model_c": 40.0
+          },
+          {
+            "event_id": "724053",
+            "target_date": "2026-07-22",
+            "city": "Guangzhou",
+            "actual_c": 34.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.097297297297295,
+            "blend_c": 34.0,
+            "model_c": 34.0
+          },
+          {
+            "event_id": "724054",
+            "target_date": "2026-07-22",
+            "city": "Qingdao",
+            "actual_c": 29.0,
+            "meteoblue_c": 29.0,
+            "bias_corrected_c": 29.597297297297295,
+            "blend_c": 29.0,
+            "model_c": 29.00595629555832
+          },
+          {
+            "event_id": "724028",
+            "target_date": "2026-07-22",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 35.0,
+            "bias_corrected_c": 35.597297297297295,
+            "blend_c": 35.0,
+            "model_c": 35.0
+          },
+          {
+            "event_id": "724043",
+            "target_date": "2026-07-22",
+            "city": "Wuhan",
+            "actual_c": 29.0,
+            "meteoblue_c": 29.0,
+            "bias_corrected_c": 29.597297297297295,
+            "blend_c": 29.0,
+            "model_c": 29.057473933474384
+          },
+          {
+            "event_id": "727811",
+            "target_date": "2026-07-23",
+            "city": "Beijing",
+            "actual_c": 28.0,
+            "meteoblue_c": 26.12,
+            "bias_corrected_c": 26.62125,
+            "blend_c": 26.490000000000002,
+            "model_c": 25.0
+          },
+          {
+            "event_id": "727813",
+            "target_date": "2026-07-23",
+            "city": "Chengdu",
+            "actual_c": 37.0,
+            "meteoblue_c": 35.09,
+            "bias_corrected_c": 35.59125,
+            "blend_c": 36.3925,
+            "model_c": 35.0
+          },
+          {
+            "event_id": "727810",
+            "target_date": "2026-07-23",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 37.4,
+            "bias_corrected_c": 37.90125,
+            "blend_c": 37.474999999999994,
+            "model_c": 37.0
+          },
+          {
+            "event_id": "727822",
+            "target_date": "2026-07-23",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.0,
+            "blend_c": 34.0,
+            "model_c": 34.0
+          },
+          {
+            "event_id": "727804",
+            "target_date": "2026-07-23",
+            "city": "Shanghai",
+            "actual_c": 35.0,
+            "meteoblue_c": 34.0,
+            "bias_corrected_c": 34.50125,
+            "blend_c": 34.0,
+            "model_c": 34.0
+          },
+          {
+            "event_id": "727812",
+            "target_date": "2026-07-23",
+            "city": "Wuhan",
+            "actual_c": 33.0,
+            "meteoblue_c": 32.2,
+            "bias_corrected_c": 32.70125,
+            "blend_c": 31.800000000000004,
+            "model_c": 31.0
+          },
+          {
+            "event_id": "731557",
+            "target_date": "2026-07-24",
+            "city": "Beijing",
+            "actual_c": 32.0,
+            "meteoblue_c": 32.0,
+            "bias_corrected_c": 32.0,
+            "blend_c": 32.0,
+            "model_c": 32.21757233408475
+          },
+          {
+            "event_id": "731559",
+            "target_date": "2026-07-24",
+            "city": "Chengdu",
+            "actual_c": 39.0,
+            "meteoblue_c": 38.28,
+            "bias_corrected_c": 38.91438356164384,
+            "blend_c": 38.635000000000005,
+            "model_c": 38.76740535572021
+          },
+          {
+            "event_id": "731556",
+            "target_date": "2026-07-24",
+            "city": "Chongqing",
+            "actual_c": 40.0,
+            "meteoblue_c": 40.0,
+            "bias_corrected_c": 40.63438356164384,
+            "blend_c": 40.0,
+            "model_c": 40.59255621410385
+          },
+          {
+            "event_id": "731569",
+            "target_date": "2026-07-24",
+            "city": "Guangzhou",
+            "actual_c": 36.0,
+            "meteoblue_c": 36.0,
+            "bias_corrected_c": 36.13438356164384,
+            "blend_c": 36.0,
+            "model_c": 36.202412455955574
+          },
+          {
+            "event_id": "731570",
+            "target_date": "2026-07-24",
+            "city": "Qingdao",
+            "actual_c": 30.0,
+            "meteoblue_c": 30.0,
+            "bias_corrected_c": 30.634383561643837,
+            "blend_c": 30.225,
+            "model_c": 30.0
+          },
+          {
+            "event_id": "731550",
+            "target_date": "2026-07-24",
+            "city": "Shanghai",
+            "actual_c": 36.0,
+            "meteoblue_c": 36.0,
+            "bias_corrected_c": 36.13438356164384,
+            "blend_c": 36.0,
+            "model_c": 36.1854480448315
+          },
+          {
+            "event_id": "731558",
+            "target_date": "2026-07-24",
+            "city": "Wuhan",
+            "actual_c": 35.0,
+            "meteoblue_c": 35.0,
+            "bias_corrected_c": 35.63438356164384,
+            "blend_c": 35.0,
+            "model_c": 35.40496778813101
+          }
+        ]
+      },
+      "final_model": {
+        "train_event_days": 92,
+        "trained_through": "2026-07-24",
+        "numeric_features": [
+          "mblue",
+          "ecmwf",
+          "model_spread",
+          "mblue_revision",
+          "ecmwf_revision",
+          "observed_temp",
+          "observed_max",
+          "observed_minus_mblue",
+          "dewpoint",
+          "dewpoint_depression",
+          "wind_speed",
+          "temperature_trend_per_hour",
+          "observation_age_minutes",
+          "observation_count",
+          "latitude",
+          "longitude"
+        ],
+        "predictions": [
+          {
+            "city": "Beijing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 16,
+            "prediction_c": 31.6,
+            "predicted_bucket_c": 32,
+            "interval80_c": [
+              29.6,
+              33.6
+            ],
+            "interval90_c": [
+              29.5,
+              33.7
+            ],
+            "meteoblue_c": 31.0,
+            "ecmwf_c": 30.7,
+            "observed_max_c": 31.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chengdu",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 16,
+            "prediction_c": 40.03,
+            "predicted_bucket_c": 40,
+            "interval80_c": [
+              38.03,
+              42.03
+            ],
+            "interval90_c": [
+              37.93,
+              42.13
+            ],
+            "meteoblue_c": 39.26,
+            "ecmwf_c": 40.5,
+            "observed_max_c": 40.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Chongqing",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 16,
+            "prediction_c": 39.38,
+            "predicted_bucket_c": 39,
+            "interval80_c": [
+              37.38,
+              41.38
+            ],
+            "interval90_c": [
+              37.28,
+              41.48
+            ],
+            "meteoblue_c": 39.0,
+            "ecmwf_c": 36.9,
+            "observed_max_c": 39.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Guangzhou",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 16,
+            "prediction_c": 37.3,
+            "predicted_bucket_c": 37,
+            "interval80_c": [
+              35.3,
+              39.3
+            ],
+            "interval90_c": [
+              35.2,
+              39.4
+            ],
+            "meteoblue_c": 36.5,
+            "ecmwf_c": 35.1,
+            "observed_max_c": 37.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Qingdao",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 16,
+            "prediction_c": 31.35,
+            "predicted_bucket_c": 31,
+            "interval80_c": [
+              29.35,
+              33.35
+            ],
+            "interval90_c": [
+              29.25,
+              33.45
+            ],
+            "meteoblue_c": 31.0,
+            "ecmwf_c": 32.3,
+            "observed_max_c": 31.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Shanghai",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 16,
+            "prediction_c": 35.0,
+            "predicted_bucket_c": 35,
+            "interval80_c": [
+              33.0,
+              37.0
+            ],
+            "interval90_c": [
+              32.9,
+              37.1
+            ],
+            "meteoblue_c": 34.5,
+            "ecmwf_c": 35.0,
+            "observed_max_c": 35.0,
+            "observation_age_minutes": 0.0
+          },
+          {
+            "city": "Wuhan",
+            "target_date": "2026-07-25",
+            "cutoff_local_hour": 16,
+            "prediction_c": 36.43,
+            "predicted_bucket_c": 36,
+            "interval80_c": [
+              34.43,
+              38.43
+            ],
+            "interval90_c": [
+              34.33,
+              38.53
+            ],
+            "meteoblue_c": 36.0,
+            "ecmwf_c": 34.5,
+            "observed_max_c": 36.0,
+            "observation_age_minutes": 0.0
+          }
+        ]
+      },
+      "artifact": "data/models/weather_exact_high_1600.joblib"
+    }
+  ],
+  "preferred_cutoff_hour": 14
+}

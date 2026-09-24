@@ -1,0 +1,1298 @@
+{
+  "generatedAtUtc": "2026-08-12T09:48:55+00:00",
+  "database": "data/weather_market_monitor.sqlite3",
+  "cutoffsLocal": [
+    "10:30",
+    "11:00"
+  ],
+  "minimumPriorTrainingDates": 7,
+  "frameRows": 301,
+  "independentDates": [
+    "2026-07-22",
+    "2026-07-23",
+    "2026-07-24",
+    "2026-07-25",
+    "2026-07-26",
+    "2026-07-27",
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31",
+    "2026-08-01",
+    "2026-08-02",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06",
+    "2026-08-07",
+    "2026-08-08",
+    "2026-08-09",
+    "2026-08-10",
+    "2026-08-11",
+    "2026-08-12"
+  ],
+  "availability": {
+    "windDirection": {
+      "rows": 240,
+      "coverage": 0.7973
+    },
+    "windGust": {
+      "rows": 7,
+      "coverage": 0.0233
+    },
+    "precipitationOpenMeteoProxy": {
+      "rows": 161,
+      "coverage": 0.5349
+    },
+    "visibility": {
+      "rows": 273,
+      "coverage": 0.907
+    },
+    "solarRadiationOpenMeteoProxy": {
+      "rows": 119,
+      "coverage": 0.3953
+    }
+  },
+  "sourceNotes": {
+    "windDirection": "METAR; encoded as circular sine/cosine",
+    "windGust": "METAR; sparse gust reports plus an availability indicator",
+    "precipitation": "Open-Meteo current proxy, not a rain-gauge observation",
+    "visibility": "METAR",
+    "solarRadiation": "Open-Meteo current shortwave proxy, not station pyranometer data"
+  },
+  "results": {
+    "baseline": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7666,
+        "rmseC": 1.0409,
+        "biasC": 0.0589,
+        "centerBucketAccuracy": 0.4181,
+        "threeBucketCoverage": 0.8644
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8797,
+          "rmseC": 1.0858,
+          "biasC": -0.5996,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.75
+        },
+        "2026-07-30": {
+          "maeC": 0.6806,
+          "rmseC": 0.8032,
+          "biasC": -0.0692,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-07-31": {
+          "maeC": 1.5529,
+          "rmseC": 2.0379,
+          "biasC": -0.362,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.4286
+        },
+        "2026-08-01": {
+          "maeC": 0.7424,
+          "rmseC": 1.0457,
+          "biasC": 0.1341,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-02": {
+          "maeC": 0.4157,
+          "rmseC": 0.4883,
+          "biasC": 0.3407,
+          "centerBucketAccuracy": 0.7,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.2155,
+          "rmseC": 1.6912,
+          "biasC": -0.0871,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-04": {
+          "maeC": 0.4278,
+          "rmseC": 0.5505,
+          "biasC": -0.293,
+          "centerBucketAccuracy": 0.75,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.4702,
+          "rmseC": 0.6457,
+          "biasC": -0.0881,
+          "centerBucketAccuracy": 0.7,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5792,
+          "rmseC": 0.7306,
+          "biasC": 0.1012,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.5889,
+          "rmseC": 0.7724,
+          "biasC": 0.2598,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-08": {
+          "maeC": 1.0995,
+          "rmseC": 1.2545,
+          "biasC": -0.0841,
+          "centerBucketAccuracy": 0.1429,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-09": {
+          "maeC": 0.8768,
+          "rmseC": 1.1415,
+          "biasC": 0.5796,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-10": {
+          "maeC": 0.8431,
+          "rmseC": 0.9216,
+          "biasC": 0.3265,
+          "centerBucketAccuracy": 0.1429,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-11": {
+          "maeC": 0.5355,
+          "rmseC": 0.6537,
+          "biasC": 0.35,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": 0.0,
+        "centerBucketAccuracy": 0.0,
+        "threeBucketCoverage": 0.0
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 0,
+        "centerBucketAccuracy": 0,
+        "threeBucketCoverage": 0,
+        "evaluatedDates": 14
+      }
+    },
+    "wind_direction": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7674,
+        "rmseC": 1.0407,
+        "biasC": 0.0226,
+        "centerBucketAccuracy": 0.4633,
+        "threeBucketCoverage": 0.8757
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8559,
+          "rmseC": 1.0397,
+          "biasC": -0.5304,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.8333
+        },
+        "2026-07-30": {
+          "maeC": 0.6656,
+          "rmseC": 0.809,
+          "biasC": -0.0799,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-07-31": {
+          "maeC": 1.4955,
+          "rmseC": 2.0175,
+          "biasC": -0.5389,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.5714
+        },
+        "2026-08-01": {
+          "maeC": 0.5947,
+          "rmseC": 0.8836,
+          "biasC": 0.0274,
+          "centerBucketAccuracy": 0.6429,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-02": {
+          "maeC": 0.3364,
+          "rmseC": 0.409,
+          "biasC": 0.2833,
+          "centerBucketAccuracy": 0.9,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.1423,
+          "rmseC": 1.643,
+          "biasC": -0.0384,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-04": {
+          "maeC": 0.6272,
+          "rmseC": 0.7202,
+          "biasC": -0.3266,
+          "centerBucketAccuracy": 0.4167,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.5602,
+          "rmseC": 0.7199,
+          "biasC": 0.0331,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5602,
+          "rmseC": 0.7033,
+          "biasC": 0.0751,
+          "centerBucketAccuracy": 0.5714,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.6931,
+          "rmseC": 0.9052,
+          "biasC": 0.0355,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-08": {
+          "maeC": 1.0965,
+          "rmseC": 1.2392,
+          "biasC": -0.295,
+          "centerBucketAccuracy": 0.1429,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-09": {
+          "maeC": 1.0809,
+          "rmseC": 1.2874,
+          "biasC": 0.593,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-10": {
+          "maeC": 0.7376,
+          "rmseC": 0.8984,
+          "biasC": 0.3656,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-11": {
+          "maeC": 0.4717,
+          "rmseC": 0.5902,
+          "biasC": 0.3806,
+          "centerBucketAccuracy": 0.6429,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": 0.0008,
+        "centerBucketAccuracy": 0.0452,
+        "threeBucketCoverage": 0.0113
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 10,
+        "centerBucketAccuracy": 9,
+        "threeBucketCoverage": 3,
+        "evaluatedDates": 14
+      }
+    },
+    "wind_gust": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7737,
+        "rmseC": 1.0445,
+        "biasC": 0.0649,
+        "centerBucketAccuracy": 0.4181,
+        "threeBucketCoverage": 0.8701
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8754,
+          "rmseC": 1.0821,
+          "biasC": -0.5931,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.75
+        },
+        "2026-07-30": {
+          "maeC": 0.664,
+          "rmseC": 0.7915,
+          "biasC": -0.0556,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-07-31": {
+          "maeC": 1.5621,
+          "rmseC": 2.0406,
+          "biasC": -0.371,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.4286
+        },
+        "2026-08-01": {
+          "maeC": 0.7433,
+          "rmseC": 1.0456,
+          "biasC": 0.102,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-02": {
+          "maeC": 0.423,
+          "rmseC": 0.4947,
+          "biasC": 0.3448,
+          "centerBucketAccuracy": 0.7,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.2131,
+          "rmseC": 1.6959,
+          "biasC": -0.0769,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-04": {
+          "maeC": 0.4258,
+          "rmseC": 0.5475,
+          "biasC": -0.2917,
+          "centerBucketAccuracy": 0.8333,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.4773,
+          "rmseC": 0.6483,
+          "biasC": -0.0818,
+          "centerBucketAccuracy": 0.7,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.586,
+          "rmseC": 0.739,
+          "biasC": 0.1049,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.6072,
+          "rmseC": 0.7926,
+          "biasC": 0.2492,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-08": {
+          "maeC": 1.1016,
+          "rmseC": 1.2547,
+          "biasC": -0.081,
+          "centerBucketAccuracy": 0.1429,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-09": {
+          "maeC": 0.9568,
+          "rmseC": 1.1719,
+          "biasC": 0.6596,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-10": {
+          "maeC": 0.8351,
+          "rmseC": 0.9141,
+          "biasC": 0.3193,
+          "centerBucketAccuracy": 0.1429,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-11": {
+          "maeC": 0.5357,
+          "rmseC": 0.6488,
+          "biasC": 0.3545,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": 0.0071,
+        "centerBucketAccuracy": 0.0,
+        "threeBucketCoverage": 0.0057
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 5,
+        "centerBucketAccuracy": 2,
+        "threeBucketCoverage": 1,
+        "evaluatedDates": 14
+      }
+    },
+    "precipitation": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7637,
+        "rmseC": 1.029,
+        "biasC": 0.0872,
+        "centerBucketAccuracy": 0.4124,
+        "threeBucketCoverage": 0.8814
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8381,
+          "rmseC": 0.9825,
+          "biasC": -0.4554,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.8333
+        },
+        "2026-07-30": {
+          "maeC": 0.7224,
+          "rmseC": 0.8177,
+          "biasC": 0.2108,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-07-31": {
+          "maeC": 1.4489,
+          "rmseC": 1.8894,
+          "biasC": -0.608,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.5714
+        },
+        "2026-08-01": {
+          "maeC": 0.8519,
+          "rmseC": 1.1045,
+          "biasC": 0.0828,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-02": {
+          "maeC": 0.4312,
+          "rmseC": 0.5183,
+          "biasC": 0.3884,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.1855,
+          "rmseC": 1.7083,
+          "biasC": -0.0209,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-04": {
+          "maeC": 0.4068,
+          "rmseC": 0.5238,
+          "biasC": -0.2261,
+          "centerBucketAccuracy": 0.75,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.4726,
+          "rmseC": 0.6417,
+          "biasC": -0.1078,
+          "centerBucketAccuracy": 0.7,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5858,
+          "rmseC": 0.7337,
+          "biasC": 0.0865,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.6013,
+          "rmseC": 0.788,
+          "biasC": 0.2452,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-08": {
+          "maeC": 1.0821,
+          "rmseC": 1.2398,
+          "biasC": -0.0615,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-09": {
+          "maeC": 0.8877,
+          "rmseC": 1.1455,
+          "biasC": 0.5615,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-10": {
+          "maeC": 0.7777,
+          "rmseC": 0.9044,
+          "biasC": 0.2992,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-11": {
+          "maeC": 0.5238,
+          "rmseC": 0.6483,
+          "biasC": 0.387,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": -0.0029,
+        "centerBucketAccuracy": -0.0057,
+        "threeBucketCoverage": 0.017
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 7,
+        "centerBucketAccuracy": 2,
+        "threeBucketCoverage": 4,
+        "evaluatedDates": 14
+      }
+    },
+    "visibility": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7257,
+        "rmseC": 0.9857,
+        "biasC": 0.0274,
+        "centerBucketAccuracy": 0.4407,
+        "threeBucketCoverage": 0.8927
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8854,
+          "rmseC": 1.0876,
+          "biasC": -0.5919,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.75
+        },
+        "2026-07-30": {
+          "maeC": 0.7297,
+          "rmseC": 0.7983,
+          "biasC": -0.0551,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-07-31": {
+          "maeC": 1.3781,
+          "rmseC": 2.0177,
+          "biasC": -0.625,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.5714
+        },
+        "2026-08-01": {
+          "maeC": 0.8086,
+          "rmseC": 1.0865,
+          "biasC": -0.0172,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-02": {
+          "maeC": 0.4337,
+          "rmseC": 0.5204,
+          "biasC": 0.3918,
+          "centerBucketAccuracy": 0.7,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.0236,
+          "rmseC": 1.3796,
+          "biasC": -0.1241,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-04": {
+          "maeC": 0.4762,
+          "rmseC": 0.595,
+          "biasC": -0.0576,
+          "centerBucketAccuracy": 0.8333,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.4084,
+          "rmseC": 0.5346,
+          "biasC": -0.009,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5767,
+          "rmseC": 0.7116,
+          "biasC": 0.1313,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.5993,
+          "rmseC": 0.7518,
+          "biasC": 0.2225,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-08": {
+          "maeC": 0.9623,
+          "rmseC": 1.2258,
+          "biasC": -0.3203,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-09": {
+          "maeC": 0.7429,
+          "rmseC": 1.0339,
+          "biasC": 0.5069,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-10": {
+          "maeC": 0.7819,
+          "rmseC": 0.9072,
+          "biasC": 0.2172,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-11": {
+          "maeC": 0.492,
+          "rmseC": 0.5878,
+          "biasC": 0.3803,
+          "centerBucketAccuracy": 0.6429,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": -0.0409,
+        "centerBucketAccuracy": 0.0226,
+        "threeBucketCoverage": 0.0283
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 8,
+        "centerBucketAccuracy": 5,
+        "threeBucketCoverage": 5,
+        "evaluatedDates": 14
+      }
+    },
+    "solar_radiation": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7678,
+        "rmseC": 1.0456,
+        "biasC": 0.0683,
+        "centerBucketAccuracy": 0.4237,
+        "threeBucketCoverage": 0.8757
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8712,
+          "rmseC": 1.0715,
+          "biasC": -0.5536,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.75
+        },
+        "2026-07-30": {
+          "maeC": 0.6746,
+          "rmseC": 0.8045,
+          "biasC": 0.0452,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-07-31": {
+          "maeC": 1.5437,
+          "rmseC": 2.082,
+          "biasC": -0.4827,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.5714
+        },
+        "2026-08-01": {
+          "maeC": 0.7318,
+          "rmseC": 1.0402,
+          "biasC": 0.1275,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-02": {
+          "maeC": 0.4462,
+          "rmseC": 0.52,
+          "biasC": 0.3559,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.212,
+          "rmseC": 1.6858,
+          "biasC": -0.0903,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-04": {
+          "maeC": 0.4451,
+          "rmseC": 0.5639,
+          "biasC": -0.2887,
+          "centerBucketAccuracy": 0.75,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.4791,
+          "rmseC": 0.6475,
+          "biasC": -0.0886,
+          "centerBucketAccuracy": 0.7,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5776,
+          "rmseC": 0.7334,
+          "biasC": 0.1022,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.5794,
+          "rmseC": 0.7654,
+          "biasC": 0.2544,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-08": {
+          "maeC": 1.1208,
+          "rmseC": 1.2723,
+          "biasC": -0.0886,
+          "centerBucketAccuracy": 0.1429,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-09": {
+          "maeC": 0.8714,
+          "rmseC": 1.138,
+          "biasC": 0.5733,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.7143
+        },
+        "2026-08-10": {
+          "maeC": 0.8378,
+          "rmseC": 0.9183,
+          "biasC": 0.3232,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-11": {
+          "maeC": 0.541,
+          "rmseC": 0.6734,
+          "biasC": 0.3888,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": 0.0012,
+        "centerBucketAccuracy": 0.0056,
+        "threeBucketCoverage": 0.0113
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 9,
+        "centerBucketAccuracy": 2,
+        "threeBucketCoverage": 2,
+        "evaluatedDates": 14
+      }
+    },
+    "wind_direction_visibility": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7314,
+        "rmseC": 0.9829,
+        "biasC": -0.0074,
+        "centerBucketAccuracy": 0.435,
+        "threeBucketCoverage": 0.887
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8667,
+          "rmseC": 1.0396,
+          "biasC": -0.5204,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.8333
+        },
+        "2026-07-30": {
+          "maeC": 0.7645,
+          "rmseC": 0.8501,
+          "biasC": -0.0685,
+          "centerBucketAccuracy": 0.2143,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-07-31": {
+          "maeC": 1.5032,
+          "rmseC": 2.0432,
+          "biasC": -0.816,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.5714
+        },
+        "2026-08-01": {
+          "maeC": 0.6261,
+          "rmseC": 0.8605,
+          "biasC": -0.0825,
+          "centerBucketAccuracy": 0.6429,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-02": {
+          "maeC": 0.3922,
+          "rmseC": 0.4776,
+          "biasC": 0.3358,
+          "centerBucketAccuracy": 0.8,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 0.9681,
+          "rmseC": 1.341,
+          "biasC": -0.0765,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-04": {
+          "maeC": 0.5221,
+          "rmseC": 0.6126,
+          "biasC": -0.0934,
+          "centerBucketAccuracy": 0.4167,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.5088,
+          "rmseC": 0.642,
+          "biasC": 0.1107,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5761,
+          "rmseC": 0.6883,
+          "biasC": 0.1124,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.7388,
+          "rmseC": 0.8964,
+          "biasC": 0.0186,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-08": {
+          "maeC": 0.9731,
+          "rmseC": 1.2212,
+          "biasC": -0.4992,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-09": {
+          "maeC": 0.8588,
+          "rmseC": 1.135,
+          "biasC": 0.4405,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-10": {
+          "maeC": 0.6856,
+          "rmseC": 0.8881,
+          "biasC": 0.2576,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-11": {
+          "maeC": 0.47,
+          "rmseC": 0.5606,
+          "biasC": 0.4187,
+          "centerBucketAccuracy": 0.6429,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": -0.0352,
+        "centerBucketAccuracy": 0.0169,
+        "threeBucketCoverage": 0.0226
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 10,
+        "centerBucketAccuracy": 6,
+        "threeBucketCoverage": 4,
+        "evaluatedDates": 14
+      }
+    },
+    "visibility_precipitation": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7311,
+        "rmseC": 0.9951,
+        "biasC": 0.0565,
+        "centerBucketAccuracy": 0.4407,
+        "threeBucketCoverage": 0.887
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.859,
+          "rmseC": 1.0087,
+          "biasC": -0.4918,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.8333
+        },
+        "2026-07-30": {
+          "maeC": 0.6503,
+          "rmseC": 0.7754,
+          "biasC": 0.1964,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-07-31": {
+          "maeC": 1.6386,
+          "rmseC": 2.0603,
+          "biasC": -0.7987,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.4286
+        },
+        "2026-08-01": {
+          "maeC": 0.814,
+          "rmseC": 1.1345,
+          "biasC": -0.0098,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 0.6429
+        },
+        "2026-08-02": {
+          "maeC": 0.4429,
+          "rmseC": 0.5406,
+          "biasC": 0.4172,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.039,
+          "rmseC": 1.4487,
+          "biasC": -0.0717,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-04": {
+          "maeC": 0.4855,
+          "rmseC": 0.5937,
+          "biasC": -0.0439,
+          "centerBucketAccuracy": 0.75,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.4123,
+          "rmseC": 0.5372,
+          "biasC": -0.0197,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5769,
+          "rmseC": 0.7143,
+          "biasC": 0.1245,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.6079,
+          "rmseC": 0.7598,
+          "biasC": 0.2194,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-08": {
+          "maeC": 0.9404,
+          "rmseC": 1.2146,
+          "biasC": -0.3037,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-09": {
+          "maeC": 0.751,
+          "rmseC": 1.0387,
+          "biasC": 0.504,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-10": {
+          "maeC": 0.7761,
+          "rmseC": 0.9052,
+          "biasC": 0.2345,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.9286
+        },
+        "2026-08-11": {
+          "maeC": 0.5047,
+          "rmseC": 0.5987,
+          "biasC": 0.3948,
+          "centerBucketAccuracy": 0.6429,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": -0.0355,
+        "centerBucketAccuracy": 0.0226,
+        "threeBucketCoverage": 0.0226
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 9,
+        "centerBucketAccuracy": 4,
+        "threeBucketCoverage": 5,
+        "evaluatedDates": 14
+      }
+    },
+    "all_five": {
+      "events": 177,
+      "dates": [
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-01",
+        "2026-08-02",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "metrics": {
+        "maeC": 0.7508,
+        "rmseC": 1.0058,
+        "biasC": 0.0193,
+        "centerBucketAccuracy": 0.4633,
+        "threeBucketCoverage": 0.8814
+      },
+      "dailyMetrics": {
+        "2026-07-29": {
+          "maeC": 0.8556,
+          "rmseC": 0.9944,
+          "biasC": -0.4457,
+          "centerBucketAccuracy": 0.3333,
+          "threeBucketCoverage": 0.8333
+        },
+        "2026-07-30": {
+          "maeC": 0.7767,
+          "rmseC": 0.8751,
+          "biasC": 0.1509,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-07-31": {
+          "maeC": 1.6058,
+          "rmseC": 2.0041,
+          "biasC": -0.8717,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.4286
+        },
+        "2026-08-01": {
+          "maeC": 0.6904,
+          "rmseC": 0.9583,
+          "biasC": -0.0907,
+          "centerBucketAccuracy": 0.6429,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-02": {
+          "maeC": 0.4279,
+          "rmseC": 0.5163,
+          "biasC": 0.3719,
+          "centerBucketAccuracy": 0.8,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-03": {
+          "maeC": 1.0063,
+          "rmseC": 1.434,
+          "biasC": -0.0489,
+          "centerBucketAccuracy": 0.2857,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-04": {
+          "maeC": 0.514,
+          "rmseC": 0.6006,
+          "biasC": -0.1117,
+          "centerBucketAccuracy": 0.5,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-05": {
+          "maeC": 0.5007,
+          "rmseC": 0.6423,
+          "biasC": 0.1034,
+          "centerBucketAccuracy": 0.6,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-06": {
+          "maeC": 0.5743,
+          "rmseC": 0.6941,
+          "biasC": 0.1085,
+          "centerBucketAccuracy": 0.4286,
+          "threeBucketCoverage": 1.0
+        },
+        "2026-08-07": {
+          "maeC": 0.7661,
+          "rmseC": 0.9276,
+          "biasC": 0.0223,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-08": {
+          "maeC": 0.9349,
+          "rmseC": 1.1871,
+          "biasC": -0.487,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-09": {
+          "maeC": 0.8962,
+          "rmseC": 1.164,
+          "biasC": 0.4407,
+          "centerBucketAccuracy": 0.3571,
+          "threeBucketCoverage": 0.8571
+        },
+        "2026-08-10": {
+          "maeC": 0.7539,
+          "rmseC": 0.9952,
+          "biasC": 0.3104,
+          "centerBucketAccuracy": 0.5714,
+          "threeBucketCoverage": 0.7857
+        },
+        "2026-08-11": {
+          "maeC": 0.4529,
+          "rmseC": 0.5497,
+          "biasC": 0.4118,
+          "centerBucketAccuracy": 0.7143,
+          "threeBucketCoverage": 1.0
+        }
+      },
+      "deltaVsBaseline": {
+        "maeC": -0.0158,
+        "centerBucketAccuracy": 0.0452,
+        "threeBucketCoverage": 0.017
+      },
+      "dailyWinsVsBaseline": {
+        "mae": 7,
+        "centerBucketAccuracy": 6,
+        "threeBucketCoverage": 5,
+        "evaluatedDates": 14
+      }
+    }
+  }
+}

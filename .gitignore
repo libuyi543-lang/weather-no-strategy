@@ -18,5 +18,9 @@ node_modules/
 dist/
 .DS_Store
 tmp/
-output/
-research/output/
+/output/
+# Research reports are published; rebuildable caches and per-fill dumps are not.
+research/output/*cache*
+research/output/*_fills.csv
+research/output/weather_dynamic_rebalance_backtest.json
+research/output/weather_exact_high_model_v2_report.json

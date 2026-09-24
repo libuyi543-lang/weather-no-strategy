@@ -1,0 +1,1475 @@
+{
+  "generated_at_utc": "2026-08-04T08:34:49.458675+00:00",
+  "method": {
+    "cutoff_local": "11:00",
+    "independent_unit": "target_date",
+    "candidate_rules": 30,
+    "full_dates": 15,
+    "training_score": "mean daily net return; missing date is zero",
+    "warning": "Historical robustness only; not an out-of-sample live result."
+  },
+  "dates": [
+    "2026-07-20",
+    "2026-07-21",
+    "2026-07-22",
+    "2026-07-23",
+    "2026-07-24",
+    "2026-07-25",
+    "2026-07-26",
+    "2026-07-27",
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31",
+    "2026-08-01",
+    "2026-08-02",
+    "2026-08-03"
+  ],
+  "full_sample_best_rule": "5/20/5|lowest_center_lead",
+  "full_sample_best_metrics": {
+    "events": 15,
+    "independent_dates": 15,
+    "total_notional": 164.5489,
+    "total_fees": 4.996590689875,
+    "total_cost": 169.545490689875,
+    "total_pnl": 70.454509310125,
+    "pnl_per_event": 4.696967287341667,
+    "roi": 0.4155492960824138,
+    "average_event_cost": 11.303032712658334,
+    "max_event_cost": 13.007415306775,
+    "max_daily_cost": 13.007415306775,
+    "profitable_dates": 11,
+    "worst_date_pnl": -7.43561875,
+    "best_date_pnl": 9.964534,
+    "max_date_drawdown": 11.95286875,
+    "max_consecutive_losing_dates": 2,
+    "date_block_bootstrap_pnl_per_event": {
+      "p05": 1.7856531462150005,
+      "median": 4.75280428875,
+      "p95": 7.376520157815
+    }
+  },
+  "leave_one_date_out": {
+    "metrics": {
+      "events": 15,
+      "independent_dates": 15,
+      "total_notional": 162.0091,
+      "total_fees": 4.953816659775,
+      "total_cost": 166.962916659775,
+      "total_pnl": 18.037083340225,
+      "pnl_per_event": 1.2024722226816666,
+      "roi": 0.10803047587494934,
+      "average_event_cost": 11.130861110651667,
+      "max_event_cost": 13.007415306775,
+      "max_daily_cost": 13.007415306775,
+      "profitable_dates": 8,
+      "worst_date_pnl": -10.8084747199,
+      "best_date_pnl": 9.964534,
+      "max_date_drawdown": 18.68566875,
+      "max_consecutive_losing_dates": 3,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -2.3046878381933333,
+        "median": 1.1975109292233332,
+        "p95": 4.608973923310001
+      }
+    },
+    "audit": [
+      {
+        "test_date": "2026-07-20",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.47988647928998235,
+        "test_city": "Beijing",
+        "test_pnl": -4.517250000000001
+      },
+      {
+        "test_date": "2026-07-21",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.4886929776452706,
+        "test_city": "Beijing",
+        "test_pnl": -7.43561875
+      },
+      {
+        "test_date": "2026-07-22",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_cost",
+        "training_mean_daily_return": 0.4039334800529268,
+        "test_city": "Chengdu",
+        "test_pnl": -6.732800000000001
+      },
+      {
+        "test_date": "2026-07-23",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.37915165823308056,
+        "test_city": "Beijing",
+        "test_pnl": 9.66755
+      },
+      {
+        "test_date": "2026-07-24",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.48699609122062604,
+        "test_city": "Beijing",
+        "test_pnl": -6.7418499999999995
+      },
+      {
+        "test_date": "2026-07-25",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.4075848618134429,
+        "test_city": "Wuhan",
+        "test_pnl": 6.992584693225
+      },
+      {
+        "test_date": "2026-07-26",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.3755943535466312,
+        "test_city": "Wuhan",
+        "test_pnl": 9.926725000000001
+      },
+      {
+        "test_date": "2026-07-27",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.40315237672819354,
+        "test_city": "Wuhan",
+        "test_pnl": 7.497181230399999
+      },
+      {
+        "test_date": "2026-07-28",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.37506004894225503,
+        "test_city": "Chongqing",
+        "test_pnl": 9.964534
+      },
+      {
+        "test_date": "2026-07-29",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_max_spread",
+        "training_mean_daily_return": 0.4685447869718458,
+        "test_city": "Chengdu",
+        "test_pnl": -10.8084747199
+      },
+      {
+        "test_date": "2026-07-30",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.39864498472071686,
+        "test_city": "Beijing",
+        "test_pnl": 7.971681250000001
+      },
+      {
+        "test_date": "2026-07-31",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_cost",
+        "training_mean_daily_return": 0.43437317536375264,
+        "test_city": "Guangzhou",
+        "test_pnl": -10.297695000000001
+      },
+      {
+        "test_date": "2026-08-01",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.4814297537917306,
+        "test_city": "Chengdu",
+        "test_pnl": -4.925440095100001
+      },
+      {
+        "test_date": "2026-08-02",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.39456567346328103,
+        "test_city": "Guangzhou",
+        "test_pnl": 8.371099999999998
+      },
+      {
+        "test_date": "2026-08-03",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.38629231492748517,
+        "test_city": "Guangzhou",
+        "test_pnl": 9.1048557316
+      }
+    ]
+  },
+  "rolling_origin": {
+    "metrics": {
+      "events": 8,
+      "independent_dates": 8,
+      "total_notional": 93.0804,
+      "total_fees": 2.7889728634999997,
+      "total_cost": 95.8693728635,
+      "total_pnl": -0.8693728635000042,
+      "pnl_per_event": -0.10867160793750053,
+      "roi": -0.00906830656687228,
+      "average_event_cost": 11.9836716079375,
+      "max_event_cost": 14.5176272,
+      "max_daily_cost": 14.5176272,
+      "profitable_dates": 4,
+      "worst_date_pnl": -12.918964135920001,
+      "best_date_pnl": 10.4823728,
+      "max_date_drawdown": 19.779500787420005,
+      "max_consecutive_losing_dates": 2,
+      "date_block_bootstrap_pnl_per_event": {
+        "p05": -5.5454069711325005,
+        "median": -0.10938939853750074,
+        "p95": 5.1500948840525
+      }
+    },
+    "audit": [
+      {
+        "test_date": "2026-07-27",
+        "training_dates": 7,
+        "selected_rule": "5/25/5|highest_center_lead",
+        "training_mean_daily_return": 0.3123990504405029,
+        "test_city": "Qingdao",
+        "test_pnl": -9.048200607679998
+      },
+      {
+        "test_date": "2026-07-28",
+        "training_dates": 8,
+        "selected_rule": "5/25/5|lowest_max_spread",
+        "training_mean_daily_return": 0.37382455045265905,
+        "test_city": "Beijing",
+        "test_pnl": 10.4823728
+      },
+      {
+        "test_date": "2026-07-29",
+        "training_dates": 9,
+        "selected_rule": "5/25/5|lowest_max_spread",
+        "training_mean_daily_return": 0.4125156554006625,
+        "test_city": "Chengdu",
+        "test_pnl": -12.918964135920001
+      },
+      {
+        "test_date": "2026-07-30",
+        "training_dates": 10,
+        "selected_rule": "5/20/5|lowest_cost",
+        "training_mean_daily_return": 0.43033384789471507,
+        "test_city": "Chongqing",
+        "test_pnl": 8.362598443599998
+      },
+      {
+        "test_date": "2026-07-31",
+        "training_dates": 11,
+        "selected_rule": "5/20/5|lowest_cost",
+        "training_mean_daily_return": 0.4565395624145635,
+        "test_city": "Guangzhou",
+        "test_pnl": -10.297695000000001
+      },
+      {
+        "test_date": "2026-08-01",
+        "training_dates": 12,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.43204027370806325,
+        "test_city": "Chengdu",
+        "test_pnl": -4.925440095100001
+      },
+      {
+        "test_date": "2026-08-02",
+        "training_dates": 13,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.3606337911108945,
+        "test_city": "Guangzhou",
+        "test_pnl": 8.371099999999998
+      },
+      {
+        "test_date": "2026-08-03",
+        "training_dates": 14,
+        "selected_rule": "5/20/5|lowest_center_lead",
+        "training_mean_daily_return": 0.38629231492748517,
+        "test_city": "Guangzhou",
+        "test_pnl": 9.1048557316
+      }
+    ]
+  },
+  "focus_rules": {
+    "5/10/5|lowest_center_lead": {
+      "metrics": {
+        "events": 15,
+        "independent_dates": 15,
+        "total_notional": 101.8152,
+        "total_fees": 3.199770288,
+        "total_cost": 105.014970288,
+        "total_pnl": 24.985029712,
+        "pnl_per_event": 1.6656686474666667,
+        "roi": 0.23791874285617948,
+        "average_event_cost": 7.0009980192,
+        "max_event_cost": 7.7786187696,
+        "max_daily_cost": 7.7786187696,
+        "profitable_dates": 11,
+        "worst_date_pnl": -2.3192999999999993,
+        "best_date_pnl": 3.659477,
+        "max_date_drawdown": 3.4172624999999996,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 0.7186120308799999,
+          "median": 1.6880534795733337,
+          "p95": 2.53047153088
+        }
+      },
+      "first_half": {
+        "events": 7,
+        "independent_dates": 7,
+        "total_notional": 47.52,
+        "total_fees": 1.4947905,
+        "total_cost": 49.0147905,
+        "total_pnl": 5.985209500000001,
+        "pnl_per_event": 0.8550299285714287,
+        "roi": 0.12211027404064904,
+        "average_event_cost": 7.002112928571428,
+        "max_event_cost": 7.680303,
+        "max_daily_cost": 7.680303,
+        "profitable_dates": 4,
+        "worst_date_pnl": -2.3192999999999993,
+        "best_date_pnl": 3.6419250000000005,
+        "max_date_drawdown": 3.4172624999999996,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": -0.6807754285714284,
+          "median": 0.8537817142857145,
+          "p95": 2.3549785714285716
+        }
+      },
+      "second_half": {
+        "events": 8,
+        "independent_dates": 8,
+        "total_notional": 54.2952,
+        "total_fees": 1.704979788,
+        "total_cost": 56.000179788,
+        "total_pnl": 18.999820212,
+        "pnl_per_event": 2.3749775265,
+        "roi": 0.33928141452273297,
+        "average_event_cost": 7.0000224735,
+        "max_event_cost": 7.7786187696,
+        "max_daily_cost": 7.7786187696,
+        "profitable_dates": 7,
+        "worst_date_pnl": -1.3102625000000003,
+        "best_date_pnl": 3.659477,
+        "max_date_drawdown": 1.3102625000000003,
+        "max_consecutive_losing_dates": 1,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 1.4011038390000004,
+          "median": 2.4216395576,
+          "p95": 3.0742447788000007
+        }
+      },
+      "outcome_legs": {
+        "outside": 0,
+        "lower": 0,
+        "center": 11,
+        "upper": 4
+      },
+      "leave_one_city_out": {
+        "Beijing": {
+          "events": 10,
+          "independent_dates": 10,
+          "total_notional": 68.2152,
+          "total_fees": 2.1407452879999997,
+          "total_cost": 70.355945288,
+          "total_pnl": 24.644054712,
+          "pnl_per_event": 2.4644054712,
+          "roi": 0.3502767905557986,
+          "average_event_cost": 7.0355945288,
+          "max_event_cost": 7.7786187696,
+          "max_daily_cost": 7.7786187696,
+          "profitable_dates": 9,
+          "worst_date_pnl": -1.3102625000000003,
+          "best_date_pnl": 3.659477,
+          "max_date_drawdown": 1.3102625000000003,
+          "max_consecutive_losing_dates": 1,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 1.6791980712,
+            "median": 2.5059504712,
+            "p95": 3.0691735424
+          }
+        },
+        "Chengdu": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 95.7152,
+          "total_fees": 2.989507788,
+          "total_cost": 98.704707788,
+          "total_pnl": 26.295292212,
+          "pnl_per_event": 1.878235158,
+          "roi": 0.26640362756027375,
+          "average_event_cost": 7.050336270571428,
+          "max_event_cost": 7.7786187696,
+          "max_daily_cost": 7.7786187696,
+          "profitable_dates": 11,
+          "worst_date_pnl": -2.3192999999999993,
+          "best_date_pnl": 3.659477,
+          "max_date_drawdown": 3.4172624999999996,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.9248609450285714,
+            "median": 1.9069439972000002,
+            "p95": 2.720073211657143
+          }
+        },
+        "Chongqing": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 95.6852,
+          "total_fees": 2.989247288,
+          "total_cost": 98.674447288,
+          "total_pnl": 21.325552712,
+          "pnl_per_event": 1.5232537651428573,
+          "roi": 0.21612031582763622,
+          "average_event_cost": 7.048174806285714,
+          "max_event_cost": 7.7786187696,
+          "max_daily_cost": 7.7786187696,
+          "profitable_dates": 10,
+          "worst_date_pnl": -2.3192999999999993,
+          "best_date_pnl": 3.6419250000000005,
+          "max_date_drawdown": 3.4172624999999996,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.5483986593142856,
+            "median": 1.5410038021714285,
+            "p95": 2.4321571058285714
+          }
+        },
+        "Guangzhou": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 88.3548,
+          "total_fees": 2.7793322696,
+          "total_cost": 91.1341322696,
+          "total_pnl": 18.8658677304,
+          "pnl_per_event": 1.451220594646154,
+          "roi": 0.20701209591363134,
+          "average_event_cost": 7.010317866892308,
+          "max_event_cost": 7.7786187696,
+          "max_daily_cost": 7.7786187696,
+          "profitable_dates": 9,
+          "worst_date_pnl": -2.3192999999999993,
+          "best_date_pnl": 3.659477,
+          "max_date_drawdown": 3.4172624999999996,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.39963509464615393,
+            "median": 1.466792612369231,
+            "p95": 2.422640689292308
+          }
+        },
+        "Qingdao": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 94.5152,
+          "total_fees": 2.978620288,
+          "total_cost": 97.493820288,
+          "total_pnl": 22.506179712,
+          "pnl_per_event": 1.6075842651428573,
+          "roi": 0.23084724391265002,
+          "average_event_cost": 6.963844306285714,
+          "max_event_cost": 7.7786187696,
+          "max_daily_cost": 7.7786187696,
+          "profitable_dates": 10,
+          "worst_date_pnl": -2.3192999999999993,
+          "best_date_pnl": 3.659477,
+          "max_date_drawdown": 3.4172624999999996,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.598612642857143,
+            "median": 1.6298923915428571,
+            "p95": 2.5302537458857146
+          }
+        },
+        "Wuhan": {
+          "events": 10,
+          "independent_dates": 10,
+          "total_notional": 66.5904,
+          "total_fees": 2.1213985184,
+          "total_cost": 68.7117985184,
+          "total_pnl": 11.288201481599998,
+          "pnl_per_event": 1.1288201481599998,
+          "roi": 0.16428330687017578,
+          "average_event_cost": 6.87117985184,
+          "max_event_cost": 7.5211500000000004,
+          "max_daily_cost": 7.5211500000000004,
+          "profitable_dates": 6,
+          "worst_date_pnl": -2.3192999999999993,
+          "best_date_pnl": 3.659477,
+          "max_date_drawdown": 3.4172624999999996,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": -0.1753150518400001,
+            "median": 1.1409499481599998,
+            "p95": 2.32757379448
+          }
+        }
+      }
+    },
+    "5/15/5|lowest_center_lead": {
+      "metrics": {
+        "events": 15,
+        "independent_dates": 15,
+        "total_notional": 133.0952,
+        "total_fees": 4.097624288,
+        "total_cost": 137.192824288,
+        "total_pnl": 47.807175712,
+        "pnl_per_event": 3.1871450474666667,
+        "roi": 0.34846702777720723,
+        "average_event_cost": 9.146188285866666,
+        "max_event_cost": 10.342713666666667,
+        "max_daily_cost": 10.342713666666667,
+        "profitable_dates": 11,
+        "worst_date_pnl": -4.873099999999999,
+        "best_date_pnl": 6.822150333333333,
+        "max_date_drawdown": 7.685074999999999,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 1.258630437582222,
+          "median": 3.2277219783466666,
+          "p95": 4.955039464213333
+        }
+      },
+      "first_half": {
+        "events": 7,
+        "independent_dates": 7,
+        "total_notional": 62.17,
+        "total_fees": 1.9123636666666666,
+        "total_cost": 64.08236366666667,
+        "total_pnl": 10.917636333333332,
+        "pnl_per_event": 1.5596623333333333,
+        "roi": 0.17036881457935818,
+        "average_event_cost": 9.154623380952382,
+        "max_event_cost": 10.342713666666667,
+        "max_daily_cost": 10.342713666666667,
+        "profitable_dates": 4,
+        "worst_date_pnl": -4.873099999999999,
+        "best_date_pnl": 6.784324999999999,
+        "max_date_drawdown": 7.685074999999999,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": -1.502891238095238,
+          "median": 1.5464535714285716,
+          "p95": 4.546976619047618
+        }
+      },
+      "second_half": {
+        "events": 8,
+        "independent_dates": 8,
+        "total_notional": 70.9252,
+        "total_fees": 2.185260621333333,
+        "total_cost": 73.11046062133333,
+        "total_pnl": 36.88953937866667,
+        "pnl_per_event": 4.611192422333334,
+        "roi": 0.5045726571158061,
+        "average_event_cost": 9.138807577666666,
+        "max_event_cost": 10.229791666666667,
+        "max_daily_cost": 10.229791666666667,
+        "profitable_dates": 7,
+        "worst_date_pnl": -3.117141666666667,
+        "best_date_pnl": 6.822150333333333,
+        "max_date_drawdown": 3.117141666666665,
+        "max_consecutive_losing_dates": 1,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 2.5254186620666665,
+          "median": 4.6817863704,
+          "p95": 5.976364666666667
+        }
+      },
+      "outcome_legs": {
+        "outside": 0,
+        "lower": 0,
+        "center": 11,
+        "upper": 4
+      },
+      "leave_one_city_out": {
+        "Beijing": {
+          "events": 10,
+          "independent_dates": 10,
+          "total_notional": 89.0952,
+          "total_fees": 2.740357621333333,
+          "total_cost": 91.83555762133334,
+          "total_pnl": 48.164442378666664,
+          "pnl_per_event": 4.8164442378666665,
+          "roi": 0.5244639835178405,
+          "average_event_cost": 9.183555762133334,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 9,
+          "worst_date_pnl": -3.117141666666667,
+          "best_date_pnl": 6.822150333333333,
+          "max_date_drawdown": 3.1171416666666687,
+          "max_consecutive_losing_dates": 1,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 3.1505392666666667,
+            "median": 4.887298246079999,
+            "p95": 5.972466648159999
+          }
+        },
+        "Chengdu": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 125.2452,
+          "total_fees": 3.830482621333333,
+          "total_cost": 129.07568262133333,
+          "total_pnl": 50.924317378666665,
+          "pnl_per_event": 3.6374512413333333,
+          "roi": 0.39453068420379606,
+          "average_event_cost": 9.219691615809523,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 11,
+          "worst_date_pnl": -4.873099999999999,
+          "best_date_pnl": 6.822150333333333,
+          "max_date_drawdown": 7.685074999999999,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 1.6926843439238095,
+            "median": 3.6809488439238094,
+            "p95": 5.292277666666666
+          }
+        },
+        "Chongqing": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 125.18520000000001,
+          "total_fees": 3.8297746213333332,
+          "total_cost": 129.01497462133332,
+          "total_pnl": 40.98502537866666,
+          "pnl_per_event": 2.9275018127619044,
+          "roi": 0.31767649839842366,
+          "average_event_cost": 9.215355330095237,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 10,
+          "worst_date_pnl": -4.873099999999999,
+          "best_date_pnl": 6.784324999999999,
+          "max_date_drawdown": 7.685074999999999,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.9314665164571426,
+            "median": 2.95789381127619,
+            "p95": 4.801371921219048
+          }
+        },
+        "Guangzhou": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 115.4348,
+          "total_fees": 3.555582102933333,
+          "total_cost": 118.99038210293334,
+          "total_pnl": 36.00961789706666,
+          "pnl_per_event": 2.769970607466666,
+          "roi": 0.3026262901308807,
+          "average_event_cost": 9.153106315610257,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 9,
+          "worst_date_pnl": -4.873099999999999,
+          "best_date_pnl": 6.822150333333333,
+          "max_date_drawdown": 7.685074999999999,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.614211769230769,
+            "median": 2.7966071025641024,
+            "p95": 4.728421863876923
+          }
+        },
+        "Qingdao": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 123.5952,
+          "total_fees": 3.814874288,
+          "total_cost": 127.410074288,
+          "total_pnl": 42.589925711999996,
+          "pnl_per_event": 3.0421375508571424,
+          "roi": 0.33427439666763686,
+          "average_event_cost": 9.100719592,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 10,
+          "worst_date_pnl": -4.873099999999999,
+          "best_date_pnl": 6.822150333333333,
+          "max_date_drawdown": 7.685074999999999,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.996054849790476,
+            "median": 3.081374071428571,
+            "p95": 4.920602851885714
+          }
+        },
+        "Wuhan": {
+          "events": 10,
+          "independent_dates": 10,
+          "total_notional": 86.9204,
+          "total_fees": 2.7170501850666664,
+          "total_cost": 89.63745018506667,
+          "total_pnl": 20.362549814933335,
+          "pnl_per_event": 2.0362549814933333,
+          "roi": 0.22716565200028052,
+          "average_event_cost": 8.963745018506668,
+          "max_event_cost": 9.873099999999999,
+          "max_daily_cost": 9.873099999999999,
+          "profitable_dates": 6,
+          "worst_date_pnl": -4.873099999999999,
+          "best_date_pnl": 6.822150333333333,
+          "max_date_drawdown": 7.685074999999999,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": -0.6368408518399999,
+            "median": 2.0535775000000003,
+            "p95": 4.371569214826667
+          }
+        }
+      }
+    },
+    "5/15/5|lowest_max_spread": {
+      "metrics": {
+        "events": 15,
+        "independent_dates": 15,
+        "total_notional": 139.6493,
+        "total_fees": 4.0743909035,
+        "total_cost": 143.7236909035,
+        "total_pnl": 46.2763090965,
+        "pnl_per_event": 3.0850872731,
+        "roi": 0.3219810791497915,
+        "average_event_cost": 9.581579393566667,
+        "max_event_cost": 10.342713666666667,
+        "max_daily_cost": 10.342713666666667,
+        "profitable_dates": 12,
+        "worst_date_pnl": -8.717975,
+        "best_date_pnl": 6.357117842133334,
+        "max_date_drawdown": 8.717975,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 1.0377263048333338,
+          "median": 3.144684150451111,
+          "p95": 4.7569915042133335
+        }
+      },
+      "first_half": {
+        "events": 7,
+        "independent_dates": 7,
+        "total_notional": 65.9385,
+        "total_fees": 1.9006989275000001,
+        "total_cost": 67.83919892750001,
+        "total_pnl": 17.1608010725,
+        "pnl_per_event": 2.4515430103571427,
+        "roi": 0.2529629085219566,
+        "average_event_cost": 9.6913141325,
+        "max_event_cost": 10.342713666666667,
+        "max_daily_cost": 10.342713666666667,
+        "profitable_dates": 5,
+        "worst_date_pnl": -4.873099999999999,
+        "best_date_pnl": 5.258214822499999,
+        "max_date_drawdown": 7.685074999999999,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": -0.19975585714285696,
+          "median": 2.4708985595238095,
+          "p95": 4.964356974642857
+        }
+      },
+      "second_half": {
+        "events": 8,
+        "independent_dates": 8,
+        "total_notional": 73.7108,
+        "total_fees": 2.1736919759999997,
+        "total_cost": 75.88449197599999,
+        "total_pnl": 29.115508024,
+        "pnl_per_event": 3.639438503,
+        "roi": 0.38368192585658173,
+        "average_event_cost": 9.485561496999999,
+        "max_event_cost": 10.312641666666668,
+        "max_daily_cost": 10.312641666666668,
+        "profitable_dates": 7,
+        "worst_date_pnl": -8.717975,
+        "best_date_pnl": 6.357117842133334,
+        "max_date_drawdown": 8.717975,
+        "max_consecutive_losing_dates": 1,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 0.20271214693333417,
+          "median": 3.692782503,
+          "p95": 5.624820028733334
+        }
+      },
+      "outcome_legs": {
+        "outside": 1,
+        "lower": 0,
+        "center": 12,
+        "upper": 2
+      },
+      "leave_one_city_out": {
+        "Beijing": {
+          "events": 11,
+          "independent_dates": 11,
+          "total_notional": 103.4293,
+          "total_fees": 2.987655570166667,
+          "total_cost": 106.41695557016666,
+          "total_pnl": 43.583044429833336,
+          "pnl_per_event": 3.962094948166667,
+          "roi": 0.409549814654269,
+          "average_event_cost": 9.67426868819697,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 10,
+          "worst_date_pnl": -8.717975,
+          "best_date_pnl": 6.357117842133334,
+          "max_date_drawdown": 8.717975,
+          "max_consecutive_losing_dates": 1,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 1.4675408945545456,
+            "median": 4.000927077351515,
+            "p95": 5.41033486759697
+          }
+        },
+        "Chengdu": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 131.1993,
+          "total_fees": 3.8064159035,
+          "total_cost": 135.0057159035,
+          "total_pnl": 54.9942840965,
+          "pnl_per_event": 3.92816314975,
+          "roi": 0.4073478202642106,
+          "average_event_cost": 9.643265421678572,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 12,
+          "worst_date_pnl": -4.873099999999999,
+          "best_date_pnl": 6.357117842133334,
+          "max_date_drawdown": 7.685074999999999,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 2.4130854575595237,
+            "median": 3.96864100735,
+            "p95": 5.243426237804762
+          }
+        },
+        "Chongqing": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 121.1993,
+          "total_fees": 3.5317992368333333,
+          "total_cost": 124.73109923683333,
+          "total_pnl": 35.26890076316667,
+          "pnl_per_event": 2.7129923663974362,
+          "roi": 0.28275948002510426,
+          "average_event_cost": 9.594699941294872,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 10,
+          "worst_date_pnl": -8.717975,
+          "best_date_pnl": 6.357117842133334,
+          "max_date_drawdown": 8.717975,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.4399413409128202,
+            "median": 2.7940779372461537,
+            "p95": 4.611101451576923
+          }
+        },
+        "Guangzhou": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 122.3585,
+          "total_fees": 3.5288342608333334,
+          "total_cost": 125.88733426083333,
+          "total_pnl": 34.112665739166665,
+          "pnl_per_event": 2.624051210705128,
+          "roi": 0.2709777432294073,
+          "average_event_cost": 9.683641096987179,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 10,
+          "worst_date_pnl": -8.717975,
+          "best_date_pnl": 5.8339333333333325,
+          "max_date_drawdown": 8.717975,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.378319441474359,
+            "median": 2.698959455128205,
+            "p95": 4.481162171410256
+          }
+        },
+        "Qingdao": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 129.5993,
+          "total_fees": 3.811749236833333,
+          "total_cost": 133.41104923683332,
+          "total_pnl": 41.58895076316667,
+          "pnl_per_event": 2.970639340226191,
+          "roi": 0.311735429719448,
+          "average_event_cost": 9.52936065977381,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 11,
+          "worst_date_pnl": -8.717975,
+          "best_date_pnl": 6.357117842133334,
+          "max_date_drawdown": 8.717975,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.7787012207214288,
+            "median": 3.042801510357143,
+            "p95": 4.749957030557143
+          }
+        },
+        "Shanghai": {
+          "events": 12,
+          "independent_dates": 12,
+          "total_notional": 110.4808,
+          "total_fees": 3.258005642666667,
+          "total_cost": 113.73880564266666,
+          "total_pnl": 31.261194357333338,
+          "pnl_per_event": 2.605099529777778,
+          "roi": 0.27485073524990816,
+          "average_event_cost": 9.478233803555556,
+          "max_event_cost": 10.342713666666667,
+          "max_daily_cost": 10.342713666666667,
+          "profitable_dates": 9,
+          "worst_date_pnl": -8.717975,
+          "best_date_pnl": 6.357117842133334,
+          "max_date_drawdown": 8.717975,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.15601825146666717,
+            "median": 2.678477709066667,
+            "p95": 4.661086044933334
+          }
+        },
+        "Wuhan": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 119.6293,
+          "total_fees": 3.521885570166667,
+          "total_cost": 123.15118557016666,
+          "total_pnl": 36.84881442983334,
+          "pnl_per_event": 2.834524186910257,
+          "roi": 0.2992160754216885,
+          "average_event_cost": 9.47316812078205,
+          "max_event_cost": 10.312641666666668,
+          "max_daily_cost": 10.312641666666668,
+          "profitable_dates": 10,
+          "worst_date_pnl": -8.717975,
+          "best_date_pnl": 6.357117842133334,
+          "max_date_drawdown": 8.717975,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.5281840782769238,
+            "median": 2.915260637658975,
+            "p95": 4.755644820200001
+          }
+        }
+      }
+    },
+    "5/20/5|lowest_center_lead": {
+      "metrics": {
+        "events": 15,
+        "independent_dates": 15,
+        "total_notional": 164.5489,
+        "total_fees": 4.996590689875,
+        "total_cost": 169.545490689875,
+        "total_pnl": 70.454509310125,
+        "pnl_per_event": 4.696967287341667,
+        "roi": 0.4155492960824138,
+        "average_event_cost": 11.303032712658334,
+        "max_event_cost": 13.007415306775,
+        "max_daily_cost": 13.007415306775,
+        "profitable_dates": 11,
+        "worst_date_pnl": -7.43561875,
+        "best_date_pnl": 9.964534,
+        "max_date_drawdown": 11.95286875,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 1.7856531462150005,
+          "median": 4.75280428875,
+          "p95": 7.376520157815
+        }
+      },
+      "first_half": {
+        "events": 7,
+        "independent_dates": 7,
+        "total_notional": 76.97229999999999,
+        "total_fees": 2.330752806775,
+        "total_cost": 79.303052806775,
+        "total_pnl": 15.696947193225004,
+        "pnl_per_event": 2.242421027603572,
+        "roi": 0.1979362286527762,
+        "average_event_cost": 11.329007543825,
+        "max_event_cost": 13.007415306775,
+        "max_daily_cost": 13.007415306775,
+        "profitable_dates": 4,
+        "worst_date_pnl": -7.43561875,
+        "best_date_pnl": 9.926725000000001,
+        "max_date_drawdown": 11.95286875,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": -2.3669723214285705,
+          "median": 2.227752277603572,
+          "p95": 6.726799599032144
+        }
+      },
+      "second_half": {
+        "events": 8,
+        "independent_dates": 8,
+        "total_notional": 87.5766,
+        "total_fees": 2.6658378831,
+        "total_cost": 90.2424378831,
+        "total_pnl": 54.7575621169,
+        "pnl_per_event": 6.8446952646125,
+        "roi": 0.6067828330151377,
+        "average_event_cost": 11.2803047353875,
+        "max_event_cost": 12.742275000000001,
+        "max_daily_cost": 12.742275000000001,
+        "profitable_dates": 7,
+        "worst_date_pnl": -4.925440095100001,
+        "best_date_pnl": 9.964534,
+        "max_date_drawdown": 4.925440095100001,
+        "max_consecutive_losing_dates": 1,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 3.6298000870375002,
+          "median": 6.9339397958625,
+          "p95": 8.8785397117
+        }
+      },
+      "outcome_legs": {
+        "outside": 0,
+        "lower": 0,
+        "center": 11,
+        "upper": 4
+      },
+      "leave_one_city_out": {
+        "Beijing": {
+          "events": 10,
+          "independent_dates": 10,
+          "total_notional": 110.1489,
+          "total_fees": 3.3411031898749997,
+          "total_cost": 113.490003189875,
+          "total_pnl": 71.509996810125,
+          "pnl_per_event": 7.1509996810125,
+          "roi": 0.6300995224265247,
+          "average_event_cost": 11.3490003189875,
+          "max_event_cost": 13.007415306775,
+          "max_daily_cost": 13.007415306775,
+          "profitable_dates": 9,
+          "worst_date_pnl": -4.925440095100001,
+          "best_date_pnl": 9.964534,
+          "max_date_drawdown": 4.925440095100001,
+          "max_consecutive_losing_dates": 1,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 4.5956626175499995,
+            "median": 7.247752577175001,
+            "p95": 8.86231917316
+          }
+        },
+        "Chengdu": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 154.9475,
+          "total_fees": 4.672550594775,
+          "total_cost": 159.620050594775,
+          "total_pnl": 75.379949405225,
+          "pnl_per_event": 5.384282100373214,
+          "roi": 0.4722461189828272,
+          "average_event_cost": 11.40143218534107,
+          "max_event_cost": 13.007415306775,
+          "max_daily_cost": 13.007415306775,
+          "profitable_dates": 11,
+          "worst_date_pnl": -7.43561875,
+          "best_date_pnl": 9.964534,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 2.4383695977178577,
+            "median": 5.445608717176786,
+            "p95": 7.845622675857143
+          }
+        },
+        "Chongqing": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 154.8389,
+          "total_fees": 4.671124689875,
+          "total_cost": 159.510024689875,
+          "total_pnl": 60.489975310125004,
+          "pnl_per_event": 4.320712522151786,
+          "roi": 0.379223659627235,
+          "average_event_cost": 11.393573192133928,
+          "max_event_cost": 13.007415306775,
+          "max_daily_cost": 13.007415306775,
+          "profitable_dates": 10,
+          "worst_date_pnl": -7.43561875,
+          "best_date_pnl": 9.926725000000001,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 1.2969552309589287,
+            "median": 4.361794365516071,
+            "p95": 7.161615423116072
+          }
+        },
+        "Guangzhou": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 142.6885,
+          "total_fees": 4.3329464214749995,
+          "total_cost": 147.021446421475,
+          "total_pnl": 52.978553578525,
+          "pnl_per_event": 4.075273352194231,
+          "roi": 0.36034575137186636,
+          "average_event_cost": 11.309342032421153,
+          "max_event_cost": 13.007415306775,
+          "max_daily_cost": 13.007415306775,
+          "profitable_dates": 9,
+          "worst_date_pnl": -7.43561875,
+          "best_date_pnl": 9.964534,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.8084724617711541,
+            "median": 4.110794171569231,
+            "p95": 7.044715432065384
+          }
+        },
+        "Qingdao": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 152.6989,
+          "total_fees": 4.651396939875,
+          "total_cost": 157.350296939875,
+          "total_pnl": 62.649703060125,
+          "pnl_per_event": 4.474978790008929,
+          "roi": 0.39815433639800524,
+          "average_event_cost": 11.239306924276786,
+          "max_event_cost": 13.007415306775,
+          "max_daily_cost": 13.007415306775,
+          "profitable_dates": 10,
+          "worst_date_pnl": -7.43561875,
+          "best_date_pnl": 9.964534,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 1.3844894219946426,
+            "median": 4.5264542475017855,
+            "p95": 7.323704615430358
+          }
+        },
+        "Wuhan": {
+          "events": 10,
+          "independent_dates": 10,
+          "total_notional": 107.42179999999999,
+          "total_fees": 3.3138316134999997,
+          "total_cost": 110.7356316135,
+          "total_pnl": 29.264368386500003,
+          "pnl_per_event": 2.9264368386500004,
+          "roi": 0.26427237520657554,
+          "average_event_cost": 11.07356316135,
+          "max_event_cost": 12.43561875,
+          "max_daily_cost": 12.43561875,
+          "profitable_dates": 6,
+          "worst_date_pnl": -7.43561875,
+          "best_date_pnl": 9.964534,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": -1.12442020537,
+            "median": 2.9544565659500006,
+            "p95": 6.40163008313
+          }
+        }
+      }
+    },
+    "5/20/5|lowest_max_spread": {
+      "metrics": {
+        "events": 15,
+        "independent_dates": 15,
+        "total_notional": 174.8906,
+        "total_fees": 4.998818092575,
+        "total_cost": 179.889418092575,
+        "total_pnl": 70.110581907425,
+        "pnl_per_event": 4.674038793828333,
+        "roi": 0.38974266886195924,
+        "average_event_cost": 11.992627872838334,
+        "max_event_cost": 13.074750000000002,
+        "max_daily_cost": 13.074750000000002,
+        "profitable_dates": 12,
+        "worst_date_pnl": -10.8084747199,
+        "best_date_pnl": 9.0954320816,
+        "max_date_drawdown": 11.95286875,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 1.7799445806183338,
+          "median": 4.731102004708333,
+          "p95": 7.007417679866666
+        }
+      },
+      "first_half": {
+        "events": 7,
+        "independent_dates": 7,
+        "total_notional": 82.4408,
+        "total_fees": 2.329829984275,
+        "total_cost": 84.77062998427499,
+        "total_pnl": 25.229370015725003,
+        "pnl_per_event": 3.604195716532143,
+        "roi": 0.29761923463828294,
+        "average_event_cost": 12.11008999775357,
+        "max_event_cost": 13.007415306775,
+        "max_daily_cost": 13.007415306775,
+        "profitable_dates": 5,
+        "worst_date_pnl": -7.43561875,
+        "best_date_pnl": 7.946339822500001,
+        "max_date_drawdown": 11.95286875,
+        "max_consecutive_losing_dates": 2,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": -0.4182833457607144,
+          "median": 3.6306442626035715,
+          "p95": 7.421183056428572
+        }
+      },
+      "second_half": {
+        "events": 8,
+        "independent_dates": 8,
+        "total_notional": 92.44980000000001,
+        "total_fees": 2.6689881082999998,
+        "total_cost": 95.11878810830001,
+        "total_pnl": 44.8812118917,
+        "pnl_per_event": 5.6101514864625,
+        "roi": 0.4718438153417105,
+        "average_event_cost": 11.889848513537501,
+        "max_event_cost": 13.074750000000002,
+        "max_daily_cost": 13.074750000000002,
+        "profitable_dates": 7,
+        "worst_date_pnl": -10.8084747199,
+        "best_date_pnl": 9.0954320816,
+        "max_date_drawdown": 10.8084747199,
+        "max_consecutive_losing_dates": 1,
+        "date_block_bootstrap_pnl_per_event": {
+          "p05": 1.0367897618375,
+          "median": 5.6773661567125,
+          "p95": 8.22558058665
+        }
+      },
+      "outcome_legs": {
+        "outside": 1,
+        "lower": 0,
+        "center": 12,
+        "upper": 2
+      },
+      "leave_one_city_out": {
+        "Beijing": {
+          "events": 11,
+          "independent_dates": 11,
+          "total_notional": 129.7206,
+          "total_fees": 3.669475342575,
+          "total_cost": 133.390075342575,
+          "total_pnl": 66.609924657425,
+          "pnl_per_event": 6.055447696129545,
+          "roi": 0.49936192393891443,
+          "average_event_cost": 12.126370485688636,
+          "max_event_cost": 13.074750000000002,
+          "max_daily_cost": 13.074750000000002,
+          "profitable_dates": 10,
+          "worst_date_pnl": -10.8084747199,
+          "best_date_pnl": 9.0954320816,
+          "max_date_drawdown": 10.808474719899998,
+          "max_consecutive_losing_dates": 1,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 2.7383908775727273,
+            "median": 6.108198277684091,
+            "p95": 7.972952374784091
+          }
+        },
+        "Chengdu": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 164.4104,
+          "total_fees": 4.670543372675,
+          "total_cost": 169.080943372675,
+          "total_pnl": 80.919056627325,
+          "pnl_per_event": 5.779932616237501,
+          "roi": 0.4785817668935614,
+          "average_event_cost": 12.077210240905357,
+          "max_event_cost": 13.074750000000002,
+          "max_daily_cost": 13.074750000000002,
+          "profitable_dates": 12,
+          "worst_date_pnl": -7.43561875,
+          "best_date_pnl": 9.0954320816,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 3.5180364718875006,
+            "median": 5.834078990189286,
+            "p95": 7.764770580803572
+          }
+        },
+        "Chongqing": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 151.6818,
+          "total_fees": 4.331416536175,
+          "total_cost": 156.013216536175,
+          "total_pnl": 53.986783463825,
+          "pnl_per_event": 4.152829497217308,
+          "roi": 0.34603980779607224,
+          "average_event_cost": 12.001016656628847,
+          "max_event_cost": 13.074750000000002,
+          "max_daily_cost": 13.074750000000002,
+          "profitable_dates": 10,
+          "worst_date_pnl": -10.8084747199,
+          "best_date_pnl": 9.0954320816,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.9616303252461538,
+            "median": 4.241008829576923,
+            "p95": 6.804027179832692
+          }
+        },
+        "Guangzhou": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 153.2498,
+          "total_fees": 4.330205260575,
+          "total_cost": 157.580005260575,
+          "total_pnl": 52.419994739425,
+          "pnl_per_event": 4.032307287648077,
+          "roi": 0.3326563839920113,
+          "average_event_cost": 12.121538866198078,
+          "max_event_cost": 13.074750000000002,
+          "max_daily_cost": 13.074750000000002,
+          "profitable_dates": 10,
+          "worst_date_pnl": -10.8084747199,
+          "best_date_pnl": 8.362598443599998,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.8852523758557697,
+            "median": 4.109629193546154,
+            "p95": 6.635697794038462
+          }
+        },
+        "Qingdao": {
+          "events": 14,
+          "independent_dates": 14,
+          "total_notional": 162.1406,
+          "total_fees": 4.674068092575,
+          "total_cost": 166.814668092575,
+          "total_pnl": 63.185331907425,
+          "pnl_per_event": 4.5132379933875,
+          "roi": 0.37877563543968357,
+          "average_event_cost": 11.915333435183928,
+          "max_event_cost": 13.007415306775,
+          "max_daily_cost": 13.007415306775,
+          "profitable_dates": 11,
+          "worst_date_pnl": -10.8084747199,
+          "best_date_pnl": 9.0954320816,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 1.416114320994643,
+            "median": 4.584574006328571,
+            "p95": 6.999653236558928
+          }
+        },
+        "Shanghai": {
+          "events": 12,
+          "independent_dates": 12,
+          "total_notional": 138.3221,
+          "total_fees": 3.995772165075,
+          "total_cost": 142.31787216507502,
+          "total_pnl": 47.682127834925,
+          "pnl_per_event": 3.9735106529104165,
+          "roi": 0.33503963423243377,
+          "average_event_cost": 11.859822680422917,
+          "max_event_cost": 13.074750000000002,
+          "max_daily_cost": 13.074750000000002,
+          "profitable_dates": 9,
+          "worst_date_pnl": -10.8084747199,
+          "best_date_pnl": 9.0954320816,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 0.5682980397291666,
+            "median": 4.043182678475,
+            "p95": 6.849791145702082
+          }
+        },
+        "Wuhan": {
+          "events": 13,
+          "independent_dates": 13,
+          "total_notional": 149.8183,
+          "total_fees": 4.3214277858,
+          "total_cost": 154.1397277858,
+          "total_pnl": 55.8602722142,
+          "pnl_per_event": 4.296944016476923,
+          "roi": 0.3624002261884498,
+          "average_event_cost": 11.85690213736923,
+          "max_event_cost": 13.074750000000002,
+          "max_daily_cost": 13.074750000000002,
+          "profitable_dates": 10,
+          "worst_date_pnl": -10.8084747199,
+          "best_date_pnl": 9.0954320816,
+          "max_date_drawdown": 11.95286875,
+          "max_consecutive_losing_dates": 2,
+          "date_block_bootstrap_pnl_per_event": {
+            "p05": 1.076672422646154,
+            "median": 4.378815503523077,
+            "p95": 6.978107420646154
+          }
+        }
+      }
+    }
+  },
+  "selection_overlap": {
+    "5/10/5|lowest_center_lead <> 5/15/5|lowest_center_lead": {
+      "common_dates": 15,
+      "same_event_dates": 15,
+      "fraction": 1.0
+    },
+    "5/10/5|lowest_center_lead <> 5/15/5|lowest_max_spread": {
+      "common_dates": 15,
+      "same_event_dates": 4,
+      "fraction": 0.26666666666666666
+    },
+    "5/10/5|lowest_center_lead <> 5/20/5|lowest_center_lead": {
+      "common_dates": 15,
+      "same_event_dates": 15,
+      "fraction": 1.0
+    },
+    "5/10/5|lowest_center_lead <> 5/20/5|lowest_max_spread": {
+      "common_dates": 15,
+      "same_event_dates": 4,
+      "fraction": 0.26666666666666666
+    },
+    "5/15/5|lowest_center_lead <> 5/15/5|lowest_max_spread": {
+      "common_dates": 15,
+      "same_event_dates": 4,
+      "fraction": 0.26666666666666666
+    },
+    "5/15/5|lowest_center_lead <> 5/20/5|lowest_center_lead": {
+      "common_dates": 15,
+      "same_event_dates": 15,
+      "fraction": 1.0
+    },
+    "5/15/5|lowest_center_lead <> 5/20/5|lowest_max_spread": {
+      "common_dates": 15,
+      "same_event_dates": 4,
+      "fraction": 0.26666666666666666
+    },
+    "5/15/5|lowest_max_spread <> 5/20/5|lowest_center_lead": {
+      "common_dates": 15,
+      "same_event_dates": 4,
+      "fraction": 0.26666666666666666
+    },
+    "5/15/5|lowest_max_spread <> 5/20/5|lowest_max_spread": {
+      "common_dates": 15,
+      "same_event_dates": 15,
+      "fraction": 1.0
+    },
+    "5/20/5|lowest_center_lead <> 5/20/5|lowest_max_spread": {
+      "common_dates": 15,
+      "same_event_dates": 4,
+      "fraction": 0.26666666666666666
+    }
+  }
+}
